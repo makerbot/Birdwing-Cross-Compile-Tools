@@ -1,0 +1,503 @@
+Package: angstrom-libc-fixup-hack-dbg
+Version: 1.0-r0.6
+Recommends: angstrom-libc-fixup-hack (= 1.0-r0.6), angstrom-libc-fixup-hack-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 3f6d9b1c5f288161e03d13cb1f686741
+Size: 746
+Filename: angstrom-libc-fixup-hack-dbg_1.0-r0.6_all.ipk
+Source: file:///OE/angstrom/sources/openembedded/recipes/angstrom/angstrom-libc-fixup-hack.bb
+Description: Fixup some miscompiled apps by making an extra symlink
+OE: angstrom-libc-fixup-hack
+HomePage: unknown
+Priority: optional
+
+
+Package: angstrom-libc-fixup-hack-dev
+Version: 1.0-r0.6
+Depends: angstrom-libc-fixup-hack (= 1.0-r0.6)
+Recommends: angstrom-libc-fixup-hack-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 6806a562a3fd50f1ea48a75c2f22b66d
+Size: 748
+Filename: angstrom-libc-fixup-hack-dev_1.0-r0.6_all.ipk
+Source: file:///OE/angstrom/sources/openembedded/recipes/angstrom/angstrom-libc-fixup-hack.bb
+Description: Fixup some miscompiled apps by making an extra symlink
+OE: angstrom-libc-fixup-hack
+HomePage: unknown
+Priority: optional
+
+
+Package: angstrom-libc-fixup-hack
+Version: 1.0-r0.6
+Section: base
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 5e61b50e54de506399ba60f8b053aceb
+Size: 792
+Filename: angstrom-libc-fixup-hack_1.0-r0.6_all.ipk
+Source: file:///OE/angstrom/sources/openembedded/recipes/angstrom/angstrom-libc-fixup-hack.bb
+Description: Fixup some miscompiled apps by making an extra symlink
+OE: angstrom-libc-fixup-hack
+HomePage: unknown
+Priority: optional
+
+
+Package: bluez-dtl1-workaround-dbg
+Version: 1.0-r1.6
+Recommends: bluez-dtl1-workaround (= 1.0-r1.6), bluez-dtl1-workaround-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: d61fd8dff714e6708a33a7182a3305e0
+Size: 726
+Filename: bluez-dtl1-workaround-dbg_1.0-r1.6_all.ipk
+Source: file://02dtl1_cs.sh
+Description: A nasty hack for for dtl1-cs driver to workaround suspend/resume.
+OE: bluez-dtl1-workaround
+HomePage: unknown
+Priority: optional
+
+
+Package: bluez-dtl1-workaround-dev
+Version: 1.0-r1.6
+Depends: bluez-dtl1-workaround (= 1.0-r1.6)
+Recommends: bluez-dtl1-workaround-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 34429648ab5af02866d19d6cbc661cf7
+Size: 730
+Filename: bluez-dtl1-workaround-dev_1.0-r1.6_all.ipk
+Source: file://02dtl1_cs.sh
+Description: A nasty hack for for dtl1-cs driver to workaround suspend/resume.
+OE: bluez-dtl1-workaround
+HomePage: unknown
+Priority: optional
+
+
+Package: bluez-dtl1-workaround
+Version: 1.0-r1.6
+Section: console
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: c4d7a748f94bf5a3d936e66ea055fca2
+Size: 1490
+Filename: bluez-dtl1-workaround_1.0-r1.6_all.ipk
+Source: file://02dtl1_cs.sh
+Description: A nasty hack for for dtl1-cs driver to workaround suspend/resume.
+OE: bluez-dtl1-workaround
+HomePage: unknown
+Priority: optional
+
+
+Package: font-update-common-dbg
+Version: 0.1-r1.6
+Recommends: font-update-common (= 0.1-r1.6), font-update-common-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 355bebfe53f16041df2fdf4a2bbc3038
+Size: 746
+Filename: font-update-common-dbg_0.1-r1.6_all.ipk
+Source: file://update-fonts
+Description: Scripts to be called when fonts are installed or removed to make them known to the WM, whether X11 or Opie
+OE: font-update-common
+HomePage: unknown
+Priority: optional
+
+
+Package: font-update-common-dev
+Version: 0.1-r1.6
+Depends: font-update-common (= 0.1-r1.6)
+Recommends: font-update-common-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 01aaad0863cc26fdf2c72009c46a88d5
+Size: 744
+Filename: font-update-common-dev_0.1-r1.6_all.ipk
+Source: file://update-fonts
+Description: Scripts to be called when fonts are installed or removed to make them known to the WM, whether X11 or Opie
+OE: font-update-common
+HomePage: unknown
+Priority: optional
+
+
+Package: font-update-common
+Version: 0.1-r1.6
+Section: base
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: e34319fccc09733a9249bb004698d178
+Size: 888
+Filename: font-update-common_0.1-r1.6_all.ipk
+Source: file://update-fonts
+Description: Scripts to be called when fonts are installed or removed to make them known to the WM, whether X11 or Opie
+OE: font-update-common
+HomePage: unknown
+Priority: optional
+
+
+Package: hicolor-icon-theme-dbg
+Version: 0.11-r1.6
+Recommends: hicolor-icon-theme (= 0.11-r1.6), hicolor-icon-theme-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: b541a7ac83a8743ce07e2d2bd8e6e666
+Size: 720
+Filename: hicolor-icon-theme-dbg_0.11-r1.6_all.ipk
+Source: http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.11.tar.gz
+Description: Version 0.11-r1 of package hicolor-icon-theme
+OE: hicolor-icon-theme
+HomePage: unknown
+Priority: optional
+
+
+Package: hicolor-icon-theme-dev
+Version: 0.11-r1.6
+Depends: hicolor-icon-theme (= 0.11-r1.6)
+Recommends: hicolor-icon-theme-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 61ab768a4e7363cf84b1b4b3c4678008
+Size: 724
+Filename: hicolor-icon-theme-dev_0.11-r1.6_all.ipk
+Source: http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.11.tar.gz
+Description: Version 0.11-r1 of package hicolor-icon-theme
+OE: hicolor-icon-theme
+HomePage: unknown
+Priority: optional
+
+
+Package: hicolor-icon-theme
+Version: 0.11-r1.6
+Section: unknown
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 034521b9e412d2f4475855b05bf9845d
+Size: 7754
+Filename: hicolor-icon-theme_0.11-r1.6_all.ipk
+Source: http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.11.tar.gz
+Description: Version 0.11-r1 of package hicolor-icon-theme
+OE: hicolor-icon-theme
+HomePage: unknown
+Priority: optional
+
+
+Package: opkg-collateral-dbg
+Version: 1.0-r3.6
+Recommends: opkg-collateral (= 1.0-r3.6), opkg-collateral-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 65ffe1cbc8e7c399b5a794e9b414f824
+Size: 720
+Filename: opkg-collateral-dbg_1.0-r3.6_all.ipk
+Source: file://opkg.conf.comments file://lists file://dest file://tmp_dir file://src
+Description: opkg configuration files
+OE: opkg-collateral
+HomePage: unknown
+Priority: optional
+
+
+Package: opkg-collateral-dev
+Version: 1.0-r3.6
+Depends: opkg-collateral (= 1.0-r3.6)
+Recommends: opkg-collateral-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: f76891b93b4175719df75f75f039ba3a
+Size: 718
+Filename: opkg-collateral-dev_1.0-r3.6_all.ipk
+Source: file://opkg.conf.comments file://lists file://dest file://tmp_dir file://src
+Description: opkg configuration files
+OE: opkg-collateral
+HomePage: unknown
+Priority: optional
+
+
+Package: opkg-collateral
+Version: 1.0-r3.6
+Section: base
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: e2c9ebac4fda90ad0f3fdb45980a3644
+Size: 1452
+Filename: opkg-collateral_1.0-r3.6_all.ipk
+Source: file://opkg.conf.comments file://lists file://dest file://tmp_dir file://src
+Description: opkg configuration files
+OE: opkg-collateral
+HomePage: unknown
+Priority: optional
+
+
+Package: ppp-dialin-dbg
+Version: 0.1-r7.6
+Recommends: ppp-dialin (= 0.1-r7.6), ppp-dbg, ppp-dialin-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 2251faf1eacc5627b1836a3ad6f4a81c
+Size: 906
+Filename: ppp-dialin-dbg_0.1-r7.6_all.ipk
+Source: file://host-peer file://ppp-dialin
+Description: Enables PPP dial-in through a serial connection
+OE: ppp-dialin
+HomePage: unknown
+Priority: optional
+
+
+Package: ppp-dialin-dev
+Version: 0.1-r7.6
+Depends: ppp-dialin (= 0.1-r7.6)
+Recommends: ppp-dev, ppp-dialin-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 0c359d7e25ed2b2ad1c3a4b7b165882c
+Size: 912
+Filename: ppp-dialin-dev_0.1-r7.6_all.ipk
+Source: file://host-peer file://ppp-dialin
+Description: Enables PPP dial-in through a serial connection
+OE: ppp-dialin
+HomePage: unknown
+Priority: optional
+
+
+Package: ppp-dialin
+Version: 0.1-r7.6
+Depends: ppp
+Section: console/network
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 8655fe456b6af9cddcca2dc9491c5c7a
+Size: 1140
+Filename: ppp-dialin_0.1-r7.6_all.ipk
+Source: file://host-peer file://ppp-dialin
+Description: Enables PPP dial-in through a serial connection
+OE: ppp-dialin
+HomePage: unknown
+Priority: optional
+
+
+Package: ttf-dejavu-common
+Version: 2.23-r3.6
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: ca1eb7793aa3f6158f7c540af7d2a3a1
+Size: 1056
+Filename: ttf-dejavu-common_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-dbg
+Version: 2.23-r3.6
+Recommends: font-update-common, ttf-dejavu-common-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 61282d531d7122f1b18ccb65e773ebf4
+Size: 808
+Filename: ttf-dejavu-dbg_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-sans-condensed
+Version: 2.23-r3.6
+Depends: ttf-dejavu-common
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: a51fc391d66ecefea958bd6086d5b98b
+Size: 1074002
+Filename: ttf-dejavu-sans-condensed_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-sans-mono
+Version: 2.23-r3.6
+Depends: ttf-dejavu-common
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 9b58d968720b42971710d2c21157dada
+Size: 612058
+Filename: ttf-dejavu-sans-mono_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-sans
+Version: 2.23-r3.6
+Depends: ttf-dejavu-common
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: e9f9f995133fa9ae725d147d6840a0e9
+Size: 1319180
+Filename: ttf-dejavu-sans_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-serif-condensed
+Version: 2.23-r3.6
+Depends: ttf-dejavu-common
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 99f6eb43f90baf79ed58133d4c884f32
+Size: 578770
+Filename: ttf-dejavu-serif-condensed_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: ttf-dejavu-serif
+Version: 2.23-r3.6
+Depends: ttf-dejavu-common
+Recommends: font-update-common
+Section: fonts
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: af6d0bed0012732918b1ba541ba523d6
+Size: 609476
+Filename: ttf-dejavu-serif_2.23-r3.6_all.ipk
+Source: http://downloads.sourceforge.net/dejavu/dejavu-fonts-ttf-2.23.tar.bz2 file://30-dejavu-aliases.conf
+Description: DejaVu font - TTF Edition
+OE: ttf-dejavu
+HomePage: http://dejavu.sourceforge.net/wiki/
+Priority: optional
+
+
+Package: update-modules-dbg
+Version: 1.0-r10.6
+Recommends: update-modules (= 1.0-r10.6), module-init-tools-depmod-dbg, update-modules-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 9d14ad076b54f7fd55cba808555cbbb0
+Size: 774
+Filename: update-modules-dbg_1.0-r10.6_all.ipk
+Source: file://update-modules
+Description: Script to manage module configuration files
+OE: update-modules
+HomePage: unknown
+Priority: optional
+
+
+Package: update-modules-dev
+Version: 1.0-r10.6
+Depends: update-modules (= 1.0-r10.6)
+Recommends: module-init-tools-depmod-dev, update-modules-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: a4c44e4aa5ca2af0871bfb6858f98773
+Size: 778
+Filename: update-modules-dev_1.0-r10.6_all.ipk
+Source: file://update-modules
+Description: Script to manage module configuration files
+OE: update-modules
+HomePage: unknown
+Priority: optional
+
+
+Package: update-modules
+Version: 1.0-r10.6
+Depends: module-init-tools-depmod
+Section: base
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: a54042dd428bcf134be8ab2473fccfbf
+Size: 2536
+Filename: update-modules_1.0-r10.6_all.ipk
+Source: file://update-modules
+Description: Script to manage module configuration files
+OE: update-modules
+HomePage: unknown
+Priority: optional
+
+
+Package: update-rc.d-dbg
+Version: 0.7-r2.6
+Recommends: update-rc.d (= 0.7-r2.6), update-rc.d-dbg
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 812f5af08003b776e43783154c7fee5f
+Size: 712
+Filename: update-rc.d-dbg_0.7-r2.6_all.ipk
+Source: file://update-rc.d file://add-verbose.patch
+Description: Manage symlinks in /etc/rcN.d
+OE: update-rc.d
+HomePage: unknown
+Priority: standard
+
+
+Package: update-rc.d-dev
+Version: 0.7-r2.6
+Depends: update-rc.d (= 0.7-r2.6)
+Recommends: update-rc.d-dev
+Section: devel
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 3ab5ed6391c05bff9c33452142b70c7a
+Size: 716
+Filename: update-rc.d-dev_0.7-r2.6_all.ipk
+Source: file://update-rc.d file://add-verbose.patch
+Description: Manage symlinks in /etc/rcN.d
+OE: update-rc.d
+HomePage: unknown
+Priority: standard
+
+
+Package: update-rc.d
+Version: 0.7-r2.6
+Section: base
+Architecture: all
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+MD5Sum: 5ea4b1f5ce547320ac5f5b40cff014a2
+Size: 2596
+Filename: update-rc.d_0.7-r2.6_all.ipk
+Source: file://update-rc.d file://add-verbose.patch
+Description: Manage symlinks in /etc/rcN.d
+OE: update-rc.d
+HomePage: unknown
+Priority: standard
+
+

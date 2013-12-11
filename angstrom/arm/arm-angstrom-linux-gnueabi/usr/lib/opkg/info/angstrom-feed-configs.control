@@ -1,0 +1,13 @@
+Package: angstrom-feed-configs
+Version: 1.0-r14.6
+Description: Configuration files for online package repositories aka feeds
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: hawkboard
+OE: angstrom-feed-configs
+Homepage: unknown
+Build: 2011.03-maintenance/61a4492
+Recommends: opkg
+Source: file:///OE/angstrom/sources/openembedded/recipes/angstrom/angstrom-feed-configs.bb

@@ -1,0 +1,12 @@
+Package: binutils-cross-sdk
+Version: 2.18-r13.1.6
+Description: A GNU collection of binary utilities
+Section: devel
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv3
+Architecture: i686-armv5te-sdk
+OE: binutils-cross-sdk
+Homepage: http://www.gnu.org/software/binutils/
+Build: 2011.03-maintenance/61a4492
+Source: ftp://ftp.gnu.org/gnu/binutils/binutils-2.18.tar.bz2 file://binutils-2.16.91.0.6-objcopy-rename-errorcode.patch file://binutils-configure-texinfo-version.patch file://binutils-uclibc-100-uclibc-conf.patch file://110-arm-eabi-conf.patch file://binutils-uclibc-300-001_ld_makefile_patch.patch file://binutils-uclibc-300-006_better_file_error.patch file://binutils-uclibc-300-012_check_ldrunpath_length.patch file://binutils-uclibc-gas-needs-libm.patch file://binutils-x86_64_i386_biarch.patch file://binutils-section-in-segment.patch;striplevel=0 file://parse-neon-vmov.diff file://binutils-2.16.1-e300c2c3.patch file://binutils-powerpc-ld-segfault.patch

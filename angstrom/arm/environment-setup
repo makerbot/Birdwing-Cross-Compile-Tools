@@ -1,0 +1,10 @@
+export SDK_PATH=/usr/local/angstrom/arm
+export TARGET_SYS=arm-angstrom-linux-gnueabi
+export PATH=$SDK_PATH/bin:$PATH
+export CPATH=$SDK_PATH/$TARGET_SYS/usr/include:$CPATH
+export LIBTOOL_SYSROOT_PATH=$SDK_PATH/$TARGET_SYS
+export PKG_CONFIG_SYSROOT_DIR=$SDK_PATH/$TARGET_SYS
+export PKG_CONFIG_PATH=$SDK_PATH/$TARGET_SYS/usr/lib/pkgconfig
+export CONFIG_SITE=$SDK_PATH/site-config
+alias opkg="LD_LIBRARY_PATH=$SDK_PATH/lib $SDK_PATH/bin/opkg-cl -f $SDK_PATH//etc/opkg-sdk.conf -o $SDK_PATH"
+alias opkg-target="LD_LIBRARY_PATH=$SDK_PATH/lib $SDK_PATH/bin/opkg-cl -f $SDK_PATH/$TARGET_SYS/etc/opkg.conf -o $SDK_PATH/$TARGET_SYS"

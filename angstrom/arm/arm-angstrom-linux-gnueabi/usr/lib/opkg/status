@@ -1,0 +1,190 @@
+Package: libc6
+Version: 2.9-r37.4.6
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416438
+Auto-Installed: yes
+
+Package: opkg
+Version: 0.1.8+svnr609-r5.6
+Depends: libopkg0 (>= 0.1.8+svnr609), libc6 (>= 2.9)
+Provides: update-alternatives
+Replaces: opkg-nogpg, opkg-nogpg-nocurl
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+
+Package: libstdc++-dev
+Version: 4.3.3-r23.1.6
+Recommends: libmpfr-dev, libgmp-dev
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+
+Package: libopkg0
+Version: 0.1.8+svnr609-r5.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416446
+Auto-Installed: yes
+
+Package: libstdc++6
+Version: 4.3.3-r23.2.6
+Depends: libc6 (>= 2.9), libgcc1 (>= 4.3.3)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416442
+Auto-Installed: yes
+
+Package: linux-libc-headers-dbg
+Version: 2.6.31-r6.6
+Recommends: linux-libc-headers-dev (= 2.6.31-r6.6)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416439
+Auto-Installed: yes
+
+Package: glibc-utils
+Version: 2.9-r37.4.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416442
+Auto-Installed: yes
+
+Package: libthread-db1
+Version: 2.9-r37.4.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416441
+Auto-Installed: yes
+
+Package: linux-libc-headers-dev
+Version: 2.6.31-r6.6
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416440
+Auto-Installed: yes
+
+Package: libgmp10
+Version: 5.0.1-r1.1.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+
+Package: libmpfr-dev
+Version: 3.0.0-r3.1.6
+Depends: libmpfr4 (= 3.0.0-r3.1.6), libmpfr4
+Recommends: libgmp-dev, libc6-dev, libmpfr-dev
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+
+Package: glibc-extra-nss
+Version: 2.9-r37.4.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416441
+Auto-Installed: yes
+
+Package: angstrom-feed-configs
+Version: 1.0-r14.6
+Recommends: opkg
+Provides:
+Status: install user installed
+Architecture: hawkboard
+Conffiles:
+ /etc/opkg/base-feed.conf b5421c3050dc08ba00229dbe1a6be521
+ /etc/opkg/debug-feed.conf 23e88d5fd131c84e8ff88e6f812a0114
+ /etc/opkg/perl-feed.conf f0a3b7b95ed84ecdedfd230191d47cb4
+ /etc/opkg/python-feed.conf cb2cbe889c5a37ac4badd681432b55cf
+ /etc/opkg/gstreamer-feed.conf a91dcde83fa98414cebffbc603c66e94
+ /etc/opkg/hawkboard-feed.conf 806a542ced6220fb3a9de92826055fd3
+ /etc/opkg/noarch-feed.conf 5e4a4d19bd473a8d5624fb7335196655
+ /etc/opkg/sdk-feed.conf d50c00e01c7bd7b3a2408319782cc3a4
+ /etc/opkg/arch.conf b452db948fd9ad36e52619f0770a1139
+Installed-Time: 1300416446
+
+Package: libsegfault
+Version: 2.9-r37.4.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416442
+Auto-Installed: yes
+
+Package: libc6-dev
+Version: 2.9-r37.4.6
+Depends: linux-libc-headers-dev, glibc-extra-nss, libc6, libthread-db1
+Recommends: linux-libc-headers-dev, glibc-binary-localedata-ar.kw-dev, glibc-binary-localedata-nds.nl-dev, glibc-binary-localedata-fy.de-dev, glibc-binary-localedata-yi.us-dev, glibc-binary-localedata-be.by+latin-dev, glibc-binary-localedata-fa.ir-dev, glibc-binary-localedata-es.do-dev, glibc-binary-localedata-wo.sn-dev, glibc-binary-localedata-so.so-dev, glibc-binary-localedata-fr.ca-dev, glibc-binary-localedata-pl.pl-dev, glibc-binary-localedata-sa.in-dev, glibc-binary-localedata-es.mx-dev, glibc-binary-localedata-de.de-dev, glibc-binary-localedata-fr.ch-dev, glibc-binary-localedata-tg.tj-dev, glibc-binary-localedata-ms.my-dev, glibc-binary-localedata-an.es-dev, glibc-binary-localedata-de.lu-dev, glibc-binary-localedata-ko.kr-dev, glibc-binary-localedata-es.us-dev, glibc-binary-localedata-pa.in-dev, glibc-binary-localedata-ky.kg-dev, glibc-binary-localedata-ur.pk-dev, glibc-binary-localedata-rw.rw-dev, glibc-binary-localedata-en.ph-dev, glibc-binary-localedata-es.uy-dev, glibc-binary-localedata-en.ag-dev, glibc-binary-localedata-oc.fr-dev, glibc-binary-localedata-ar.lb-dev, glibc-binary-localedata-ug.cn-dev, glibc-binary-localedata-fil.ph-dev, glibc-binary-localedata-wa.be-dev, glibc-binary-localedata-en.au-dev, glibc-binary-localedata-dz.bt-dev, glibc-binary-localedata-pt.br-dev, glibc-binary-localedata-es.gt-dev, glibc-binary-localedata-aa.dj-dev, glibc-binary-localedata-ga.ie-dev, glibc-binary-localedata-bn.in-dev, glibc-binary-localedata-fr.be-dev, glibc-binary-localedata-crh.ua-dev, glibc-binary-localedata-en.hk-dev, glibc-binary-localedata-ar.sy-dev, glibc-binary-localedata-el.gr-dev, glibc-binary-localedata-uk.ua-dev, glibc-binary-localedata-nl.be-dev, glibc-binary-localedata-it.it-dev, glibc-binary-localedata-so.dj-dev, glibc-binary-localedata-ar.ly-dev, glibc-binary-localedata-ar.sa-dev, glibc-binary-localedata-ts.za-dev, glibc-binary-localedata-ar.qa-dev, glibc-binary-localedata-af.za-dev, glibc-binary-localedata-nr.za-dev, glibc-binary-localedata-so.ke-dev, glibc-binary-localedata-ar.iq-dev, glibc-binary-localedata-it.ch-dev, glibc-binary-localedata-pa.pk-dev, glibc-binary-localedata-ar.in-dev, glibc-binary-localedata-de.be-dev, glibc-binary-localedata-zh.cn-dev, glibc-binary-localedata-es.bo-dev, glibc-binary-localedata-sv.fi-dev, glibc-binary-localedata-li.nl-dev, glibc-binary-localedata-br.fr-dev, glibc-binary-localedata-yo.ng-dev, glibc-binary-localedata-fy.nl-dev, glibc-binary-localedata-zu.za-dev, glibc-binary-localedata-fo.fo-dev, glibc-binary-localedata-ar.ae-dev, glibc-binary-localedata-mt.mt-dev, glibc-binary-localedata-zh.tw-dev, glibc-binary-localedata-tn.za-dev, glibc-binary-localedata-es.sv-dev, glibc-binary-localedata-km.kh-dev, glibc-binary-localedata-bg.bg-dev, glibc-binary-localedata-en.gb-dev, glibc-binary-localedata-ne.np-dev, glibc-binary-localedata-es.es-dev, glibc-binary-localedata-fur.it-dev, glibc-binary-localedata-sl.si-dev, glibc-binary-localedata-lt.lt-dev, glibc-binary-localedata-ja.jp-dev, glibc-binary-localedata-kn.in-dev, glibc-binary-localedata-st.za-dev, glibc-binary-localedata-hi.in-dev, glibc-binary-localedata-es.ec-dev, glibc-binary-localedata-az.az-dev, glibc-binary-localedata-kk.kz-dev, glibc-binary-localedata-ca.es-dev, glibc-binary-localedata-ar.jo-dev, glibc-binary-localedata-ar.bh-dev, glibc-binary-localedata-zh.sg-dev, glibc-binary-localedata-be.by-dev, glibc-binary-localedata-ar.sd-dev, glibc-binary-localedata-ar.ye-dev, glibc-binary-localedata-nso.za-dev, glibc-binary-localedata-en.nz-dev, glibc-binary-localedata-mr.in-dev, glibc-binary-localedata-ig.ng-dev, glibc-binary-localedata-en.ng-dev, glibc-binary-localedata-nds.de-dev, glibc-binary-localedata-pt.pt-dev, glibc-binary-localedata-id.id-dev, glibc-binary-localedata-ve.za-dev, glibc-binary-localedata-as.in-dev, glibc-binary-localedata-lo.la-dev, glibc-binary-localedata-de.ch-dev, glibc-binary-localedata-en.dk-dev, glibc-binary-localedata-nb.no-dev, glibc-binary-localedata-tl.ph-dev, glibc-binary-localedata-gu.in-dev, glibc-binary-localedata-uz.uz+cyrillic-dev, glibc-binary-localedata-es.hn-dev, glibc-binary-localedata-sd.in+devanagari-dev, glibc-binary-localedata-se.no-dev, glibc-binary-localedata-ks.in+devanagari-dev, glibc-binary-localedata-ar.om-dev, glibc-binary-localedata-kl.gl-dev, glibc-binary-localedata-iu.ca-dev, glibc-binary-localedata-sq.al-dev, glibc-binary-localedata-tt.ru+iqtelif-dev, glibc-binary-localedata-nn.no-dev, glibc-binary-localedata-sd.in-dev, glibc-binary-localedata-da.dk-dev, glibc-binary-localedata-ru.ua-dev, glibc-binary-localedata-ca.it-dev, glibc-binary-localedata-en.ca-dev, glibc-binary-localedata-ru.ru-dev, glibc-binary-localedata-tk.tm-dev, glibc-binary-localedata-shs.ca-dev, glibc-binary-localedata-de.at-dev, glibc-binary-localedata-es.cr-dev, glibc-binary-localedata-es.cl-dev, glibc-binary-localedata-sr.rs+latin-dev, glibc-binary-localedata-es.co-dev, glibc-binary-localedata-lg.ug-dev, glibc-binary-localedata-bo.cn-dev, glibc-binary-localedata-tt.ru-dev, glibc-binary-localedata-iw.il-dev, glibc-binary-localedata-ro.ro-dev, glibc-binary-localedata-el.cy-dev, glibc-binary-localedata-sv.se-dev, glibc-binary-localedata-es.pa-dev, glibc-binary-localedata-lv.lv-dev, glibc-binary-localedata-en.us-dev, glibc-binary-localedata-ha.ng-dev, glibc-binary-localedata-es.pe-dev, glibc-binary-localedata-nl.nl-dev, glibc-binary-localedata-hsb.de-dev, glibc-binary-localedata-es.py-dev, glibc-binary-localedata-sr.rs-dev, glibc-binary-localedata-et.ee-dev, glibc-binary-localedata-csb.pl-dev, glibc-binary-localedata-fi.fi-dev, glibc-binary-localedata-fr.fr-dev, glibc-binary-localedata-sr.me-dev, glibc-binary-localedata-es.pr-dev, glibc-binary-localedata-ku.tr-dev, glibc-binary-localedata-he.il-dev, glibc-binary-localedata-en.zw-dev, glibc-binary-localedata-hy.am-dev, glibc-binary-localedata-ber.dz-dev, glibc-binary-localedata-eu.es-dev, glibc-binary-localedata-si.lk-dev, glibc-binary-localedata-ml.in-dev, glibc-binary-localedata-gl.es-dev, glibc-binary-localedata-en.za-dev, glibc-binary-localedata-mg.mg-dev, glibc-binary-localedata-ar.tn-dev, glibc-binary-localedata-bs.ba-dev, glibc-binary-localedata-ast.es-dev, glibc-binary-localedata-ar.ma-dev, glibc-binary-localedata-li.be-dev, glibc-binary-localedata-ca.fr-dev, glibc-binary-localedata-en.in-dev, glibc-binary-localedata-vi.vn-dev, glibc-binary-localedata-mk.mk-dev, glibc-binary-localedata-en.ie-dev, glibc-binary-localedata-sk.sk-dev, glibc-binary-localedata-fr.lu-dev, glibc-binary-localedata-cs.cz-dev, glibc-binary-localedata-gd.gb-dev, glibc-binary-localedata-cy.gb-dev, glibc-binary-localedata-mi.nz-dev, glibc-binary-localedata-pap.an-dev, glibc-binary-localedata-or.in-dev, glibc-binary-localedata-hr.hr-dev, glibc-binary-localedata-ar.dz-dev, glibc-binary-localedata-zh.hk-dev, glibc-binary-localedata-is.is-dev, glibc-binary-localedata-ar.eg-dev, glibc-binary-localedata-nl.aw-dev, glibc-binary-localedata-ca.ad-dev, glibc-binary-localedata-ht.ht-dev, glibc-binary-localedata-es.ar-dev, glibc-binary-localedata-hu.hu-dev, glibc-binary-localedata-ka.ge-dev, glibc-binary-localedata-tr.cy-dev, glibc-binary-localedata-es.ve-dev, glibc-binary-localedata-om.ke-dev, glibc-binary-localedata-mai.in-dev, glibc-binary-localedata-sc.it-dev, glibc-binary-localedata-ss.za-dev, glibc-binary-localedata-th.th-dev, glibc-binary-localedata-ta.in-dev, glibc-binary-localedata-en.sg-dev, glibc-binary-localedata-ik.ca-dev, glibc-binary-localedata-ber.ma-dev, glibc-binary-localedata-xh.za-dev, glibc-binary-localedata-en.bw-dev, glibc-binary-localedata-kw.gb-dev, glibc-binary-localedata-gv.gb-dev, glibc-binary-localedata-bo.in-dev, glibc-binary-localedata-es.ni-dev, libsegfault-dev, libc6-dev, glibc-extra-nss-dev, glibc-thread-db-dev, virtual-locale-it-dev, virtual-locale-ru-dev, virtual-locale-fr-dev, virtual-locale-bg-dev, virtual-locale-hu-dev, virtual-locale-rw-dev, virtual-locale-ca-dev, virtual-locale-pl-dev, virtual-locale-sv-dev, virtual-locale-tr-dev, virtual-locale-hr-dev, virtual-locale-zh-cn-dev, virtual-locale-ko-dev, virtual-locale-es-dev, virtual-locale-nl-dev, virtual-locale-sk-dev, virtual-locale-vi-dev, virtual-locale-locale.alias-dev, virtual-locale-cs-dev, virtual-locale-en-gb-dev, virtual-locale-id-dev, virtual-locale-be-dev, virtual-locale-fi-dev, virtual-locale-gl-dev, virtual-locale-zh-tw-dev, virtual-locale-el-dev, virtual-locale-da-dev, virtual-locale-pt-br-dev, virtual-locale-lt-dev, virtual-locale-ja-dev, virtual-locale-de-dev, virtual-locale-nb-dev, glibc-gconv-dev, glibc-gconv-libjis-dev, glibc-gconv-libgb-dev, glibc-gconv-libksc-dev, glibc-gconv-libcns-dev, glibc-gconv-libjisx0213-dev, glibc-gconv-libisoir165-dev, glibc-localedata-i18n-dev, glibc-localedata-translit-combining-dev, glibc-localedata-dz-bt-dev, glibc-localedata-zh-cn-dev, glibc-localedata-iso14651-t1-dev, glibc-localedata-hi-in-dev, glibc-localedata-es-es-dev, glibc-localedata-sv-se-dev, glibc-localedata-fi-fi-dev, glibc-localedata-ga-ie-dev, glibc-localedata-sv-fi-dev, glibc-localedata-fi-fi+euro-dev, glibc-localedata-ru-ru-dev, glibc-localedata-translit-neutral-dev, glibc-localedata-nl-nl-dev, glibc-localedata-en-gb-dev, glibc-localedata-en-dk-dev, glibc-localedata-ar-eg-dev, glibc-localedata-tr-tr-dev, glibc-localedata-en-za-dev, glibc-localedata-el-gr-dev, glibc-localedata-ca-es-dev, glibc-localedata-be-by-dev, glibc-localedata-cs-cz-dev, glibc-localedata-pt-pt-dev, glibc-localedata-en-ca-dev, glibc-localedata-am-et-dev, glibc-localedata-ti-et-dev, glibc-localedata-nb-no-dev, glibc-localedata-iso14651-t1-common-dev, glibc-localedata-de-de-dev, glibc-localedata-ti-er-dev, glibc-localedata-fr-lu-dev, glibc-localedata-fr-fr-dev, glibc-localedata-en-nz-dev, glibc-localedata-en-us-dev, glibc-localedata-da-dk-dev, glibc-localedata-gl-es-dev, glibc-localedata-it-it-dev, glibc-localedata-fr-be-dev, glibc-localedata-en-ng-dev, glibc-localedata-translit-circle-dev, glibc-localedata-translit-cjk-compat-dev, glibc-localedata-translit-compat-dev, glibc-localedata-translit-font-dev, glibc-localedata-translit-fraction-dev, glibc-localedata-translit-narrow-dev, glibc-localedata-translit-small-dev, glibc-localedata-translit-wide-dev, glibc-localedata-translit-hangul-dev, glibc-localedata-de-be-dev, glibc-localedata-iso14651-t1-pinyin-dev, glibc-localedata-so-so-dev, glibc-localedata-om-et-dev, glibc-localedata-ur-pk-dev, glibc-localedata-br-fr-dev, glibc-localedata-de-lu-dev, glibc-localedata-gez-er-dev, glibc-localedata-sr-rs-dev, glibc-localedata-en-in-dev, glibc-localedata-nl-be-dev, glibc-localedata-eu-es-dev, glibc-localedata-es-us-dev, glibc-localedata-en-ie-dev, glibc-localedata-aa-er-dev, glibc-localedata-aa-et-dev, glibc-localedata-crh-ua-dev, glibc-localedata-bn-bd-dev, glibc-localedata-wa-be-dev, glibc-localedata-fr-be+euro-dev, glibc-localedata-pa-pk-dev, glibc-localedata-om-ke-dev, glibc-localedata-de-at-dev, glibc-localedata-translit-cjk-variants-dev, glibc-localedata-pl-pl-dev, glibc-localedata-aa-dj-dev, glibc-localedata-bo-cn-dev, glibc-localedata-gez-er+abegede-dev, glibc-localedata-gez-et-dev, glibc-localedata-tl-ph-dev
+Provides: libc6-dev, virtual-libc-dev
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416441
+Auto-Installed: yes
+
+Package: task-sdk-bare
+Version: 1.0-r2.6
+Depends: libc6, glibc-dbg, virtual-libc-dev, glibc-utils, libsegfault, libthread-db1, libgcc1, libstdc++6, libstdc++-dev
+Provides:
+Status: install user installed
+Architecture: armv5te
+Installed-Time: 1300416445
+
+Package: glibc-dbg
+Version: 2.9-r37.4.6
+Recommends: libc6 (= 2.9-r37.4.6), glibc-binary-localedata-ar.kw-dbg, glibc-binary-localedata-nds.nl-dbg, glibc-binary-localedata-fy.de-dbg, glibc-binary-localedata-yi.us-dbg, glibc-binary-localedata-be.by+latin-dbg, glibc-binary-localedata-fa.ir-dbg, glibc-binary-localedata-es.do-dbg, glibc-binary-localedata-wo.sn-dbg, glibc-binary-localedata-so.so-dbg, glibc-binary-localedata-fr.ca-dbg, glibc-binary-localedata-pl.pl-dbg, glibc-binary-localedata-sa.in-dbg, glibc-binary-localedata-es.mx-dbg, glibc-binary-localedata-de.de-dbg, glibc-binary-localedata-fr.ch-dbg, glibc-binary-localedata-tg.tj-dbg, glibc-binary-localedata-ms.my-dbg, glibc-binary-localedata-an.es-dbg, glibc-binary-localedata-de.lu-dbg, glibc-binary-localedata-ko.kr-dbg, glibc-binary-localedata-es.us-dbg, glibc-binary-localedata-pa.in-dbg, glibc-binary-localedata-ky.kg-dbg, glibc-binary-localedata-ur.pk-dbg, glibc-binary-localedata-rw.rw-dbg, glibc-binary-localedata-en.ph-dbg, glibc-binary-localedata-es.uy-dbg, glibc-binary-localedata-en.ag-dbg, glibc-binary-localedata-oc.fr-dbg, glibc-binary-localedata-ar.lb-dbg, glibc-binary-localedata-ug.cn-dbg, glibc-binary-localedata-fil.ph-dbg, glibc-binary-localedata-wa.be-dbg, glibc-binary-localedata-en.au-dbg, glibc-binary-localedata-dz.bt-dbg, glibc-binary-localedata-pt.br-dbg, glibc-binary-localedata-es.gt-dbg, glibc-binary-localedata-aa.dj-dbg, glibc-binary-localedata-ga.ie-dbg, glibc-binary-localedata-bn.in-dbg, glibc-binary-localedata-fr.be-dbg, glibc-binary-localedata-crh.ua-dbg, glibc-binary-localedata-en.hk-dbg, glibc-binary-localedata-ar.sy-dbg, glibc-binary-localedata-el.gr-dbg, glibc-binary-localedata-uk.ua-dbg, glibc-binary-localedata-nl.be-dbg, glibc-binary-localedata-it.it-dbg, glibc-binary-localedata-so.dj-dbg, glibc-binary-localedata-ar.ly-dbg, glibc-binary-localedata-ar.sa-dbg, glibc-binary-localedata-ts.za-dbg, glibc-binary-localedata-ar.qa-dbg, glibc-binary-localedata-af.za-dbg, glibc-binary-localedata-nr.za-dbg, glibc-binary-localedata-so.ke-dbg, glibc-binary-localedata-ar.iq-dbg, glibc-binary-localedata-it.ch-dbg, glibc-binary-localedata-pa.pk-dbg, glibc-binary-localedata-ar.in-dbg, glibc-binary-localedata-de.be-dbg, glibc-binary-localedata-zh.cn-dbg, glibc-binary-localedata-es.bo-dbg, glibc-binary-localedata-sv.fi-dbg, glibc-binary-localedata-li.nl-dbg, glibc-binary-localedata-br.fr-dbg, glibc-binary-localedata-yo.ng-dbg, glibc-binary-localedata-fy.nl-dbg, glibc-binary-localedata-zu.za-dbg, glibc-binary-localedata-fo.fo-dbg, glibc-binary-localedata-ar.ae-dbg, glibc-binary-localedata-mt.mt-dbg, glibc-binary-localedata-zh.tw-dbg, glibc-binary-localedata-tn.za-dbg, glibc-binary-localedata-es.sv-dbg, glibc-binary-localedata-km.kh-dbg, glibc-binary-localedata-bg.bg-dbg, glibc-binary-localedata-en.gb-dbg, glibc-binary-localedata-ne.np-dbg, glibc-binary-localedata-es.es-dbg, glibc-binary-localedata-fur.it-dbg, glibc-binary-localedata-sl.si-dbg, glibc-binary-localedata-lt.lt-dbg, glibc-binary-localedata-ja.jp-dbg, glibc-binary-localedata-kn.in-dbg, glibc-binary-localedata-st.za-dbg, glibc-binary-localedata-hi.in-dbg, glibc-binary-localedata-es.ec-dbg, glibc-binary-localedata-az.az-dbg, glibc-binary-localedata-kk.kz-dbg, glibc-binary-localedata-ca.es-dbg, glibc-binary-localedata-ar.jo-dbg, glibc-binary-localedata-ar.bh-dbg, glibc-binary-localedata-zh.sg-dbg, glibc-binary-localedata-be.by-dbg, glibc-binary-localedata-ar.sd-dbg, glibc-binary-localedata-ar.ye-dbg, glibc-binary-localedata-nso.za-dbg, glibc-binary-localedata-en.nz-dbg, glibc-binary-localedata-mr.in-dbg, glibc-binary-localedata-ig.ng-dbg, glibc-binary-localedata-en.ng-dbg, glibc-binary-localedata-nds.de-dbg, glibc-binary-localedata-pt.pt-dbg, glibc-binary-localedata-id.id-dbg, glibc-binary-localedata-ve.za-dbg, glibc-binary-localedata-as.in-dbg, glibc-binary-localedata-lo.la-dbg, glibc-binary-localedata-de.ch-dbg, glibc-binary-localedata-en.dk-dbg, glibc-binary-localedata-nb.no-dbg, glibc-binary-localedata-tl.ph-dbg, glibc-binary-localedata-gu.in-dbg, glibc-binary-localedata-uz.uz+cyrillic-dbg, glibc-binary-localedata-es.hn-dbg, glibc-binary-localedata-sd.in+devanagari-dbg, glibc-binary-localedata-se.no-dbg, glibc-binary-localedata-ks.in+devanagari-dbg, glibc-binary-localedata-ar.om-dbg, glibc-binary-localedata-kl.gl-dbg, glibc-binary-localedata-iu.ca-dbg, glibc-binary-localedata-sq.al-dbg, glibc-binary-localedata-tt.ru+iqtelif-dbg, glibc-binary-localedata-nn.no-dbg, glibc-binary-localedata-sd.in-dbg, glibc-binary-localedata-da.dk-dbg, glibc-binary-localedata-ru.ua-dbg, glibc-binary-localedata-ca.it-dbg, glibc-binary-localedata-en.ca-dbg, glibc-binary-localedata-ru.ru-dbg, glibc-binary-localedata-tk.tm-dbg, glibc-binary-localedata-shs.ca-dbg, glibc-binary-localedata-de.at-dbg, glibc-binary-localedata-es.cr-dbg, glibc-binary-localedata-es.cl-dbg, glibc-binary-localedata-sr.rs+latin-dbg, glibc-binary-localedata-es.co-dbg, glibc-binary-localedata-lg.ug-dbg, glibc-binary-localedata-bo.cn-dbg, glibc-binary-localedata-tt.ru-dbg, glibc-binary-localedata-iw.il-dbg, glibc-binary-localedata-ro.ro-dbg, glibc-binary-localedata-el.cy-dbg, glibc-binary-localedata-sv.se-dbg, glibc-binary-localedata-es.pa-dbg, glibc-binary-localedata-lv.lv-dbg, glibc-binary-localedata-en.us-dbg, glibc-binary-localedata-ha.ng-dbg, glibc-binary-localedata-es.pe-dbg, glibc-binary-localedata-nl.nl-dbg, glibc-binary-localedata-hsb.de-dbg, glibc-binary-localedata-es.py-dbg, glibc-binary-localedata-sr.rs-dbg, glibc-binary-localedata-et.ee-dbg, glibc-binary-localedata-csb.pl-dbg, glibc-binary-localedata-fi.fi-dbg, glibc-binary-localedata-fr.fr-dbg, glibc-binary-localedata-sr.me-dbg, glibc-binary-localedata-es.pr-dbg, glibc-binary-localedata-ku.tr-dbg, glibc-binary-localedata-he.il-dbg, glibc-binary-localedata-en.zw-dbg, glibc-binary-localedata-hy.am-dbg, glibc-binary-localedata-ber.dz-dbg, glibc-binary-localedata-eu.es-dbg, glibc-binary-localedata-si.lk-dbg, glibc-binary-localedata-ml.in-dbg, glibc-binary-localedata-gl.es-dbg, glibc-binary-localedata-en.za-dbg, glibc-binary-localedata-mg.mg-dbg, glibc-binary-localedata-ar.tn-dbg, glibc-binary-localedata-bs.ba-dbg, glibc-binary-localedata-ast.es-dbg, glibc-binary-localedata-ar.ma-dbg, glibc-binary-localedata-li.be-dbg, glibc-binary-localedata-ca.fr-dbg, glibc-binary-localedata-en.in-dbg, glibc-binary-localedata-vi.vn-dbg, glibc-binary-localedata-mk.mk-dbg, glibc-binary-localedata-en.ie-dbg, glibc-binary-localedata-sk.sk-dbg, glibc-binary-localedata-fr.lu-dbg, glibc-binary-localedata-cs.cz-dbg, glibc-binary-localedata-gd.gb-dbg, glibc-binary-localedata-cy.gb-dbg, glibc-binary-localedata-mi.nz-dbg, glibc-binary-localedata-pap.an-dbg, glibc-binary-localedata-or.in-dbg, glibc-binary-localedata-hr.hr-dbg, glibc-binary-localedata-ar.dz-dbg, glibc-binary-localedata-zh.hk-dbg, glibc-binary-localedata-is.is-dbg, glibc-binary-localedata-ar.eg-dbg, glibc-binary-localedata-nl.aw-dbg, glibc-binary-localedata-ca.ad-dbg, glibc-binary-localedata-ht.ht-dbg, glibc-binary-localedata-es.ar-dbg, glibc-binary-localedata-hu.hu-dbg, glibc-binary-localedata-ka.ge-dbg, glibc-binary-localedata-tr.cy-dbg, glibc-binary-localedata-es.ve-dbg, glibc-binary-localedata-om.ke-dbg, glibc-binary-localedata-mai.in-dbg, glibc-binary-localedata-sc.it-dbg, glibc-binary-localedata-ss.za-dbg, glibc-binary-localedata-th.th-dbg, glibc-binary-localedata-ta.in-dbg, glibc-binary-localedata-en.sg-dbg, glibc-binary-localedata-ik.ca-dbg, glibc-binary-localedata-ber.ma-dbg, glibc-binary-localedata-xh.za-dbg, glibc-binary-localedata-en.bw-dbg, glibc-binary-localedata-kw.gb-dbg, glibc-binary-localedata-gv.gb-dbg, glibc-binary-localedata-bo.in-dbg, glibc-binary-localedata-es.ni-dbg, libsegfault-dbg, glibc-dbg, linux-libc-headers-dbg, glibc-extra-nss-dbg, glibc-thread-db-dbg, virtual-locale-it-dbg, virtual-locale-ru-dbg, virtual-locale-fr-dbg, virtual-locale-bg-dbg, virtual-locale-hu-dbg, virtual-locale-rw-dbg, virtual-locale-ca-dbg, virtual-locale-pl-dbg, virtual-locale-sv-dbg, virtual-locale-tr-dbg, virtual-locale-hr-dbg, virtual-locale-zh-cn-dbg, virtual-locale-ko-dbg, virtual-locale-es-dbg, virtual-locale-nl-dbg, virtual-locale-sk-dbg, virtual-locale-vi-dbg, virtual-locale-locale.alias-dbg, virtual-locale-cs-dbg, virtual-locale-en-gb-dbg, virtual-locale-id-dbg, virtual-locale-be-dbg, virtual-locale-fi-dbg, virtual-locale-gl-dbg, virtual-locale-zh-tw-dbg, virtual-locale-el-dbg, virtual-locale-da-dbg, virtual-locale-pt-br-dbg, virtual-locale-lt-dbg, virtual-locale-ja-dbg, virtual-locale-de-dbg, virtual-locale-nb-dbg, glibc-gconv-dbg, glibc-gconv-libjis-dbg, glibc-gconv-libgb-dbg, glibc-gconv-libksc-dbg, glibc-gconv-libcns-dbg, glibc-gconv-libjisx0213-dbg, glibc-gconv-libisoir165-dbg, glibc-localedata-i18n-dbg, glibc-localedata-translit-combining-dbg, glibc-localedata-dz-bt-dbg, glibc-localedata-zh-cn-dbg, glibc-localedata-iso14651-t1-dbg, glibc-localedata-hi-in-dbg, glibc-localedata-es-es-dbg, glibc-localedata-sv-se-dbg, glibc-localedata-fi-fi-dbg, glibc-localedata-ga-ie-dbg, glibc-localedata-sv-fi-dbg, glibc-localedata-fi-fi+euro-dbg, glibc-localedata-ru-ru-dbg, glibc-localedata-translit-neutral-dbg, glibc-localedata-nl-nl-dbg, glibc-localedata-en-gb-dbg, glibc-localedata-en-dk-dbg, glibc-localedata-ar-eg-dbg, glibc-localedata-tr-tr-dbg, glibc-localedata-en-za-dbg, glibc-localedata-el-gr-dbg, glibc-localedata-ca-es-dbg, glibc-localedata-be-by-dbg, glibc-localedata-cs-cz-dbg, glibc-localedata-pt-pt-dbg, glibc-localedata-en-ca-dbg, glibc-localedata-am-et-dbg, glibc-localedata-ti-et-dbg, glibc-localedata-nb-no-dbg, glibc-localedata-iso14651-t1-common-dbg, glibc-localedata-de-de-dbg, glibc-localedata-ti-er-dbg, glibc-localedata-fr-lu-dbg, glibc-localedata-fr-fr-dbg, glibc-localedata-en-nz-dbg, glibc-localedata-en-us-dbg, glibc-localedata-da-dk-dbg, glibc-localedata-gl-es-dbg, glibc-localedata-it-it-dbg, glibc-localedata-fr-be-dbg, glibc-localedata-en-ng-dbg, glibc-localedata-translit-circle-dbg, glibc-localedata-translit-cjk-compat-dbg, glibc-localedata-translit-compat-dbg, glibc-localedata-translit-font-dbg, glibc-localedata-translit-fraction-dbg, glibc-localedata-translit-narrow-dbg, glibc-localedata-translit-small-dbg, glibc-localedata-translit-wide-dbg, glibc-localedata-translit-hangul-dbg, glibc-localedata-de-be-dbg, glibc-localedata-iso14651-t1-pinyin-dbg, glibc-localedata-so-so-dbg, glibc-localedata-om-et-dbg, glibc-localedata-ur-pk-dbg, glibc-localedata-br-fr-dbg, glibc-localedata-de-lu-dbg, glibc-localedata-gez-er-dbg, glibc-localedata-sr-rs-dbg, glibc-localedata-en-in-dbg, glibc-localedata-nl-be-dbg, glibc-localedata-eu-es-dbg, glibc-localedata-es-us-dbg, glibc-localedata-en-ie-dbg, glibc-localedata-aa-er-dbg, glibc-localedata-aa-et-dbg, glibc-localedata-crh-ua-dbg, glibc-localedata-bn-bd-dbg, glibc-localedata-wa-be-dbg, glibc-localedata-fr-be+euro-dbg, glibc-localedata-pa-pk-dbg, glibc-localedata-om-ke-dbg, glibc-localedata-de-at-dbg, glibc-localedata-translit-cjk-variants-dbg, glibc-localedata-pl-pl-dbg, glibc-localedata-aa-dj-dbg, glibc-localedata-bo-cn-dbg, glibc-localedata-gez-er+abegede-dbg, glibc-localedata-gez-et-dbg, glibc-localedata-tl-ph-dbg
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416439
+Auto-Installed: yes
+
+Package: libgmp-dev
+Version: 5.0.1-r1.1.6
+Depends: libgmp10 (= 5.0.1-r1.1.6), libgmp10
+Recommends: libc6-dev, libgmp-dev
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+
+Package: libgcc1
+Version: 4.3.3-r23.2.6
+Depends: libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416442
+Auto-Installed: yes
+
+Package: libmpfr4
+Version: 3.0.0-r3.1.6
+Depends: libgmp10 (>= 5.0.1), libc6 (>= 2.9)
+Provides:
+Status: install ok installed
+Architecture: armv5te
+Installed-Time: 1300416445
+Auto-Installed: yes
+

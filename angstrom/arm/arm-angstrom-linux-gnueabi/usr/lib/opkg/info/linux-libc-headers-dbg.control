@@ -1,0 +1,13 @@
+Package: linux-libc-headers-dbg
+Version: 2.6.31-r6.6
+Description: Sanitized set of 2.6 kernel headers for the C library's use.
+Section: devel
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: armv5te
+OE: linux-libc-headers
+Homepage: unknown
+Build: 2011.03-maintenance/61a4492
+Recommends: linux-libc-headers-dev (= 2.6.31-r6.6)
+Source: http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.31.tar.bz2 file://0001-implement-TIF_RESTORE_SIGMASK-support-and-enable-the.patch file://powerpc-fix-build-with-make-3.82.patch

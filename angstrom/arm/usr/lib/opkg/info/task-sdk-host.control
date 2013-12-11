@@ -1,0 +1,13 @@
+Package: task-sdk-host
+Version: 1.0-r3.6
+Description: Host packages for the standalone SDK or external toolchain
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: i686-armv5te-sdk
+OE: task-sdk-host
+Homepage: unknown
+Build: 2011.03-maintenance/61a4492
+Depends: binutils-cross-sdk, gcc-cross-sdk, gdb-cross-sdk, pkgconfig-sdk, opkg-sdk, libtool-sdk
+Source: file:///OE/angstrom/sources/openembedded/recipes/tasks/task-sdk-host.bb
