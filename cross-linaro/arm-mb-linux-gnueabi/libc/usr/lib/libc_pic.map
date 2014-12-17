@@ -192,7 +192,6 @@ GLIBC_2.4 {
     __xstat64; __fxstat64; __lxstat64;
     __xstat64; __fxstat64; __lxstat64; __poll;
     __xstat; __fxstat; __lxstat; __xmknod; __write; __close; __fcntl;
-    _argp_unlock_xxx;
     _authenticate;
     _dl_mcount_wrapper; _dl_mcount_wrapper_check;
     _exit;
@@ -503,7 +502,7 @@ GLIBC_2.4 {
     on_exit;
     open64;
     open;
-    open_memstream; open_obstack_stream; obstack_printf; obstack_vprintf;
+    open_memstream; obstack_printf; obstack_vprintf;
     open_wmemstream;
     openat; openat64;
     opendir;
@@ -635,7 +634,7 @@ GLIBC_2.4 {
     setlogmask; setmntent; setregid; setreuid; setttyent; setusershell; sstk;
     setpgid; setpgrp; setsid; setuid; sleep; sysconf;
     setpriority; setrlimit;
-    setresgid; setresuid; swapoff; swapon; sysctl;
+    setresgid; setresuid; swapoff; swapon; sysctl; sysinfo;
     setrlimit64;
     setspent;
     setutent;
@@ -679,7 +678,6 @@ GLIBC_2.4 {
     swprintf; swscanf;
     symlinkat;
     sys_errlist; sys_nerr; sys_sigabbrev; sys_siglist;
-    sysinfo;
     tcdrain; tcflow; tcflush; tcgetattr; tcgetpgrp; tcsendbreak; tcsetattr;
     tcgetsid;
     tcsetpgrp;
@@ -840,11 +838,43 @@ GLIBC_2.13 {
     fanotify_init; fanotify_mark;
     prlimit; prlimit64;
 } GLIBC_2.12;
+GLIBC_2.14 {
+  global:
+    clock_adjtime;
+    name_to_handle_at; open_by_handle_at;
+    sendmmsg;
+    setns;
+    syncfs;
+} GLIBC_2.13;
+GLIBC_2.15 {
+  global:
+    __fdelt_chk; __fdelt_warn;
+    process_vm_readv; process_vm_writev;
+    scandirat; scandirat64;
+} GLIBC_2.14;
+GLIBC_2.16 {
+  global:
+    __getauxval; getauxval;
+    __poll_chk; __ppoll_chk;
+    aligned_alloc;
+    mbrtoc16; c16rtomb; mbrtoc32; c32rtomb;
+    timespec_get;
+} GLIBC_2.15;
+GLIBC_2.17 {
+  global:
+    clock_getres; clock_gettime; clock_settime; clock_getcpuclockid;
+    clock_nanosleep;
+    recvmmsg; sendmmsg;
+    secure_getenv;
+} GLIBC_2.16;
 GLIBC_PRIVATE {
   global:
     __abort_msg;
+    __clock_getres; __clock_gettime; __clock_settime; __clock_getcpuclockid;
+    __clock_nanosleep;
     __collate_element_hash; __collate_element_strings;
     __collate_symbol_classes; __collate_symbol_hash; __collate_symbol_strings;
+    __ctype_init;
     __default_sa_restorer; __default_rt_sa_restorer;
     __default_sa_restorer_v1; __default_rt_sa_restorer_v1;
     __default_sa_restorer_v2; __default_rt_sa_restorer_v2;
@@ -861,17 +891,21 @@ GLIBC_PRIVATE {
     __libc_dlopen_mode; __libc_dlsym; __libc_dlclose;
     __libc_fatal;
     __libc_fork; __libc_pwrite;
+    __libc_ifunc_impl_list;
     __libc_longjmp; __libc_siglongjmp;
     __libc_malloc_pthread_startup;
     __libc_msgrcv; __libc_msgsnd;
     __libc_pthread_init;
+    __libc_secure_getenv;
     __libc_system;
     __libc_thread_freeres;
+    __madvise;
     __nss_disable_nscd; __nss_lookup_function; _nss_files_parse_sgent;
     __nss_passwd_lookup2; __nss_group_lookup2; __nss_hosts_lookup2;
-    __nss_services_lookup2; __nss_next2;
+    __nss_services_lookup2; __nss_next2; __nss_lookup;
     __open_catalog;
     __res_maybe_init; __res_iclose;
+    __sendmmsg;
     __syscall_rt_sigqueueinfo;
     _dl_addr;
     _dl_open_hook;
@@ -880,4 +914,4 @@ GLIBC_PRIVATE {
     _nss_files_parse_grent; _nss_files_parse_pwent; _nss_files_parse_spent;
     errno;
     h_errno; __resp;
-} GLIBC_2.13;
+} GLIBC_2.17;

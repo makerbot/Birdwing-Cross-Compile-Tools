@@ -1,6 +1,6 @@
 /* Definitions of constants and data structure for POSIX 1003.1b-1993
    scheduling interface.
-   Copyright (C) 1996-1999,2001-2003,2005,2006,2007,2008,2009
+   Copyright (C) 1996-1999,2001-2003,2005,2006,2007,2008,2009,2011,2012
    Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -15,9 +15,8 @@
    Lesser General Public License for more details.
 
    You should have received a copy of the GNU Lesser General Public
-   License along with the GNU C Library; if not, write to the Free
-   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
-   02111-1307 USA.  */
+   License along with the GNU C Library; if not, see
+   <http://www.gnu.org/licenses/>.  */
 
 #ifndef __need_schedparam
 
@@ -37,7 +36,7 @@
 # define SCHED_RESET_ON_FORK	0x40000000
 #endif
 
-#ifdef __USE_MISC
+#ifdef __USE_GNU
 /* Cloning flags.  */
 # define CSIGNAL       0x000000ff /* Signal mask to be sent at exit.  */
 # define CLONE_VM      0x00000100 /* Set if VM shared between processes.  */
@@ -78,7 +77,7 @@ struct sched_param
 
 __BEGIN_DECLS
 
-#ifdef __USE_MISC
+#ifdef __USE_GNU
 /* Clone current process.  */
 extern int clone (int (*__fn) (void *__arg), void *__child_stack,
 		  int __flags, void *__arg, ...) __THROW;
@@ -88,7 +87,11 @@ extern int unshare (int __flags) __THROW;
 
 /* Get index of currently used CPU.  */
 extern int sched_getcpu (void) __THROW;
+
+/* Switch process to namespace of type NSTYPE indicated by FD.  */
+extern int setns (int __fd, int __nstype) __THROW;
 #endif
+
 
 __END_DECLS
 
@@ -157,7 +160,7 @@ typedef struct
   (__extension__							      \
    ({ size_t __cpu = (cpu);						      \
       __cpu < 8 * (setsize)						      \
-      ? ((((__const __cpu_mask *) ((cpusetp)->__bits))[__CPUELT (__cpu)]      \
+      ? ((((const __cpu_mask *) ((cpusetp)->__bits))[__CPUELT (__cpu)]	      \
 	  & __CPUMASK (__cpu))) != 0					      \
       : 0; }))
 
@@ -170,12 +173,12 @@ typedef struct
 # else
 #  define __CPU_EQUAL_S(setsize, cpusetp1, cpusetp2) \
   (__extension__							      \
-   ({ __const __cpu_mask *__arr1 = (cpusetp1)->__bits;			      \
-      __const __cpu_mask *__arr2 = (cpusetp2)->__bits;			      \
+   ({ const __cpu_mask *__arr1 = (cpusetp1)->__bits;			      \
+      const __cpu_mask *__arr2 = (cpusetp2)->__bits;			      \
       size_t __imax = (setsize) / sizeof (__cpu_mask);			      \
       size_t __i;							      \
       for (__i = 0; __i < __imax; ++__i)				      \
-	if (__bits[__i] != __bits[__i])					      \
+	if (__arr1[__i] != __arr2[__i])					      \
 	  break;							      \
       __i == __imax; }))
 # endif
@@ -183,8 +186,8 @@ typedef struct
 # define __CPU_OP_S(setsize, destset, srcset1, srcset2, op) \
   (__extension__							      \
    ({ cpu_set_t *__dest = (destset);					      \
-      __const __cpu_mask *__arr1 = (srcset1)->__bits;			      \
-      __const __cpu_mask *__arr2 = (srcset2)->__bits;			      \
+      const __cpu_mask *__arr1 = (srcset1)->__bits;			      \
+      const __cpu_mask *__arr2 = (srcset2)->__bits;			      \
       size_t __imax = (setsize) / sizeof (__cpu_mask);			      \
       size_t __i;							      \
       for (__i = 0; __i < __imax; ++__i)				      \
