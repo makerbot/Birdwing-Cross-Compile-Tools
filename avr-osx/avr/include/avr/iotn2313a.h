@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: iotn2313a.h 2035 2009-11-02 02:44:17Z arcanum $ */
 
 /* avr/iotn2313a.h - definitions for ATtiny2313A */
 
@@ -303,7 +303,7 @@
 #define EEAR5 5
 #define EEAR6 6
 
-#define PCMSK0 _SFR_IO8(0x020)
+#define PCMSK _SFR_IO8(0x020)
 #define PCINT0 0
 #define PCINT1 1
 #define PCINT2 2
@@ -528,17 +528,13 @@
 #define OCIE1A 6
 #define TOIE1 7
 
-#define GIFR _SFR_IO8(0x03A)
-#define PCIF1 3
-#define PCIF2 4
-#define PCIF0 5
+#define EIFR _SFR_IO8(0x03A)
+#define PCIF 5
 #define INTF0 6
 #define INTF1 7
 
 #define GIMSK _SFR_IO8(0x03B)
-#define PCIE1 3
-#define PCIE2 4
-#define PCIE0 5
+#define PCIE 5
 #define INT0 6
 #define INT1 7
 
@@ -567,12 +563,12 @@
 #define TIMER1_OVF_vect      _VECTOR(5)  /* Timer/Counter1 Overflow */
 #define TIMER0_OVF_vect_num  6
 #define TIMER0_OVF_vect      _VECTOR(6)  /* Timer/Counter0 Overflow */
-#define USART0_RX_vect_num  7
-#define USART0_RX_vect      _VECTOR(7)  /* USART, Rx Complete */
-#define USART0_UDRE_vect_num  8
-#define USART0_UDRE_vect      _VECTOR(8)  /* USART Data Register Empty */
-#define USART0_TX_vect_num  9
-#define USART0_TX_vect      _VECTOR(9)  /* USART, Tx Complete */
+#define USART_RX_vect_num  7
+#define USART_RX_vect      _VECTOR(7)  /* USART, Rx Complete */
+#define USART_UDRE_vect_num  8
+#define USART_UDRE_vect      _VECTOR(8)  /* USART Data Register Empty */
+#define USART_TX_vect_num  9
+#define USART_TX_vect      _VECTOR(9)  /* USART, Tx Complete */
 #define ANA_COMP_vect_num  10
 #define ANA_COMP_vect      _VECTOR(10)  /* Analog Comparator */
 #define PCINT_B_vect_num  11
@@ -587,14 +583,14 @@
 #define USI_START_vect      _VECTOR(15)  /* USI Start Condition */
 #define USI_OVERFLOW_vect_num  16
 #define USI_OVERFLOW_vect      _VECTOR(16)  /* USI Overflow */
-#define EEPROM_Ready_vect_num  17
-#define EEPROM_Ready_vect      _VECTOR(17)  /*  */
 #define WDT_OVERFLOW_vect_num  18
 #define WDT_OVERFLOW_vect      _VECTOR(18)  /* Watchdog Timer Overflow */
-#define PCINT_A_vect_num  19
-#define PCINT_A_vect      _VECTOR(19)  /* Pin Change Interrupt Request A */
 #define PCINT_D_vect_num  20
 #define PCINT_D_vect      _VECTOR(20)  /* Pin Change Interrupt Request D */
+#define EEPROM_Ready_vect_num  17
+#define EEPROM_Ready_vect      _VECTOR(17)  /*  */
+#define PCINT_A_vect_num  19
+#define PCINT_A_vect      _VECTOR(19)  /* Pin Change Interrupt Request A */
 
 #define _VECTOR_SIZE 2 /* Size of individual vector. */
 #define _VECTORS_SIZE (21 * _VECTOR_SIZE)

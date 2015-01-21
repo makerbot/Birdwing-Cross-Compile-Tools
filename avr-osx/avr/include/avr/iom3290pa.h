@@ -229,6 +229,8 @@
 #define PORTF0  0
 
 #define PING    _SFR_IO8(0x12)
+#define PING7   7
+#define PING6   6
 #define PING5   5
 #define PING4   4
 #define PING3   3
@@ -237,6 +239,9 @@
 #define PING0   0
 
 #define DDRG    _SFR_IO8(0x13)
+#define DDRG7   7
+#define DDRG6   6
+#define DDRG5   5
 #define DDRG4   4
 #define DDRG3   3
 #define DDRG2   2
@@ -244,6 +249,9 @@
 #define DDRG0   0
 
 #define PORTG   _SFR_IO8(0x14)
+#define PORTG7  7
+#define PORTG6  6
+#define PORTG5  5
 #define PORTG4  4
 #define PORTG3  3
 #define PORTG2  2
@@ -686,6 +694,7 @@
 #define PORTH0  0
 
 #define PINJ    _SFR_MEM8(0xDB)
+#define PINJ7   7
 #define PINJ6   6
 #define PINJ5   5
 #define PINJ4   4
@@ -695,6 +704,7 @@
 #define PINJ0   0
 
 #define DDRJ    _SFR_MEM8(0xDC)
+#define DDRJ7   7
 #define DDRJ6   6
 #define DDRJ5   5
 #define DDRJ4   4
@@ -704,6 +714,7 @@
 #define DDRJ0   0
 
 #define PORTJ   _SFR_MEM8(0xDD)
+#define PORTJ7  7
 #define PORTJ6  6
 #define PORTJ5  5
 #define PORTJ4  4

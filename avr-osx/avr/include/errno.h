@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: errno.h 1196 2007-01-23 15:34:58Z joerg_wunsch $ */
 
 #ifndef __ERRNO_H_
 #define __ERRNO_H_ 1

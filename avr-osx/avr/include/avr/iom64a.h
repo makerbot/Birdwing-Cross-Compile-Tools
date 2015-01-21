@@ -325,6 +325,14 @@
 #define OCDR5   5
 #define OCDR6   6
 #define OCDR7   7
+#define OCDR7   7
+#define OCDR6   6
+#define OCDR5   5
+#define OCDR4   4
+#define OCDR3   3
+#define OCDR2   2
+#define OCDR1   1
+#define OCDR0   0
 
 #define OCR2    _SFR_IO8(0x23)
 
@@ -510,6 +518,9 @@
 #define PORTF0  0
 
 #define PING    _SFR_MEM8(0x63)
+#define PING7   7
+#define PING6   6
+#define PING5   5
 #define PING4   4
 #define PING3   3
 #define PING2   2
@@ -517,6 +528,9 @@
 #define PING0   0
 
 #define DDRG    _SFR_MEM8(0x64)
+#define DDRG7   7
+#define DDRG6   6
+#define DDRG5   5
 #define DDRG4   4
 #define DDRG3   3
 #define DDRG2   2
@@ -524,6 +538,9 @@
 #define DDRG0   0
 
 #define PORTG   _SFR_MEM8(0x65)
+#define PORTG7  7
+#define PORTG6  6
+#define PORTG5  5
 #define PORTG4  4
 #define PORTG3  3
 #define PORTG2  2

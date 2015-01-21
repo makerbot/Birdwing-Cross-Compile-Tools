@@ -22,7 +22,7 @@ exit 1
 fi
 template=~/.CrossPack-AVR/templates/TemplateProject
 if [ ! -d "$template" ]; then
-template="/usr/local/CrossPack-AVR-20131216/etc/templates/TemplateProject"
+template="/usr/local/CrossPack-AVR-20131205/etc/templates/TemplateProject"
 fi
 echo "Using template: $template"
 cp -R "$template" "$name" || exit 1

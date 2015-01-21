@@ -26,7 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: boot.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
 
 #ifndef _AVR_BOOT_H_
 #define _AVR_BOOT_H_    1
@@ -109,12 +109,10 @@
 /* Check for SPM Control Register in processor. */
 #if defined (SPMCSR)
 #  define __SPM_REG    SPMCSR
+#elif defined (SPMCR)
+#  define __SPM_REG    SPMCR
 #else
-#  if defined (SPMCR)
-#    define __SPM_REG    SPMCR
-#  else
-#    error AVR processor does not provide bootloader support!
-#  endif
+#  error AVR processor does not provide bootloader support!
 #endif
 
 

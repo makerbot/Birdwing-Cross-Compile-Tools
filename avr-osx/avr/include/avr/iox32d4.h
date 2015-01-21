@@ -414,43 +414,6 @@ typedef struct PMIC_struct
 } PMIC_t;
 
 
-
-/*
---------------------------------------------------------------------------
-CRC - Cyclic Redundancy Checker
---------------------------------------------------------------------------
-*/
-
-/* Cyclic Redundancy Checker */
-typedef struct CRC_struct
-{
-    register8_t CTRL;  /* Control Register */
-    register8_t STATUS;  /* Status Register */
-    register8_t reserved_0x02;
-    register8_t DATAIN;  /* Data Input */
-    register8_t CHECKSUM0;  /* Checksum byte 0 */
-    register8_t CHECKSUM1;  /* Checksum byte 1 */
-    register8_t CHECKSUM2;  /* Checksum byte 2 */
-    register8_t CHECKSUM3;  /* Checksum byte 3 */
-} CRC_t;
-
-/* Reset */
-typedef enum CRC_RESET_enum
-{
-    CRC_RESET_NO_gc = (0x00<<6),  /* No Reset */
-    CRC_RESET_RESET0_gc = (0x02<<6),  /* Reset CRC with CHECKSUM to all zeros */
-    CRC_RESET_RESET1_gc = (0x03<<6),  /* Reset CRC with CHECKSUM to all ones */
-} CRC_RESET_t;
-
-/* Input Source */
-typedef enum CRC_SOURCE_enum
-{
-    CRC_SOURCE_DISABLE_gc = (0x00<<0),  /* Disabled */
-    CRC_SOURCE_IO_gc = (0x01<<0),  /* I/O Interface */
-    CRC_SOURCE_FLASH_gc = (0x02<<0),  /* Flash */
-} CRC_SOURCE_t;
-
-
 /*
 --------------------------------------------------------------------------
 EVSYS - Event System
@@ -1096,7 +1059,6 @@ typedef enum ADC_CH_GAIN_enum
     ADC_CH_GAIN_16X_gc = (0x04<<2),  /* 16x gain */
     ADC_CH_GAIN_32X_gc = (0x05<<2),  /* 32x gain */
     ADC_CH_GAIN_64X_gc = (0x06<<2),  /* 64x gain */
-    ADC_CH_GAIN_DIV2_gc = (0x07<<2),  /* x/2 gain */		
 } ADC_CH_GAIN_t;
 
 /* Conversion result resolution */
@@ -1106,14 +1068,6 @@ typedef enum ADC_RESOLUTION_enum
     ADC_RESOLUTION_8BIT_gc = (0x02<<1),  /* 8-bit right-adjusted result */
     ADC_RESOLUTION_LEFT12BIT_gc = (0x03<<1),  /* 12-bit left-adjusted result */
 } ADC_RESOLUTION_t;
-
-typedef enum ADC_CURRLIMIT_enum
-{
-    ADC_CURRLIMIT_NO_gc = (0x00<<5),  /* No limit */
-    ADC_CURRLIMIT_LOW_gc = (0x01<<5),  /* Low current limit, max. sampling rate 1.5MSPS */
-    ADC_CURRLIMIT_MED_gc = (0x02<<5),  /* Medium current limit, max. sampling rate 1MSPS */
-    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),  /* High current limit, max. sampling rate 0.5MSPS */
-} ADC_CURRLIMIT_t;
 
 /* Voltage reference selection */
 typedef enum ADC_REFSEL_enum

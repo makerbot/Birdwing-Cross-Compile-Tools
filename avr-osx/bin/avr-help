@@ -1,2 +1,2 @@
 #!/bin/sh
-exec open "/usr/local/CrossPack-AVR-20131216/manual/index.html"
+exec open "/usr/local/CrossPack-AVR-20131205/manual/index.html"

@@ -1,4 +1,4 @@
-prefix=/usr/local/CrossPack-AVR-20131216
+prefix=/usr/local/CrossPack-AVR-20131205
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

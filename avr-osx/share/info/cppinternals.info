@@ -8,7 +8,8 @@ END-INFO-DIR-ENTRY
 
    This file documents the internals of the GNU C Preprocessor.
 
-   Copyright (C) 2000-2013 Free Software Foundation, Inc.
+   Copyright 2000, 2001, 2002, 2004, 2005, 2006, 2007 Free Software
+Foundation, Inc.
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -1019,17 +1020,17 @@ Concept Index
 
 
 Tag Table:
-Node: Top926
-Node: Conventions2611
-Node: Lexer3553
-Ref: Invalid identifiers11466
-Ref: Lexing a line13415
-Node: Hash Nodes18188
-Node: Macro Expansion21067
-Node: Token Spacing30014
-Node: Line Numbering35874
-Node: Guard Macros39959
-Node: Files44750
-Node: Concept Index48216
+Node: Top953
+Node: Conventions2638
+Node: Lexer3580
+Ref: Invalid identifiers11493
+Ref: Lexing a line13442
+Node: Hash Nodes18215
+Node: Macro Expansion21094
+Node: Token Spacing30041
+Node: Line Numbering35901
+Node: Guard Macros39986
+Node: Files44777
+Node: Concept Index48243
 
 End Tag Table

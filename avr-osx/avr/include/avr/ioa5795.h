@@ -79,6 +79,9 @@
 #define PORTB0  0
 
 #define PINC    _SFR_IO8(0x06)
+#define PINC7   7
+#define PINC6   6
+#define PINC5   5
 #define PINC4   4
 #define PINC3   3
 #define PINC2   2
@@ -86,6 +89,9 @@
 #define PINC0   0
 
 #define DDRC    _SFR_IO8(0x07)
+#define DDRC7   7
+#define DDRC6   6
+#define DDRC5   5
 #define DDRC4   4
 #define DDRC3   3
 #define DDRC2   2
@@ -93,6 +99,9 @@
 #define DDRC0   0
 
 #define PORTC   _SFR_IO8(0x08)
+#define PORTC7  7
+#define PORTC6  6
+#define PORTC5  5
 #define PORTC4  4
 #define PORTC3  3
 #define PORTC2  2
@@ -643,7 +652,7 @@
 #define SPMREADY_vect            _VECTOR(44)
 #define SPMREADY_vect_num        44
 
-#define _VECTORS_SIZE 90
+#define _VECTORS_SIZE 46
 
 
 /* Constants */

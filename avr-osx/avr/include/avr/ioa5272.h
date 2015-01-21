@@ -665,10 +665,6 @@
 #define EE_RDY_vect            _VECTOR(16)
 #define EE_RDY_vect_num        16
 
-/* USI Overflow */
-#define USI_OVF_vect            _VECTOR(19)
-#define USI_OVF_vect_num        19
-
 /* Analog Comparator */
 #define ANA_COMP_vect            _VECTOR(34)
 #define ANA_COMP_vect_num        34
@@ -677,7 +673,11 @@
 #define USI_START_vect            _VECTOR(36)
 #define USI_START_vect_num        36
 
-#define _VECTORS_SIZE 74
+/* USI Overflow */
+#define USI_OVF_vect            _VECTOR(19)
+#define USI_OVF_vect_num        19
+
+#define _VECTORS_SIZE 40
 
 
 /* Constants */

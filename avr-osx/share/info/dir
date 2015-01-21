@@ -31,7 +31,6 @@ Software development
 * gcc: (gcc).                  The GNU Compiler Collection.
 * gccinstall: (gccinstall).    Installing the GNU Compiler Collection.
 * gccint: (gccint).            Internals of the GNU Compiler Collection.
-* gcov: (gcc) Gcov.            `gcov'--a test coverage program.
 * gprof: (gprof).                Profiling your program's execution
 
 Individual utilities
@@ -52,3 +51,6 @@ Individual utilities
 * strip: (binutils)strip.         Discard symbols.
 * windmc: (binutils)windmc.	  Generator for Windows message resources.
 * windres: (binutils)windres.	  Manipulate Windows resources.
+
+GNU Libraries
+* libquadmath: (libquadmath).                  GCC Quad-Precision Math Library

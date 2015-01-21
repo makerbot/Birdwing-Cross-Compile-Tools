@@ -436,19 +436,6 @@ typedef struct PMIC_struct
     register8_t STATUS;  /* Status Register */
     register8_t INTPRI;  /* Interrupt Priority */
     register8_t CTRL;  /* Control Register */
-    register8_t reserved_0x03;
-    register8_t reserved_0x04;
-    register8_t reserved_0x05;
-    register8_t reserved_0x06;
-    register8_t reserved_0x07;
-    register8_t reserved_0x08;
-    register8_t reserved_0x09;
-    register8_t reserved_0x0A;
-    register8_t reserved_0x0B;
-    register8_t reserved_0x0C;
-    register8_t reserved_0x0D;
-    register8_t reserved_0x0E;
-    register8_t reserved_0x0F;
 } PMIC_t;
 
 
@@ -591,11 +578,14 @@ typedef struct EDMA_CH_struct
     register8_t DESTADDRCTRL;  /* Destination Address Control for Standard Channels Only. */
     register8_t TRIGSRC;  /* Channel Trigger Source */
     register8_t reserved_0x05;
-    _WORDREGISTER(TRFCNT);  /* Channel Block Transfer Count for Peripheral Ch., or Channel Block Transfer Count Low for Standard Ch. */
-    _WORDREGISTER(ADDR);  /* Channel Memory Address for Peripheral Ch., or Channel Source Address Low for Standard Ch. */
+    register8_t TRFCNTL;  /* Channel Block Transfer Count for Peripheral Ch., or Channel Block Transfer Count Low for Standard Ch. */
+    register8_t TRFCNTH;  /* Channel Block Transfer Count High for Standard Channels Only */
+    register8_t ADDRL;  /* Channel Memory Address Low for Peripheral Ch., or Channel Source Address Low for Standard Ch. */
+    register8_t ADDRH;  /* Channel Memory Address High for Peripheral Ch., or Channel Source Address High for Standard Ch. */
     register8_t reserved_0x0A;
     register8_t reserved_0x0B;
-    _WORDREGISTER(DESTADDR);  /* Channel Destination Address for Standard Channels Only. */
+    register8_t DESTADDRL;  /* Channel Destination Address High for Standard Channels Only. */
+    register8_t DESTADDRH;  /* Channel Destination Address High for Standard Channels Only. */
     register8_t reserved_0x0E;
     register8_t reserved_0x0F;
 } EDMA_CH_t;
@@ -831,10 +821,10 @@ typedef enum EVSYS_CHMUX_enum
 /* Quadrature Decoder Index Recognition Mode */
 typedef enum EVSYS_QDIRM_enum
 {
-    EVSYS_QDIRM_00_gc = (0x00<<5),  /* QDPH0 = 0, QDPH90 = 0 */
-    EVSYS_QDIRM_01_gc = (0x01<<5),  /* QDPH0 = 0, QDPH90 = 1 */
-    EVSYS_QDIRM_10_gc = (0x02<<5),  /* QDPH0 = 1, QDPH90 = 0 */
-    EVSYS_QDIRM_11_gc = (0x03<<5),  /* QDPH0 = 1, QDPH90 = 1 */
+    EVSYS_QDIRM_00_gc = (0x00<<0),  /* QDPH0 = 0, QDPH90 = 0 */
+    EVSYS_QDIRM_01_gc = (0x01<<0),  /* QDPH0 = 0, QDPH90 = 1 */
+    EVSYS_QDIRM_10_gc = (0x02<<0),  /* QDPH0 = 1, QDPH90 = 0 */
+    EVSYS_QDIRM_11_gc = (0x03<<0),  /* QDPH0 = 1, QDPH90 = 1 */
 } EVSYS_QDIRM_t;
 
 /* Digital filter coefficient */
@@ -854,9 +844,9 @@ typedef enum EVSYS_DIGFILT_enum
 typedef enum EVSYS_PRESCFILT_enum
 {
     EVSYS_PRESCFILT_CH04_gc = (0x01<<4),  /* Enable prescaler filter for either channel 0 or 4 */
-    EVSYS_PRESCFILT_CH15_gc = (0x02<<4),  /* Enable prescaler filter for either channel 1 or 5 */
-    EVSYS_PRESCFILT_CH26_gc = (0x04<<4),  /* Enable prescaler filter for either channel 2 or 6 */
-    EVSYS_PRESCFILT_CH37_gc = (0x08<<4),  /* Enable prescaler filter for either channel 3 or 7 */
+    EVSYS_PRESCFILT_CH15_gc = (0x08<<4),  /* Enable prescaler filter for either channel 1 or 5 */
+    EVSYS_PRESCFILT_CH26_gc = (0x40<<4),  /* Enable prescaler filter for either channel 2 or 6 */
+    EVSYS_PRESCFILT_CH37_gc = (0x3E8<<4),  /* Enable prescaler filter for either channel 3 or 7 */
 } EVSYS_PRESCFILT_t;
 
 /* Prescaler */
@@ -1055,9 +1045,9 @@ typedef struct ADC_struct
 typedef enum ADC_CURRLIMIT_enum
 {
     ADC_CURRLIMIT_NO_gc = (0x00<<5),  /* No current limit,     300ksps max sampling rate */
-    ADC_CURRLIMIT_LOW_gc = (0x01<<5),  /* Low current limit,    250ksps max sampling rate */
+    ADC_CURRLIMIT_LOW_gc = (0x01<<5),  /* Low current limit,    225ksps max sampling rate */
     ADC_CURRLIMIT_MED_gc = (0x02<<5),  /* Medium current limit, 150ksps max sampling rate */
-    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),  /* High current limit,   50ksps max sampling rate */
+    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),  /* High current limit,   75ksps max sampling rate */
 } ADC_CURRLIMIT_t;
 
 /* Conversion result resolution */
@@ -1183,6 +1173,7 @@ typedef enum ADC_CH_MUXNEGH_enum
     ADC_CH_MUXNEGH_PIN5_gc = (0x01<<0),  /* Input pin 5 */
     ADC_CH_MUXNEGH_PIN6_gc = (0x02<<0),  /* Input pin 6 */
     ADC_CH_MUXNEGH_PIN7_gc = (0x03<<0),  /* Input pin 7 */
+    ADC_CH_MUXNEGH_INTGND_gc = (0x04<<0),  /* Internal ground */
     ADC_CH_MUXNEGH_GND_gc = (0x05<<0),  /* PAD ground */
 } ADC_CH_MUXNEGH_t;
 
@@ -1239,7 +1230,7 @@ typedef struct DAC_struct
     register8_t CTRLB;  /* Control Register B */
     register8_t CTRLC;  /* Control Register C */
     register8_t EVCTRL;  /* Event Input Control */
-    register8_t reserved_0x04;
+    register8_t TIMCTRL;  /* Timing Control */
     register8_t STATUS;  /* Status */
     register8_t reserved_0x06;
     register8_t reserved_0x07;
@@ -1292,6 +1283,38 @@ typedef enum DAC_EVSEL_enum
     DAC_EVSEL_6_gc = (0x06<<0),  /* Event Channel 6 */
     DAC_EVSEL_7_gc = (0x07<<0),  /* Event Channel 7 */
 } DAC_EVSEL_t;
+
+/* Conversion interval */
+typedef enum DAC_CONINTVAL_enum
+{
+    DAC_CONINTVAL_1CLK_gc = (0x00<<4),  /* 1 CLK / 2 CLK in S/H mode */
+    DAC_CONINTVAL_2CLK_gc = (0x01<<4),  /* 2 CLK / 3 CLK in S/H mode */
+    DAC_CONINTVAL_4CLK_gc = (0x02<<4),  /* 4 CLK / 6 CLK in S/H mode */
+    DAC_CONINTVAL_8CLK_gc = (0x03<<4),  /* 8 CLK / 12 CLK in S/H mode */
+    DAC_CONINTVAL_16CLK_gc = (0x04<<4),  /* 16 CLK / 24 CLK in S/H mode */
+    DAC_CONINTVAL_32CLK_gc = (0x05<<4),  /* 32 CLK / 48 CLK in S/H mode */
+    DAC_CONINTVAL_64CLK_gc = (0x06<<4),  /* 64 CLK / 96 CLK in S/H mode */
+    DAC_CONINTVAL_128CLK_gc = (0x07<<4),  /* 128 CLK / 192 CLK in S/H mode */
+} DAC_CONINTVAL_t;
+
+/* Refresh rate */
+typedef enum DAC_REFRESH_enum
+{
+    DAC_REFRESH_16CLK_gc = (0x00<<0),  /* 16 CLK */
+    DAC_REFRESH_32CLK_gc = (0x01<<0),  /* 32 CLK */
+    DAC_REFRESH_64CLK_gc = (0x02<<0),  /* 64 CLK */
+    DAC_REFRESH_128CLK_gc = (0x03<<0),  /* 128 CLK */
+    DAC_REFRESH_256CLK_gc = (0x04<<0),  /* 256 CLK */
+    DAC_REFRESH_512CLK_gc = (0x05<<0),  /* 512 CLK */
+    DAC_REFRESH_1024CLK_gc = (0x06<<0),  /* 1024 CLK */
+    DAC_REFRESH_2048CLK_gc = (0x07<<0),  /* 2048 CLK */
+    DAC_REFRESH_4096CLK_gc = (0x08<<0),  /* 4096 CLK */
+    DAC_REFRESH_8192CLK_gc = (0x09<<0),  /* 8192 CLK */
+    DAC_REFRESH_16384CLK_gc = (0x0A<<0),  /* 16384 CLK */
+    DAC_REFRESH_32768CLK_gc = (0x0B<<0),  /* 32768 CLK */
+    DAC_REFRESH_65536CLK_gc = (0x0C<<0),  /* 65536 CLK */
+    DAC_REFRESH_OFF_gc = (0x0F<<0),  /* Auto refresh OFF */
+} DAC_REFRESH_t;
 
 
 /*
@@ -1664,21 +1687,12 @@ typedef struct TWI_SLAVE_struct
 } TWI_SLAVE_t;
 
 
-/*  */
-typedef struct TWI_TIMEOUT_struct
-{
-    register8_t TOS;  /* Timeout Status Register */
-    register8_t TOCONF;  /* Timeout Configuration Register */
-} TWI_TIMEOUT_t;
-
-
 /* Two-Wire Interface */
 typedef struct TWI_struct
 {
     register8_t CTRL;  /* TWI Common Control Register */
     TWI_MASTER_t MASTER;  /* TWI master module */
     TWI_SLAVE_t SLAVE;  /* TWI slave module */
-    TWI_TIMEOUT_t TIMEOUT;  /* TWI SMBUS timeout module */
 } TWI_t;
 
 /* SDA Hold Time */
@@ -1742,41 +1756,6 @@ typedef enum TWI_SLAVE_CMD_enum
     TWI_SLAVE_CMD_COMPTRANS_gc = (0x02<<0),  /* Used To Complete a Transaction */
     TWI_SLAVE_CMD_RESPONSE_gc = (0x03<<0),  /* Used in Response to Address/Data Interrupt */
 } TWI_SLAVE_CMD_t;
-
-/* Master Timeout */
-typedef enum TWI_MASTER_TTIMEOUT_enum
-{
-    TWI_MASTER_TTIMEOUT_25MS_gc = (0x00<<0),  /* 25 Milliseconds */
-    TWI_MASTER_TTIMEOUT_24MS_gc = (0x01<<0),  /* 24 Milliseconds */
-    TWI_MASTER_TTIMEOUT_23MS_gc = (0x02<<0),  /* 23 Milliseconds */
-    TWI_MASTER_TTIMEOUT_22MS_gc = (0x03<<0),  /* 22 Milliseconds */
-    TWI_MASTER_TTIMEOUT_26MS_gc = (0x04<<0),  /* 26 Milliseconds */
-    TWI_MASTER_TTIMEOUT_27MS_gc = (0x05<<0),  /* 27 Milliseconds */
-    TWI_MASTER_TTIMEOUT_28MS_gc = (0x06<<0),  /* 28 Milliseconds */
-    TWI_MASTER_TTIMEOUT_29MS_gc = (0x07<<0),  /* 29 Milliseconds */
-} TWI_MASTER_TTIMEOUT_t;
-
-/* Slave Ttimeout */
-typedef enum TWI_SLAVE_TTIMEOUT_enum
-{
-    TWI_SLAVE_TTIMEOUT_25MS_gc = (0x00<<5),  /* 25 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_24MS_gc = (0x01<<5),  /* 24 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_23MS_gc = (0x02<<5),  /* 23 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_22MS_gc = (0x03<<5),  /* 22 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_26MS_gc = (0x04<<5),  /* 26 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_27MS_gc = (0x05<<5),  /* 27 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_28MS_gc = (0x06<<5),  /* 28 Milliseconds */
-    TWI_SLAVE_TTIMEOUT_29MS_gc = (0x07<<5),  /* 29 Milliseconds */
-} TWI_SLAVE_TTIMEOUT_t;
-
-/* Master/Slave Extend Timeout */
-typedef enum TWI_MASTER_TMSEXT_enum
-{
-    TWI_MASTER_TMSEXT_10MS25MS_gc = (0x00<<3),  /* Tmext 10ms Tsext 25ms */
-    TWI_MASTER_TMSEXT_9MS24MS_gc = (0x01<<3),  /* Tmext 9ms  Tsext 24ms */
-    TWI_MASTER_TMSEXT_11MS26MS_gc = (0x02<<3),  /* Tmext 11ms Tsext 26ms */
-    TWI_MASTER_TMSEXT_12MS27MS_gc = (0x03<<3),  /* Tmext 12ms Tsext 27ms */
-} TWI_MASTER_TMSEXT_t;
 
 
 /*
@@ -2400,7 +2379,7 @@ typedef enum HIRES_HRPLUS_enum
 {
     HIRES_HRPLUS_NONE_gc = (0x00<<2),  /* No Hi-Res Plus */
     HIRES_HRPLUS_HRP4_gc = (0x01<<2),  /* Hi-Res Plus enabled on Timer 4 */
-    HIRES_HRPLUS_HRP5_gc = (0x02<<2),  /* Hi-Res Plus enabled on Timer 5 */
+    HIRES_HRPLUS_HRP5_gc = (0x03<<2),  /* Hi-Res Plus enabled on Timer 5 */
     HIRES_HRPLUS_BOTH_gc = (0x03<<2),  /* Hi-Res Plus enabled on Timer 4 and 5 */
 } HIRES_HRPLUS_t;
 
@@ -2409,7 +2388,7 @@ typedef enum HIRES_HREN_enum
 {
     HIRES_HREN_NONE_gc = (0x00<<0),  /* No Hi-Res */
     HIRES_HREN_HRP4_gc = (0x01<<0),  /* Hi-Res enabled on Timer 4 */
-    HIRES_HREN_HRP5_gc = (0x02<<0),  /* Hi-Res enabled on Timer 5 */
+    HIRES_HREN_HRP5_gc = (0x03<<0),  /* Hi-Res enabled on Timer 5 */
     HIRES_HREN_BOTH_gc = (0x03<<0),  /* Hi-Res enabled on Timer 4 and 5 */
 } HIRES_HREN_t;
 
@@ -2770,8 +2749,8 @@ typedef struct NVM_PROD_SIGNATURES_struct
     register8_t reserved_0x29;
     register8_t reserved_0x2A;
     register8_t reserved_0x2B;
-    register8_t TEMPSENSE2;  /* Temperature Sensor Calibration Byte 2 */
-    register8_t TEMPSENSE3;  /* Temperature Sensor Calibration Byte 3 */
+    register8_t reserved_0x2C;
+    register8_t reserved_0x2D;
     register8_t TEMPSENSE0;  /* Temperature Sensor Calibration Byte 0 */
     register8_t TEMPSENSE1;  /* Temperature Sensor Calibration Byte 1 */
     register8_t DACA0OFFCAL;  /* DACA0 Calibration Byte 0 */
@@ -2886,8 +2865,6 @@ IO Module Instances. Mapped to memory.
 #define PRODSIGNATURES_ADCACAL0  _SFR_MEM8(0x0020)
 #define PRODSIGNATURES_ADCACAL1  _SFR_MEM8(0x0021)
 #define PRODSIGNATURES_ACACURRCAL  _SFR_MEM8(0x0028)
-#define PRODSIGNATURES_TEMPSENSE2  _SFR_MEM8(0x002C)
-#define PRODSIGNATURES_TEMPSENSE3  _SFR_MEM8(0x002D)
 #define PRODSIGNATURES_TEMPSENSE0  _SFR_MEM8(0x002E)
 #define PRODSIGNATURES_TEMPSENSE1  _SFR_MEM8(0x002F)
 #define PRODSIGNATURES_DACA0OFFCAL  _SFR_MEM8(0x0030)
@@ -3016,33 +2993,45 @@ IO Module Instances. Mapped to memory.
 #define EDMA_CH0_ADDRCTRL  _SFR_MEM8(0x0112)
 #define EDMA_CH0_DESTADDRCTRL  _SFR_MEM8(0x0113)
 #define EDMA_CH0_TRIGSRC  _SFR_MEM8(0x0114)
-#define EDMA_CH0_TRFCNT  _SFR_MEM16(0x0116)
-#define EDMA_CH0_ADDR  _SFR_MEM16(0x0118)
-#define EDMA_CH0_DESTADDR  _SFR_MEM16(0x011C)
+#define EDMA_CH0_TRFCNTL  _SFR_MEM8(0x0116)
+#define EDMA_CH0_TRFCNTH  _SFR_MEM8(0x0117)
+#define EDMA_CH0_ADDRL  _SFR_MEM8(0x0118)
+#define EDMA_CH0_ADDRH  _SFR_MEM8(0x0119)
+#define EDMA_CH0_DESTADDRL  _SFR_MEM8(0x011C)
+#define EDMA_CH0_DESTADDRH  _SFR_MEM8(0x011D)
 #define EDMA_CH1_CTRLA  _SFR_MEM8(0x0120)
 #define EDMA_CH1_CTRLB  _SFR_MEM8(0x0121)
 #define EDMA_CH1_ADDRCTRL  _SFR_MEM8(0x0122)
 #define EDMA_CH1_DESTADDRCTRL  _SFR_MEM8(0x0123)
 #define EDMA_CH1_TRIGSRC  _SFR_MEM8(0x0124)
-#define EDMA_CH1_TRFCNT  _SFR_MEM16(0x0126)
-#define EDMA_CH1_ADDR  _SFR_MEM16(0x0128)
-#define EDMA_CH1_DESTADDR  _SFR_MEM16(0x012C)
+#define EDMA_CH1_TRFCNTL  _SFR_MEM8(0x0126)
+#define EDMA_CH1_TRFCNTH  _SFR_MEM8(0x0127)
+#define EDMA_CH1_ADDRL  _SFR_MEM8(0x0128)
+#define EDMA_CH1_ADDRH  _SFR_MEM8(0x0129)
+#define EDMA_CH1_DESTADDRL  _SFR_MEM8(0x012C)
+#define EDMA_CH1_DESTADDRH  _SFR_MEM8(0x012D)
 #define EDMA_CH2_CTRLA  _SFR_MEM8(0x0130)
 #define EDMA_CH2_CTRLB  _SFR_MEM8(0x0131)
 #define EDMA_CH2_ADDRCTRL  _SFR_MEM8(0x0132)
 #define EDMA_CH2_DESTADDRCTRL  _SFR_MEM8(0x0133)
 #define EDMA_CH2_TRIGSRC  _SFR_MEM8(0x0134)
-#define EDMA_CH2_TRFCNT  _SFR_MEM16(0x0136)
-#define EDMA_CH2_ADDR  _SFR_MEM16(0x0138)
-#define EDMA_CH2_DESTADDR  _SFR_MEM16(0x013C)
+#define EDMA_CH2_TRFCNTL  _SFR_MEM8(0x0136)
+#define EDMA_CH2_TRFCNTH  _SFR_MEM8(0x0137)
+#define EDMA_CH2_ADDRL  _SFR_MEM8(0x0138)
+#define EDMA_CH2_ADDRH  _SFR_MEM8(0x0139)
+#define EDMA_CH2_DESTADDRL  _SFR_MEM8(0x013C)
+#define EDMA_CH2_DESTADDRH  _SFR_MEM8(0x013D)
 #define EDMA_CH3_CTRLA  _SFR_MEM8(0x0140)
 #define EDMA_CH3_CTRLB  _SFR_MEM8(0x0141)
 #define EDMA_CH3_ADDRCTRL  _SFR_MEM8(0x0142)
 #define EDMA_CH3_DESTADDRCTRL  _SFR_MEM8(0x0143)
 #define EDMA_CH3_TRIGSRC  _SFR_MEM8(0x0144)
-#define EDMA_CH3_TRFCNT  _SFR_MEM16(0x0146)
-#define EDMA_CH3_ADDR  _SFR_MEM16(0x0148)
-#define EDMA_CH3_DESTADDR  _SFR_MEM16(0x014C)
+#define EDMA_CH3_TRFCNTL  _SFR_MEM8(0x0146)
+#define EDMA_CH3_TRFCNTH  _SFR_MEM8(0x0147)
+#define EDMA_CH3_ADDRL  _SFR_MEM8(0x0148)
+#define EDMA_CH3_ADDRH  _SFR_MEM8(0x0149)
+#define EDMA_CH3_DESTADDRL  _SFR_MEM8(0x014C)
+#define EDMA_CH3_DESTADDRH  _SFR_MEM8(0x014D)
 
 /* EVSYS - Event System */
 #define EVSYS_CH0MUX  _SFR_MEM8(0x0180)
@@ -3109,6 +3098,7 @@ IO Module Instances. Mapped to memory.
 #define DACA_CTRLB  _SFR_MEM8(0x0301)
 #define DACA_CTRLC  _SFR_MEM8(0x0302)
 #define DACA_EVCTRL  _SFR_MEM8(0x0303)
+#define DACA_TIMCTRL  _SFR_MEM8(0x0304)
 #define DACA_STATUS  _SFR_MEM8(0x0305)
 #define DACA_CH0GAINCAL  _SFR_MEM8(0x0308)
 #define DACA_CH0OFFSETCAL  _SFR_MEM8(0x0309)
@@ -3173,8 +3163,6 @@ IO Module Instances. Mapped to memory.
 #define TWIC_SLAVE_ADDR  _SFR_MEM8(0x048B)
 #define TWIC_SLAVE_DATA  _SFR_MEM8(0x048C)
 #define TWIC_SLAVE_ADDRMASK  _SFR_MEM8(0x048D)
-#define TWIC_TIMEOUT_TOS  _SFR_MEM8(0x048E)
-#define TWIC_TIMEOUT_TOCONF  _SFR_MEM8(0x048F)
 
 /* PORT - I/O Ports */
 #define PORTA_DIR  _SFR_MEM8(0x0600)
@@ -3442,29 +3430,9 @@ IO Module Instances. Mapped to memory.
 #define VPORT_INT0IF_bp  0  /* Interrupt Pin 0 Flag bit position. */
 
 /* XOCD - On-Chip Debug System */
-/* OCD.OCDR0  bit masks and bit positions */
-#define OCD_OCDRD_gm  0xFF  /* OCDR Dirty group mask. */
-#define OCD_OCDRD_gp  0  /* OCDR Dirty group position. */
-#define OCD_OCDRD0_bm  (1<<0)  /* OCDR Dirty bit 0 mask. */
-#define OCD_OCDRD0_bp  0  /* OCDR Dirty bit 0 position. */
-#define OCD_OCDRD1_bm  (1<<1)  /* OCDR Dirty bit 1 mask. */
-#define OCD_OCDRD1_bp  1  /* OCDR Dirty bit 1 position. */
-#define OCD_OCDRD2_bm  (1<<2)  /* OCDR Dirty bit 2 mask. */
-#define OCD_OCDRD2_bp  2  /* OCDR Dirty bit 2 position. */
-#define OCD_OCDRD3_bm  (1<<3)  /* OCDR Dirty bit 3 mask. */
-#define OCD_OCDRD3_bp  3  /* OCDR Dirty bit 3 position. */
-#define OCD_OCDRD4_bm  (1<<4)  /* OCDR Dirty bit 4 mask. */
-#define OCD_OCDRD4_bp  4  /* OCDR Dirty bit 4 position. */
-#define OCD_OCDRD5_bm  (1<<5)  /* OCDR Dirty bit 5 mask. */
-#define OCD_OCDRD5_bp  5  /* OCDR Dirty bit 5 position. */
-#define OCD_OCDRD6_bm  (1<<6)  /* OCDR Dirty bit 6 mask. */
-#define OCD_OCDRD6_bp  6  /* OCDR Dirty bit 6 position. */
-#define OCD_OCDRD7_bm  (1<<7)  /* OCDR Dirty bit 7 mask. */
-#define OCD_OCDRD7_bp  7  /* OCDR Dirty bit 7 position. */
-
 /* OCD.OCDR1  bit masks and bit positions */
-/* OCD_OCDRD  Predefined. */
-/* OCD_OCDRD  Predefined. */
+#define OCD_OCDRD_bm  0x01  /* OCDR Dirty bit mask. */
+#define OCD_OCDRD_bp  0  /* OCDR Dirty bit position. */
 
 /* CPU - CPU */
 /* CPU.CCP  bit masks and bit positions */
@@ -3905,26 +3873,6 @@ IO Module Instances. Mapped to memory.
 
 #define PMIC_LOLVLEX_bm  0x01  /* Low Level Interrupt Executing bit mask. */
 #define PMIC_LOLVLEX_bp  0  /* Low Level Interrupt Executing bit position. */
-
-/* PMIC.INTPRI  bit masks and bit positions */
-#define PMIC_INTPRI_gm  0xFF  /* Interrupt Priority group mask. */
-#define PMIC_INTPRI_gp  0  /* Interrupt Priority group position. */
-#define PMIC_INTPRI0_bm  (1<<0)  /* Interrupt Priority bit 0 mask. */
-#define PMIC_INTPRI0_bp  0  /* Interrupt Priority bit 0 position. */
-#define PMIC_INTPRI1_bm  (1<<1)  /* Interrupt Priority bit 1 mask. */
-#define PMIC_INTPRI1_bp  1  /* Interrupt Priority bit 1 position. */
-#define PMIC_INTPRI2_bm  (1<<2)  /* Interrupt Priority bit 2 mask. */
-#define PMIC_INTPRI2_bp  2  /* Interrupt Priority bit 2 position. */
-#define PMIC_INTPRI3_bm  (1<<3)  /* Interrupt Priority bit 3 mask. */
-#define PMIC_INTPRI3_bp  3  /* Interrupt Priority bit 3 position. */
-#define PMIC_INTPRI4_bm  (1<<4)  /* Interrupt Priority bit 4 mask. */
-#define PMIC_INTPRI4_bp  4  /* Interrupt Priority bit 4 position. */
-#define PMIC_INTPRI5_bm  (1<<5)  /* Interrupt Priority bit 5 mask. */
-#define PMIC_INTPRI5_bp  5  /* Interrupt Priority bit 5 position. */
-#define PMIC_INTPRI6_bm  (1<<6)  /* Interrupt Priority bit 6 mask. */
-#define PMIC_INTPRI6_bp  6  /* Interrupt Priority bit 6 position. */
-#define PMIC_INTPRI7_bm  (1<<7)  /* Interrupt Priority bit 7 mask. */
-#define PMIC_INTPRI7_bp  7  /* Interrupt Priority bit 7 position. */
 
 /* PMIC.CTRL  bit masks and bit positions */
 #define PMIC_RREN_bm  0x80  /* Round-Robin Priority Enable bit mask. */
@@ -4738,6 +4686,27 @@ IO Module Instances. Mapped to memory.
 #define DAC_EVSEL2_bm  (1<<2)  /* Event Input Selection bit 2 mask. */
 #define DAC_EVSEL2_bp  2  /* Event Input Selection bit 2 position. */
 
+/* DAC.TIMCTRL  bit masks and bit positions */
+#define DAC_CONINTVAL_gm  0x70  /* Conversion Intercal group mask. */
+#define DAC_CONINTVAL_gp  4  /* Conversion Intercal group position. */
+#define DAC_CONINTVAL0_bm  (1<<4)  /* Conversion Intercal bit 0 mask. */
+#define DAC_CONINTVAL0_bp  4  /* Conversion Intercal bit 0 position. */
+#define DAC_CONINTVAL1_bm  (1<<5)  /* Conversion Intercal bit 1 mask. */
+#define DAC_CONINTVAL1_bp  5  /* Conversion Intercal bit 1 position. */
+#define DAC_CONINTVAL2_bm  (1<<6)  /* Conversion Intercal bit 2 mask. */
+#define DAC_CONINTVAL2_bp  6  /* Conversion Intercal bit 2 position. */
+
+#define DAC_REFRESH_gm  0x0F  /* Refresh Timing Control group mask. */
+#define DAC_REFRESH_gp  0  /* Refresh Timing Control group position. */
+#define DAC_REFRESH0_bm  (1<<0)  /* Refresh Timing Control bit 0 mask. */
+#define DAC_REFRESH0_bp  0  /* Refresh Timing Control bit 0 position. */
+#define DAC_REFRESH1_bm  (1<<1)  /* Refresh Timing Control bit 1 mask. */
+#define DAC_REFRESH1_bp  1  /* Refresh Timing Control bit 1 position. */
+#define DAC_REFRESH2_bm  (1<<2)  /* Refresh Timing Control bit 2 mask. */
+#define DAC_REFRESH2_bp  2  /* Refresh Timing Control bit 2 position. */
+#define DAC_REFRESH3_bm  (1<<3)  /* Refresh Timing Control bit 3 mask. */
+#define DAC_REFRESH3_bp  3  /* Refresh Timing Control bit 3 position. */
+
 /* DAC.STATUS  bit masks and bit positions */
 #define DAC_CH1DRE_bm  0x02  /* Channel 1 Data Register Empty bit mask. */
 #define DAC_CH1DRE_bp  1  /* Channel 1 Data Register Empty bit position. */
@@ -4883,12 +4852,6 @@ IO Module Instances. Mapped to memory.
 /* AC_MUXNEG  Predefined. */
 
 /* AC.CTRLA  bit masks and bit positions */
-#define AC_AC1INVEN_bm  0x08  /* Analog Comparator 1 Output Invert Enable bit mask. */
-#define AC_AC1INVEN_bp  3  /* Analog Comparator 1 Output Invert Enable bit position. */
-
-#define AC_AC0INVEN_bm  0x04  /* Analog Comparator 0 Output Invert Enable bit mask. */
-#define AC_AC0INVEN_bp  2  /* Analog Comparator 0 Output Invert Enable bit position. */
-
 #define AC_AC1OUT_bm  0x02  /* Analog Comparator 1 Output Enable bit mask. */
 #define AC_AC1OUT_bp  1  /* Analog Comparator 1 Output Enable bit position. */
 
@@ -4955,9 +4918,6 @@ IO Module Instances. Mapped to memory.
 /* AC.CURRCTRL  bit masks and bit positions */
 #define AC_CURREN_bm  0x80  /* Current Source Enable bit mask. */
 #define AC_CURREN_bp  7  /* Current Source Enable bit position. */
-
-#define AC_CURRMODE_bm  0x40  /* Current Mode bit mask. */
-#define AC_CURRMODE_bp  6  /* Current Mode bit position. */
 
 #define AC_AC1CURR_bm  0x02  /* Analog Comparator 1 current source output bit mask. */
 #define AC_AC1CURR_bp  1  /* Analog Comparator 1 current source output bit position. */
@@ -5093,12 +5053,6 @@ IO Module Instances. Mapped to memory.
 #define XCL_IN0SEL1_bp  1  /* Input Selection 0 bit 1 position. */
 
 /* XCL.CTRLC  bit masks and bit positions */
-#define XCL_EVASYSEL1_bm  0x80  /* Asynchronous Event Line Selection for LUT1 bit mask. */
-#define XCL_EVASYSEL1_bp  7  /* Asynchronous Event Line Selection for LUT1 bit position. */
-
-#define XCL_EVASYSEL0_bm  0x40  /* Asynchronous Event Line Selection for LUT0 bit mask. */
-#define XCL_EVASYSEL0_bp  6  /* Asynchronous Event Line Selection for LUT0 bit position. */
-
 #define XCL_DLYSEL_gm  0x30  /* Delay Selection group mask. */
 #define XCL_DLYSEL_gp  4  /* Delay Selection group position. */
 #define XCL_DLYSEL0_bm  (1<<4)  /* Delay Selection bit 0 mask. */
@@ -5734,18 +5688,6 @@ IO Module Instances. Mapped to memory.
 #define TWI_MASTER_SMEN_bm  0x01  /* Smart Mode Enable bit mask. */
 #define TWI_MASTER_SMEN_bp  0  /* Smart Mode Enable bit position. */
 
-#define TWI_MASTER_TTOUTEN_bm  0x10  /* Ttimeout Enable bit mask. */
-#define TWI_MASTER_TTOUTEN_bp  4  /* Ttimeout Enable bit position. */
-
-#define TWI_MASTER_TSEXTEN_bm  0x20  /* Slave Extend Timeout Enable bit mask. */
-#define TWI_MASTER_TSEXTEN_bp  5  /* Slave Extend Timeout Enable bit position. */
-
-#define TWI_MASTER_TMEXTEN_bm  0x40  /* Master Extend Timeout Enable bit mask. */
-#define TWI_MASTER_TMEXTEN_bp  6  /* Master Extend Timeout Enable bit position. */
-
-#define TWI_MASTER_TOIE_bm  0x80  /* Timeout Interrupt Enable bit mask. */
-#define TWI_MASTER_TOIE_bp  7  /* Timeout Interrupt Enable bit position. */
-
 /* TWI_MASTER.CTRLC  bit masks and bit positions */
 #define TWI_MASTER_ACKACT_bm  0x04  /* Acknowledge Action bit mask. */
 #define TWI_MASTER_ACKACT_bp  2  /* Acknowledge Action bit position. */
@@ -5820,12 +5762,6 @@ IO Module Instances. Mapped to memory.
 #define TWI_SLAVE_CMD1_bm  (1<<1)  /* Command bit 1 mask. */
 #define TWI_SLAVE_CMD1_bp  1  /* Command bit 1 position. */
 
-#define TWI_SLAVE_TTOUTEN_bm  0x10  /* Ttimeout Enable bit mask. */
-#define TWI_SLAVE_TTOUTEN_bp  4  /* Ttimeout Enable bit position. */
-
-#define TWI_SLAVE_TOIE_bm  0x80  /* Timeout Interrupt Enable bit mask. */
-#define TWI_SLAVE_TOIE_bp  7  /* Timeout Interrupt Enable bit position. */
-
 /* TWI_SLAVE.STATUS  bit masks and bit positions */
 #define TWI_SLAVE_DIF_bm  0x80  /* Data Interrupt Flag bit mask. */
 #define TWI_SLAVE_DIF_bp  7  /* Data Interrupt Flag bit position. */
@@ -5871,45 +5807,6 @@ IO Module Instances. Mapped to memory.
 
 #define TWI_SLAVE_ADDREN_bm  0x01  /* Address Enable bit mask. */
 #define TWI_SLAVE_ADDREN_bp  0  /* Address Enable bit position. */
-
-/* TWI_TIMEOUT.TOS  bit masks and bit positions */
-#define TWI_TIMEOUT_TTOUTMIF_bm  0x01  /* Master Ttimeout Interrupt Flag bit mask. */
-#define TWI_TIMEOUT_TTOUTMIF_bp  0  /* Master Ttimeout Interrupt Flag bit position. */
-
-#define TWI_TIMEOUT_TSEXTIF_bm  0x02  /* Slave Extend Interrupt Flag bit mask. */
-#define TWI_TIMEOUT_TSEXTIF_bp  1  /* Slave Extend Interrupt Flag bit position. */
-
-#define TWI_TIMEOUT_TMEXTIF_bm  0x04  /* Master Extend Interrupt Flag bit mask. */
-#define TWI_TIMEOUT_TMEXTIF_bp  2  /* Master Extend Interrupt Flag bit position. */
-
-#define TWI_TIMEOUT_TTOUTSIF_bm  0x10  /* Slave Ttimeout Interrupt Flag bit mask. */
-#define TWI_TIMEOUT_TTOUTSIF_bp  4  /* Slave Ttimeout Interrupt Flag bit position. */
-
-/* TWI_TIMEOUT.TOCONF  bit masks and bit positions */
-#define TWI_TIMEOUT_TTOUTMSEL_gm  0x07  /* Master Ttimeout Select group mask. */
-#define TWI_TIMEOUT_TTOUTMSEL_gp  0  /* Master Ttimeout Select group position. */
-#define TWI_TIMEOUT_TTOUTMSEL0_bm  (1<<0)  /* Master Ttimeout Select bit 0 mask. */
-#define TWI_TIMEOUT_TTOUTMSEL0_bp  0  /* Master Ttimeout Select bit 0 position. */
-#define TWI_TIMEOUT_TTOUTMSEL1_bm  (1<<1)  /* Master Ttimeout Select bit 1 mask. */
-#define TWI_TIMEOUT_TTOUTMSEL1_bp  1  /* Master Ttimeout Select bit 1 position. */
-#define TWI_TIMEOUT_TTOUTMSEL2_bm  (1<<2)  /* Master Ttimeout Select bit 2 mask. */
-#define TWI_TIMEOUT_TTOUTMSEL2_bp  2  /* Master Ttimeout Select bit 2 position. */
-
-#define TWI_TIMEOUT_TMSEXTSEL_gm  0x18  /* Master/Slave Timeout Select group mask. */
-#define TWI_TIMEOUT_TMSEXTSEL_gp  3  /* Master/Slave Timeout Select group position. */
-#define TWI_TIMEOUT_TMSEXTSEL0_bm  (1<<3)  /* Master/Slave Timeout Select bit 0 mask. */
-#define TWI_TIMEOUT_TMSEXTSEL0_bp  3  /* Master/Slave Timeout Select bit 0 position. */
-#define TWI_TIMEOUT_TMSEXTSEL1_bm  (1<<4)  /* Master/Slave Timeout Select bit 1 mask. */
-#define TWI_TIMEOUT_TMSEXTSEL1_bp  4  /* Master/Slave Timeout Select bit 1 position. */
-
-#define TWI_TIMEOUT_TTOUTSSEL_gm  0xE0  /* Slave Ttimeout Select group mask. */
-#define TWI_TIMEOUT_TTOUTSSEL_gp  5  /* Slave Ttimeout Select group position. */
-#define TWI_TIMEOUT_TTOUTSSEL0_bm  (1<<5)  /* Slave Ttimeout Select bit 0 mask. */
-#define TWI_TIMEOUT_TTOUTSSEL0_bp  5  /* Slave Ttimeout Select bit 0 position. */
-#define TWI_TIMEOUT_TTOUTSSEL1_bm  (1<<6)  /* Slave Ttimeout Select bit 1 mask. */
-#define TWI_TIMEOUT_TTOUTSSEL1_bp  6  /* Slave Ttimeout Select bit 1 position. */
-#define TWI_TIMEOUT_TTOUTSSEL2_bm  (1<<7)  /* Slave Ttimeout Select bit 2 mask. */
-#define TWI_TIMEOUT_TTOUTSSEL2_bp  7  /* Slave Ttimeout Select bit 2 position. */
 
 /* PORT - Port Configuration */
 /* PORT.INTCTRL  bit masks and bit positions */
@@ -6338,8 +6235,8 @@ IO Module Instances. Mapped to memory.
 #define TC4_LCCAINTLVL1_bp  1  /* Channel Low A Compare or Capture Interrupt Level bit 1 position. */
 
 /* TC4.CTRLGCLR  bit masks and bit positions */
-#define TC4_STOP_bm  0x20  /* Timer/Counter Stop bit mask. */
-#define TC4_STOP_bp  5  /* Timer/Counter Stop bit position. */
+#define TC4_STOP_bm  0x10  /* Timer/Counter Stop bit mask. */
+#define TC4_STOP_bp  4  /* Timer/Counter Stop bit position. */
 
 #define TC4_CMD_gm  0x0C  /* Command group mask. */
 #define TC4_CMD_gp  2  /* Command group position. */
@@ -6653,8 +6550,8 @@ IO Module Instances. Mapped to memory.
 #define TC5_LCCAINTLVL1_bp  1  /* Channel Low A Compare or Capture Interrupt Level bit 1 position. */
 
 /* TC5.CTRLGCLR  bit masks and bit positions */
-#define TC5_STOP_bm  0x20  /* Timer/Counter Stop bit mask. */
-#define TC5_STOP_bp  5  /* Timer/Counter Stop bit position. */
+#define TC5_STOP_bm  0x10  /* Timer/Counter Stop bit mask. */
+#define TC5_STOP_bp  4  /* Timer/Counter Stop bit position. */
 
 #define TC5_CMD_gm  0x0C  /* Command group mask. */
 #define TC5_CMD_gp  2  /* Command group position. */

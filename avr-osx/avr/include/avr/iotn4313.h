@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: iotn4313.h 2035 2009-11-02 02:44:17Z arcanum $ */
 
 /* avr/iotn4313.h - definitions for ATtiny4313 */
 

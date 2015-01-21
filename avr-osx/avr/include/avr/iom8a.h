@@ -181,6 +181,7 @@
 #define PORTD0  0
 
 #define PINC    _SFR_IO8(0x13)
+#define PINC7   7
 #define PINC6   6
 #define PINC5   5
 #define PINC4   4
@@ -190,6 +191,7 @@
 #define PINC0   0
 
 #define DDRC    _SFR_IO8(0x14)
+#define DDRC7   7
 #define DDRC6   6
 #define DDRC5   5
 #define DDRC4   4
@@ -199,6 +201,7 @@
 #define DDRC0   0
 
 #define PORTC   _SFR_IO8(0x15)
+#define PORTC7  7
 #define PORTC6  6
 #define PORTC5  5
 #define PORTC4  4

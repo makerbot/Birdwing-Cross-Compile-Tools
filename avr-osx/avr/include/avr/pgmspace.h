@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: pgmspace.h 2270 2011-12-29 08:42:00Z joerg_wunsch $ */
 
 /*
    pgmspace.h
@@ -408,7 +408,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                \
     uint16_t __addr16 = (uint16_t)(addr); \
     uint8_t __result;           \
-    __asm__ __volatile__        \
+    __asm__                     \
     (                           \
         "lpm" "\n\t"            \
         "mov %0, r0" "\n\t"     \
@@ -436,7 +436,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                \
     uint16_t __addr16 = (uint16_t)(addr); \
     uint8_t __result;           \
-    __asm__ __volatile__        \
+    __asm__                     \
     (                           \
         "lpm %0, Z" "\n\t"      \
         : "=r" (__result)       \
@@ -449,7 +449,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     uint16_t __result;                      \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm"           "\n\t"              \
         "mov %A0, r0"   "\n\t"              \
@@ -481,7 +481,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     uint16_t __result;                      \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm %A0, Z+"   "\n\t"              \
         "lpm %B0, Z"    "\n\t"              \
@@ -495,7 +495,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     uint32_t __result;                      \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm"           "\n\t"              \
         "mov %A0, r0"   "\n\t"              \
@@ -535,7 +535,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     uint32_t __result;                      \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm %A0, Z+"   "\n\t"              \
         "lpm %B0, Z+"   "\n\t"              \
@@ -551,7 +551,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     float __result;                         \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm"           "\n\t"              \
         "mov %A0, r0"   "\n\t"              \
@@ -591,7 +591,7 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 (__extension__({                            \
     uint16_t __addr16 = (uint16_t)(addr);   \
     float __result;                         \
-    __asm__ __volatile__                    \
+    __asm__                                 \
     (                                       \
         "lpm %A0, Z+"   "\n\t"              \
         "lpm %B0, Z+"   "\n\t"              \
@@ -663,15 +663,6 @@ Bug: avrtc-536
 #define pgm_read_float_near(address_short) \
     __LPM_float((uint16_t)(address_short))
 
-/** \ingroup avr_pgmspace
-    \def pgm_read_ptr_near(address_short)
-    Read a pointer from the program space with a 16-bit (near) address. 
-    \note The address is a byte address. 
-    The address is in the program space. */
-
-#define pgm_read_ptr_near(address_short) \
-    (void*)__LPM_word((uint16_t)(address_short))
-
 #if defined(RAMPZ) || defined(__DOXYGEN__)
 
 /* Only for devices with more than 64K of program memory.
@@ -684,7 +675,7 @@ Bug: avrtc-536
 (__extension__({                    \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint8_t __result;               \
-    __asm__ __volatile__            \
+    __asm__                         \
     (                               \
         "out %2, %C1" "\n\t"        \
         "mov r31, %B1" "\n\t"       \
@@ -703,7 +694,7 @@ Bug: avrtc-536
 (__extension__({                    \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint8_t __result;               \
-    __asm__ __volatile__            \
+    __asm__                         \
     (                               \
         "out %2, %C1" "\n\t"        \
         "movw r30, %1" "\n\t"       \
@@ -720,7 +711,7 @@ Bug: avrtc-536
 (__extension__({                    \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint8_t __result;               \
-    __asm__ __volatile__            \
+    __asm__                         \
     (                               \
         "in __tmp_reg__, %2" "\n\t" \
         "out %2, %C1" "\n\t"        \
@@ -739,7 +730,7 @@ Bug: avrtc-536
 (__extension__({                        \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint16_t __result;                  \
-    __asm__ __volatile__                \
+    __asm__                             \
     (                                   \
         "out %2, %C1"   "\n\t"          \
         "mov r31, %B1"  "\n\t"          \
@@ -764,7 +755,7 @@ Bug: avrtc-536
 (__extension__({                        \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint16_t __result;                  \
-    __asm__ __volatile__                \
+    __asm__                             \
     (                                   \
         "out %2, %C1"   "\n\t"          \
         "movw r30, %1"  "\n\t"          \
@@ -782,7 +773,7 @@ Bug: avrtc-536
 (__extension__({                        \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint16_t __result;                  \
-    __asm__ __volatile__                \
+    __asm__                             \
     (                                   \
         "in __tmp_reg__, %2" "\n\t"     \
         "out %2, %C1"   "\n\t"          \
@@ -802,7 +793,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint32_t __result;                    \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "out %2, %C1"          "\n\t"     \
         "mov r31, %B1"         "\n\t"     \
@@ -839,7 +830,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint32_t __result;                    \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "out %2, %C1"   "\n\t"            \
         "movw r30, %1"  "\n\t"            \
@@ -859,7 +850,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     uint32_t __result;                    \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "in __tmp_reg__, %2" "\n\t"       \
         "out %2, %C1"   "\n\t"            \
@@ -881,7 +872,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     float __result;                       \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "out %2, %C1"          "\n\t"     \
         "mov r31, %B1"         "\n\t"     \
@@ -918,7 +909,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     float __result;                       \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "out %2, %C1"   "\n\t"            \
         "movw r30, %1"  "\n\t"            \
@@ -938,7 +929,7 @@ Bug: avrtc-536
 (__extension__({                          \
     uint32_t __addr32 = (uint32_t)(addr); \
     float __result;                       \
-    __asm__ __volatile__                  \
+    __asm__                               \
     (                                     \
         "in __tmp_reg__, %2" "\n\t"       \
         "out %2, %C1"   "\n\t"            \
@@ -1025,15 +1016,6 @@ not interfere with data accesses.
 
 #define pgm_read_float_far(address_long) __ELPM_float((uint32_t)(address_long))
 
-/** \ingroup avr_pgmspace
-    \def pgm_read_ptr_far(address_long)
-    Read a pointer from the program space with a 32-bit (far) address. 
-
-    \note The address is a byte address.
-    The address is in the program space. */
-
-#define pgm_read_ptr_far(address_long) (void*)__ELPM_word((uint32_t)(address_long))
-
 #endif /* RAMPZ or __DOXYGEN__ */
 
 /** \ingroup avr_pgmspace
@@ -1071,15 +1053,6 @@ not interfere with data accesses.
     The address is in the program space. */
 
 #define pgm_read_float(address_short)   pgm_read_float_near(address_short)
-
-/** \ingroup avr_pgmspace
-    \def pgm_read_ptr(address_short)
-    Read a pointer from the program space with a 16-bit (near) address. 
-
-    \note The address is a byte address. 
-    The address is in the program space. */
-
-#define pgm_read_ptr(address_short)     pgm_read_ptr_near(address_short)
 
 /* pgm_get_far_address() macro
 

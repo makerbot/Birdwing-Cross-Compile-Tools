@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: version.h.in 870 2005-09-12 20:18:12Z joerg_wunsch $ */
 
 /** \defgroup avr_version <avr/version.h>: avr-libc version macros
     \code #include <avr/version.h> \endcode
@@ -55,7 +55,7 @@
 
 /** \ingroup avr_version
     String literal representation of the current library version. */
-#define __AVR_LIBC_VERSION_STRING__ "1.8.0svn"
+#define __AVR_LIBC_VERSION_STRING__ "1.8.0"
 
 /** \ingroup avr_version
     Numerical representation of the current library version.
@@ -69,11 +69,11 @@
 
 /** \ingroup avr_version
     String literal representation of the release date. */
-#define __AVR_LIBC_DATE_STRING__    "20111229"
+#define __AVR_LIBC_DATE_STRING__    "20111228"
 
 /** \ingroup avr_version
     Numerical representation of the release date. */
-#define __AVR_LIBC_DATE_            20111229UL
+#define __AVR_LIBC_DATE_            20111228UL
 
 /** \ingroup avr_version
     Library major version number. */

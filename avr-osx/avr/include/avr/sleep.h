@@ -30,7 +30,7 @@
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
    POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: sleep.h 2238 2011-05-09 16:44:33Z arcanum $ */
 
 #ifndef _AVR_SLEEP_H_
 #define _AVR_SLEEP_H_ 1
@@ -209,14 +209,9 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~_BV(SM)) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_ATA6616C__) \
-|| defined(__AVR_ATA6617C__) \
-|| defined(__AVR_ATA664251__) \
-|| defined(__AVR_ATtiny167__) \
+#elif defined(__AVR_ATtiny167__) \
 || defined(__AVR_ATtiny87__) \
-|| defined(__AVR_ATtiny441__) \
-|| defined(__AVR_ATtiny828__) \
-|| defined(__AVR_ATtiny841__)
+|| defined(__AVR_ATtiny828__)
 
     #define SLEEP_MODE_IDLE         0
     #define SLEEP_MODE_ADC          _BV(SM0)
@@ -264,33 +259,6 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1))) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_ATmega16HVA__) \
-|| defined(__AVR_ATmega8HVA__) 
-
-    #define SLEEP_MODE_IDLE         (0)
-    #define SLEEP_MODE_ADC          _BV(SM0)
-    #define SLEEP_MODE_PWR_SAVE     (_BV(SM0) | _BV(SM1))
-    #define SLEEP_MODE_PWR_OFF      _BV(SM2)
-
-
-    #define set_sleep_mode(mode) \
-    do { \
-        _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1) | _BV(SM2))) | (mode)); \
-    } while(0)
-
-#elif defined(__AVR_ATmega406__)
-
-    #define SLEEP_MODE_IDLE         (0)
-    #define SLEEP_MODE_ADC          _BV(SM0)
-    #define SLEEP_MODE_PWR_DOWN     _BV(SM1)
-    #define SLEEP_MODE_PWR_SAVE     (_BV(SM0) | _BV(SM1))
-    #define SLEEP_MODE_PWR_OFF      _BV(SM2)
-
-    #define set_sleep_mode(mode) \
-    do { \
-        _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1) | _BV(SM2))) | (mode)); \
-    } while(0)
-
 #elif defined(__AVR_ATtiny2313__) \
 || defined(__AVR_ATtiny2313A__) \
 || defined(__AVR_ATtiny4313__)
@@ -304,9 +272,7 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1))) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_AT94K__) \
-|| defined(__AVR_ATmega64HVE__) \
-|| defined(__AVR_ATmega64HVE2__)
+#elif defined(__AVR_AT94K__)
 
     #define SLEEP_MODE_IDLE         0
     #define SLEEP_MODE_PWR_DOWN     _BV(SM1)
@@ -340,15 +306,7 @@
 #elif defined(__AVR_AT90PWM216__) \
 || defined(__AVR_AT90PWM316__) \
 || defined(__AVR_AT90PWM161__) \
-|| defined(__AVR_AT90PWM81__) \
-|| defined(__AVR_AT90PWM1__) \
-|| defined(__AVR_AT90PWM2__) \
-|| defined(__AVR_AT90PWM2B__) \
-|| defined(__AVR_AT90PWM3__) \
-|| defined(__AVR_AT90PWM3B__) \
-|| defined(__AVR_ATmega32M1__) \
-|| defined(__AVR_ATmega16M1__) \
-|| defined(__AVR_ATmega64M1__) 
+|| defined(__AVR_AT90PWM81__)
 
     #define SLEEP_MODE_IDLE         0
     #define SLEEP_MODE_ADC          _BV(SM0)
@@ -360,11 +318,20 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1) | _BV(SM2))) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_AT90USB1286__) \
+#elif defined(__AVR_AT90CAN128__) \
+|| defined(__AVR_AT90CAN32__) \
+|| defined(__AVR_AT90CAN64__) \
+|| defined(__AVR_AT90PWM1__) \
+|| defined(__AVR_AT90PWM2__) \
+|| defined(__AVR_AT90PWM2B__) \
+|| defined(__AVR_AT90PWM3__) \
+|| defined(__AVR_AT90PWM3B__) \
+|| defined(__AVR_AT90USB162__) \
+|| defined(__AVR_AT90USB82__) \
+|| defined(__AVR_AT90USB1286__) \
 || defined(__AVR_AT90USB1287__) \
 || defined(__AVR_AT90USB646__) \
 || defined(__AVR_AT90USB647__) \
-|| defined(__AVR_ATA6614Q__) \
 || defined(__AVR_ATmega128__) \
 || defined(__AVR_ATmega128A__) \
 || defined(__AVR_ATmega1280__) \
@@ -373,33 +340,63 @@
 || defined(__AVR_ATmega1284P__) \
 || defined(__AVR_ATmega128RFA1__) \
 || defined(__AVR_ATmega128RFR2__) \
-|| defined(__AVR_ATmega1284RFR2__) \
 || defined(__AVR_ATmega16__) \
 || defined(__AVR_ATmega16A__) \
 || defined(__AVR_ATmega162__) \
 || defined(__AVR_ATmega164A__) \
 || defined(__AVR_ATmega164P__) \
 || defined(__AVR_ATmega164PA__) \
+|| defined(__AVR_ATmega165__) \
+|| defined(__AVR_ATmega165A__) \
+|| defined(__AVR_ATmega165P__) \
+|| defined(__AVR_ATmega165PA__) \
+|| defined(__AVR_ATmega168__) \
 || defined(__AVR_ATmega168A__) \
 || defined(__AVR_ATmega168P__) \
 || defined(__AVR_ATmega168PA__) \
+|| defined(__AVR_ATmega169__) \
+|| defined(__AVR_ATmega169A__) \
+|| defined(__AVR_ATmega169P__) \
+|| defined(__AVR_ATmega169PA__) \
+|| defined(__AVR_ATmega16HVA__) \
 || defined(__AVR_ATmega16HVA2__) \
+|| defined(__AVR_ATmega16M1__) \
+|| defined(__AVR_ATmega16U2__) \
 || defined(__AVR_ATmega16U4__) \
 || defined(__AVR_ATmega2560__) \
 || defined(__AVR_ATmega2561__) \
 || defined(__AVR_ATmega256RFR2__) \
-|| defined(__AVR_ATmega2564RFR2__) \
 || defined(__AVR_ATmega32__) \
 || defined(__AVR_ATmega32A__) \
 || defined(__AVR_ATmega323__) \
 || defined(__AVR_ATmega324A__) \
 || defined(__AVR_ATmega324P__) \
 || defined(__AVR_ATmega324PA__) \
+|| defined(__AVR_ATmega325__) \
+|| defined(__AVR_ATmega325A__) \
+|| defined(__AVR_ATmega325P__) \
+|| defined(__AVR_ATmega325PA__) \
+|| defined(__AVR_ATmega3250__) \
+|| defined(__AVR_ATmega3250A__) \
+|| defined(__AVR_ATmega3250P__) \
+|| defined(__AVR_ATmega3250PA__) \
 || defined(__AVR_ATmega328__) \
 || defined(__AVR_ATmega328P__) \
+|| defined(__AVR_ATmega329__) \
+|| defined(__AVR_ATmega329A__) \
+|| defined(__AVR_ATmega329P__) \
+|| defined(__AVR_ATmega329PA__) \
+|| defined(__AVR_ATmega3290__) \
+|| defined(__AVR_ATmega3290A__) \
+|| defined(__AVR_ATmega3290P__) \
+|| defined(__AVR_ATmega3290PA__) \
 || defined(__AVR_ATmega32C1__) \
+|| defined(__AVR_ATmega32M1__) \
+|| defined(__AVR_ATmega32U2__) \
 || defined(__AVR_ATmega32U4__) \
 || defined(__AVR_ATmega32U6__) \
+|| defined(__AVR_ATmega406__) \
+|| defined(__AVR_ATmega48__) \
 || defined(__AVR_ATmega48A__) \
 || defined(__AVR_ATmega48PA__) \
 || defined(__AVR_ATmega48P__) \
@@ -410,14 +407,32 @@
 || defined(__AVR_ATmega644A__) \
 || defined(__AVR_ATmega644P__) \
 || defined(__AVR_ATmega644PA__) \
+|| defined(__AVR_ATmega645__) \
+|| defined(__AVR_ATmega645A__) \
+|| defined(__AVR_ATmega645P__) \
+|| defined(__AVR_ATmega6450__) \
+|| defined(__AVR_ATmega6450A__) \
+|| defined(__AVR_ATmega6450P__) \
+|| defined(__AVR_ATmega649__) \
+|| defined(__AVR_ATmega649A__) \
+|| defined(__AVR_ATmega6490__) \
+|| defined(__AVR_ATmega6490A__) \
+|| defined(__AVR_ATmega6490P__) \
+|| defined(__AVR_ATmega649P__) \
 || defined(__AVR_ATmega64C1__) \
+|| defined(__AVR_ATmega64HVE__) \
+|| defined(__AVR_ATmega64M1__) \
 || defined(__AVR_ATmega64RFR2__) \
-|| defined(__AVR_ATmega644RFR2__) \
+|| defined(__AVR_ATmega8__) \
 || defined(__AVR_ATmega8515__) \
 || defined(__AVR_ATmega8535__) \
+|| defined(__AVR_ATmega88__) \
 || defined(__AVR_ATmega88A__) \
 || defined(__AVR_ATmega88P__) \
-|| defined(__AVR_ATmega88PA__) 
+|| defined(__AVR_ATmega88PA__) \
+|| defined(__AVR_ATmega8HVA__) \
+|| defined(__AVR_ATmega8U2__)
+
 
     #define SLEEP_MODE_IDLE         (0)
     #define SLEEP_MODE_ADC          _BV(SM0)
@@ -432,52 +447,7 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(_BV(SM0) | _BV(SM1) | _BV(SM2))) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_ATmega8A__) \
-|| defined(__AVR_ATmega8__) \
-|| defined(__AVR_ATmega6450A__) \
-|| defined(__AVR_ATmega6450P__) \
-|| defined(__AVR_ATmega645A__) \
-|| defined(__AVR_ATmega645P__) \
-|| defined(__AVR_ATmega3250A__) \
-|| defined(__AVR_ATmega3250PA__) \
-|| defined(__AVR_ATmega325A__) \
-|| defined(__AVR_ATmega325PA__) \
-|| defined(__AVR_ATmega165A__) \
-|| defined(__AVR_ATmega165P__) \
-|| defined(__AVR_ATmega165PA__) \
-|| defined(__AVR_ATmega169A__) \
-|| defined(__AVR_ATmega169P__) \
-|| defined(__AVR_ATmega169PA__) \
-|| defined(__AVR_ATmega329A__) \
-|| defined(__AVR_ATmega329PA__) \
-|| defined(__AVR_ATmega3290A__) \
-|| defined(__AVR_ATmega3290PA__) \
-|| defined(__AVR_ATmega649A__) \
-|| defined(__AVR_ATmega649P__) \
-|| defined(__AVR_ATmega6490A__) \
-|| defined(__AVR_ATmega6490P__) \
-|| defined(__AVR_ATmega165__) \
-|| defined(__AVR_ATmega169__) \
-|| defined(__AVR_ATmega48__) \
-|| defined(__AVR_ATmega88__) \
-|| defined(__AVR_ATmega168__) \
-|| defined(__AVR_ATmega325P__) \
-|| defined(__AVR_ATmega3250P__) \
-|| defined(__AVR_ATmega325__) \
-|| defined(__AVR_ATmega3250__) \
-|| defined(__AVR_ATmega645__) \
-|| defined(__AVR_ATmega6450__) \
-|| defined(__AVR_ATmega329__) \
-|| defined(__AVR_ATmega329P__) \
-|| defined(__AVR_ATmega3290__) \
-|| defined(__AVR_ATmega3290P__) \
-|| defined(__AVR_ATmega649__) \
-|| defined(__AVR_ATmega6490__) \
-|| defined(__AVR_AT90CAN128__) \
-|| defined(__AVR_AT90CAN32__) \
-|| defined(__AVR_AT90CAN64__) \
-|| defined(__AVR_ATA6612C__) \
-|| defined(__AVR_ATA6613C__) 
+#elif defined(__AVR_ATmega8A__)
 
     #define SLEEP_MODE_IDLE         (0)
     #define SLEEP_MODE_ADC          _BV(SM0)
@@ -497,9 +467,7 @@
 || defined(__AVR_ATxmega16D4__) \
 || defined(__AVR_ATxmega32A4__) \
 || defined(__AVR_ATxmega32A4U__) \
-|| defined(__AVR_ATxmega32C3__) \
 || defined(__AVR_ATxmega32C4__) \
-|| defined(__AVR_ATxmega32D3__) \
 || defined(__AVR_ATxmega32D4__) \
 || defined(__AVR_ATxmega8E5__) \
 || defined(__AVR_ATxmega16E5__) \
@@ -548,12 +516,7 @@
         _SLEEP_CONTROL_REG = ((_SLEEP_CONTROL_REG & ~(SLEEP_SMODE2_bm | SLEEP_SMODE1_bm | SLEEP_SMODE0_bm)) | (mode)); \
     } while(0)
 
-#elif defined(__AVR_AT90SCR100__) \
-|| defined(__AVR_ATmega8U2__) \
-|| defined(__AVR_ATmega16U2__) \
-|| defined(__AVR_ATmega32U2__) \
-|| defined(__AVR_AT90USB162__) \
-|| defined(__AVR_AT90USB82__) 
+#elif defined(__AVR_AT90SCR100__)
 
     #define SLEEP_MODE_IDLE         (0)
     #define SLEEP_MODE_PWR_DOWN     _BV(SM1)
@@ -580,9 +543,7 @@
     } while(0)
 
 #elif defined (__AVR_ATA5790__) \
-|| defined (__AVR_ATA5790N__) \
-|| defined (__AVR_ATA5795__) \
-|| defined (__AVR_ATA5831__)
+|| defined (__AVR_ATA5795__)
 
     #define SLEEP_MODE_IDLE           (0)
     #define SLEEP_MODE_EXT_PWR_SAVE   (_BV(SM0))

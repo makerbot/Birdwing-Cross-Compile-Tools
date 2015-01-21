@@ -439,6 +439,14 @@
 #define OCDR5   5
 #define OCDR6   6
 #define OCDR7   7
+#define OCDR7   7
+#define OCDR6   6
+#define OCDR5   5
+#define OCDR4   4
+#define OCDR3   3
+#define OCDR2   2
+#define OCDR1   1
+#define OCDR0   0
 
 /* Reserved [0x32] */
 
@@ -574,14 +582,6 @@
 #define ISC71   7
 
 #define PCMSK0  _SFR_MEM8(0x6B)
-#define PCINT0  0
-#define PCINT1  1
-#define PCINT2  2
-#define PCINT3  3
-#define PCINT4  4
-#define PCINT5  5
-#define PCINT6  6
-#define PCINT7  7
 
 #define PCMSK1  _SFR_MEM8(0x6C)
 #define PCINT8  0

@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: wdt.h 2211 2011-02-14 14:04:25Z aboyapati $ */
 
 /*
    avr/wdt.h - macros for AVR watchdog timer
@@ -138,9 +138,7 @@
 || defined(__AVR_ATxmega16D4__) \
 || defined(__AVR_ATxmega32A4__) \
 || defined(__AVR_ATxmega32A4U__) \
-|| defined(__AVR_ATxmega32C3__) \
 || defined(__AVR_ATxmega32C4__) \
-|| defined(__AVR_ATxmega32D3__) \
 || defined(__AVR_ATxmega32D4__) \
 || defined(__AVR_ATxmega8E5__) \
 || defined(__AVR_ATxmega16E5__) \
@@ -221,8 +219,8 @@ __asm__ __volatile__ ( \
 || defined(__AVR_ATmega1284__) \
 || defined(__AVR_ATmega1284P__) \
 || defined(__AVR_ATmega128RFA1__) \
+|| defined(__AVR_ATmega128RFA2__) \
 || defined(__AVR_ATmega128RFR2__) \
-|| defined(__AVR_ATmega1284RFR2__) \
 || defined(__AVR_ATmega164__) \
 || defined(__AVR_ATmega164A__) \
 || defined(__AVR_ATmega164P__) \
@@ -248,8 +246,8 @@ __asm__ __volatile__ ( \
 || defined(__AVR_ATmega16U4__) \
 || defined(__AVR_ATmega2560__) \
 || defined(__AVR_ATmega2561__) \
+|| defined(__AVR_ATmega256RFA2__) \
 || defined(__AVR_ATmega256RFR2__) \
-|| defined(__AVR_ATmega2564RFR2__) \
 || defined(__AVR_ATmega32A__) \
 || defined(__AVR_ATmega324__) \
 || defined(__AVR_ATmega324A__) \
@@ -286,8 +284,8 @@ __asm__ __volatile__ ( \
 || defined(__AVR_ATmega48PA__) \
 || defined(__AVR_ATmega48P__) \
 || defined(__AVR_ATmega64A__) \
+|| defined(__AVR_ATmega64RFA2__) \
 || defined(__AVR_ATmega64RFR2__) \
-|| defined(__AVR_ATmega644RFR2__) \
 || defined(__AVR_ATmega640__) \
 || defined(__AVR_ATmega644__) \
 || defined(__AVR_ATmega644A__) \
@@ -307,7 +305,6 @@ __asm__ __volatile__ ( \
 || defined(__AVR_ATmega649P__) \
 || defined(__AVR_ATmega64C1__) \
 || defined(__AVR_ATmega64HVE__) \
-|| defined(__AVR_ATmega64HVE2__) \
 || defined(__AVR_ATmega64M1__) \
 || defined(__AVR_ATmega8A__) \
 || defined(__AVR_ATmega88__) \
@@ -327,15 +324,7 @@ __asm__ __volatile__ ( \
 || defined(__AVR_ATA5272__) \
 || defined(__AVR_ATA5505__) \
 || defined(__AVR_ATA5790__) \
-|| defined(__AVR_ATA5790N__) \
-|| defined(__AVR_ATA5795__) \
-|| defined(__AVR_ATA5831__) \
-|| defined(__AVR_ATA6612C__) \
-|| defined(__AVR_ATA6613C__) \
-|| defined(__AVR_ATA6614Q__) \
-|| defined(__AVR_ATA6616C__) \
-|| defined(__AVR_ATA6617C__) \
-|| defined(__AVR_ATA664251__) 
+|| defined(__AVR_ATA5795__)
 
 /* Use STS instruction. */
  
@@ -367,51 +356,6 @@ __asm__ __volatile__ (  \
     "r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))) \
     : "r0" \
 )
-
-
-#elif defined(__AVR_ATtiny441__) \
-|| defined(__AVR_ATtiny841__)
-
-/* Use STS instruction. */
-
-#define wdt_enable(value) \
-__asm__ __volatile__ ( \
-    "in __tmp_reg__,__SREG__" "\n\t"  \
-    "cli" "\n\t"  \
-    "wdr" "\n\t"  \
-    "sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"  \
-    "out %[WDTREG],%[WDVALUE]" "\n\t"  \
-    "out __SREG__,__tmp_reg__" "\n\t"  \
-    : /* no outputs */  \
-    : [CCPADDRESS] "M" (_SFR_MEM_ADDR(CCP)),  \
-      [SIGNATURE] "r" ((uint8_t)0xD8), \
-      [WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
-      [WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00) \
-      | _BV(WDE) | (value & 0x07) )) \
-    : "r0" \
-)
-
-#define wdt_disable() \
-do { \
-uint8_t temp_wd; \
-__asm__ __volatile__ ( \
-    "in __tmp_reg__,__SREG__" "\n\t"  \
-    "cli" "\n\t"  \
-    "wdr" "\n\t"  \
-    "sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"  \
-    "in  %[TEMP_WD],%[WDTREG]" "\n\t" \
-    "cbr %[TEMP_WD],%[WDVALUE]" "\n\t" \
-    "out %[WDTREG],%[TEMP_WD]" "\n\t" \
-    "out __SREG__,__tmp_reg__" "\n\t" \
-    : /*no output */ \
-    : [CCPADDRESS] "M" (_SFR_MEM_ADDR(CCP)), \
-      [SIGNATURE] "r" ((uint8_t)0xD8), \
-      [WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
-      [TEMP_WD] "d" (temp_wd), \
-      [WDVALUE] "I" (1 << WDE) \
-    : "r0" \
-); \
-}while(0)
 
 #elif defined(__AVR_ATtiny1634__) \
 || defined(__AVR_ATtiny828__)
@@ -544,7 +488,6 @@ Undefining explicitly so that it produces an error.
 || defined(__AVR_M3000__) 
     #undef wdt_enable
     #undef wdt_disale    
-    
 #else  
 
 /* Use OUT instruction. */
@@ -654,8 +597,7 @@ __asm__ __volatile__ (  \
     ATmega640, ATmega1280, ATmega1281, ATmega2560, ATmega2561,
     ATmega8HVA, ATmega16HVA, ATmega32HVB,
     ATmega406, ATmega1284P,
-    ATmega256RFR2, ATmega128RFR2, ATmega64RFR2,
-    ATmega2564RFR2, ATmega1284RFR2, ATmega644RFR2,
+    ATmega256RFA2, ATmega256RFR2, ATmega128RFA2, ATmega128RFR2, ATmega64RFA2, ATmega64RFR2,
     AT90PWM1, AT90PWM2, AT90PWM2B, AT90PWM3, AT90PWM3B, AT90PWM216, AT90PWM316,
     AT90PWM81, AT90PWM161,
     AT90USB82, AT90USB162,
@@ -677,8 +619,7 @@ __asm__ __volatile__ (  \
     ATmega640, ATmega1280, ATmega1281, ATmega2560, ATmega2561,
     ATmega8HVA, ATmega16HVA, ATmega32HVB,
     ATmega406, ATmega1284P,
-    ATmega256RFR2, ATmega128RFR2, ATmega64RFR2,
-    ATmega2564RFR2, ATmega1284RFR2, ATmega644RFR2,
+    ATmega256RFA2, ATmega256RFR2, ATmega128RFA2, ATmega128RFR2, ATmega64RFA2, ATmega64RFR2,
     AT90PWM1, AT90PWM2, AT90PWM2B, AT90PWM3, AT90PWM3B, AT90PWM216, AT90PWM316,
     AT90PWM81, AT90PWM161,
     AT90USB82, AT90USB162,

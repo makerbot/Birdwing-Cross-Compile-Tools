@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: signature.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
 
 /* avr/signature.h - Signature API */
 
@@ -74,8 +74,7 @@
 
 #if defined(SIGNATURE_0) && defined(SIGNATURE_1) && defined(SIGNATURE_2)
 
-const unsigned char __signature[3]
-__attribute__((__used__, __section__(".signature"))) =
+const unsigned char __signature[3] __attribute__((section (".signature"))) =
         { SIGNATURE_2, SIGNATURE_1, SIGNATURE_0 };
 
 #endif  /* defined(SIGNATURE_0) && defined(SIGNATURE_1) && defined(SIGNATURE_2) */

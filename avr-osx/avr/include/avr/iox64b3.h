@@ -466,19 +466,6 @@ typedef struct PMIC_struct
     register8_t STATUS;  /* Status Register */
     register8_t INTPRI;  /* Interrupt Priority */
     register8_t CTRL;  /* Control Register */
-    register8_t reserved_0x03;
-    register8_t reserved_0x04;
-    register8_t reserved_0x05;
-    register8_t reserved_0x06;
-    register8_t reserved_0x07;
-    register8_t reserved_0x08;
-    register8_t reserved_0x09;
-    register8_t reserved_0x0A;
-    register8_t reserved_0x0B;
-    register8_t reserved_0x0C;
-    register8_t reserved_0x0D;
-    register8_t reserved_0x0E;
-    register8_t reserved_0x0F;
 } PMIC_t;
 
 
@@ -1100,15 +1087,6 @@ typedef struct ADC_struct
     ADC_CH_t CH0;  /* ADC Channel 0 */
 } ADC_t;
 
-/* Current Limitation */
-typedef enum ADC_CURRLIMIT_enum
-{
-    ADC_CURRLIMIT_NO_gc = (0x00<<5),  /* No current limit,     300ksps max sampling rate */
-    ADC_CURRLIMIT_LOW_gc = (0x01<<5),  /* Low current limit,    250ksps max sampling rate */
-    ADC_CURRLIMIT_MED_gc = (0x02<<5),  /* Medium current limit, 150ksps max sampling rate */
-    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),  /* High current limit,   50ksps max sampling rate */
-} ADC_CURRLIMIT_t;
-
 /* Positive input multiplexer selection */
 typedef enum ADC_CH_MUXPOS_enum
 {
@@ -1172,6 +1150,15 @@ typedef enum ADC_CH_GAIN_enum
     ADC_CH_GAIN_64X_gc = (0x06<<2),  /* 64x gain */
     ADC_CH_GAIN_DIV2_gc = (0x07<<2),  /* x/2 gain */
 } ADC_CH_GAIN_t;
+
+/* Conversion result resolution */
+typedef enum ADC_CURRENTLIMITS_enum
+{
+    ADC_CURRENTLIMITS_NO_gc = (0x00<<5),  /* No limit */
+    ADC_CURRENTLIMITS_LOW_gc = (0x01<<5),  /* Low current limit, max. sampling rate 225kSPS */
+    ADC_CURRENTLIMITS_MED_gc = (0x02<<5),  /* Medium current limit, max. sampling rate 150kSPS */
+    ADC_CURRENTLIMITS_HIGH_gc = (0x03<<5),  /* High current limit, max. sampling rate 75kSPS */
+} ADC_CURRENTLIMITS_t;
 
 /* Conversion result resolution */
 typedef enum ADC_RESOLUTION_enum
@@ -3143,29 +3130,9 @@ IO Module Instances. Mapped to memory.
 #define VPORT_INT0IF_bp  0  /* Port Interrupt 0 Flag bit position. */
 
 /* XOCD - On-Chip Debug System */
-/* OCD.OCDR0  bit masks and bit positions */
-#define OCD_OCDRD_gm  0xFF  /* OCDR Dirty group mask. */
-#define OCD_OCDRD_gp  0  /* OCDR Dirty group position. */
-#define OCD_OCDRD0_bm  (1<<0)  /* OCDR Dirty bit 0 mask. */
-#define OCD_OCDRD0_bp  0  /* OCDR Dirty bit 0 position. */
-#define OCD_OCDRD1_bm  (1<<1)  /* OCDR Dirty bit 1 mask. */
-#define OCD_OCDRD1_bp  1  /* OCDR Dirty bit 1 position. */
-#define OCD_OCDRD2_bm  (1<<2)  /* OCDR Dirty bit 2 mask. */
-#define OCD_OCDRD2_bp  2  /* OCDR Dirty bit 2 position. */
-#define OCD_OCDRD3_bm  (1<<3)  /* OCDR Dirty bit 3 mask. */
-#define OCD_OCDRD3_bp  3  /* OCDR Dirty bit 3 position. */
-#define OCD_OCDRD4_bm  (1<<4)  /* OCDR Dirty bit 4 mask. */
-#define OCD_OCDRD4_bp  4  /* OCDR Dirty bit 4 position. */
-#define OCD_OCDRD5_bm  (1<<5)  /* OCDR Dirty bit 5 mask. */
-#define OCD_OCDRD5_bp  5  /* OCDR Dirty bit 5 position. */
-#define OCD_OCDRD6_bm  (1<<6)  /* OCDR Dirty bit 6 mask. */
-#define OCD_OCDRD6_bp  6  /* OCDR Dirty bit 6 position. */
-#define OCD_OCDRD7_bm  (1<<7)  /* OCDR Dirty bit 7 mask. */
-#define OCD_OCDRD7_bp  7  /* OCDR Dirty bit 7 position. */
-
 /* OCD.OCDR1  bit masks and bit positions */
-/* OCD_OCDRD  Predefined. */
-/* OCD_OCDRD  Predefined. */
+#define OCD_OCDRD_bm  0x01  /* OCDR Dirty bit mask. */
+#define OCD_OCDRD_bp  0  /* OCDR Dirty bit position. */
 
 /* CPU - CPU */
 /* CPU.CCP  bit masks and bit positions */
@@ -3615,26 +3582,6 @@ IO Module Instances. Mapped to memory.
 
 #define PMIC_LOLVLEX_bm  0x01  /* Low Level Interrupt Executing bit mask. */
 #define PMIC_LOLVLEX_bp  0  /* Low Level Interrupt Executing bit position. */
-
-/* PMIC.INTPRI  bit masks and bit positions */
-#define PMIC_INTPRI_gm  0xFF  /* Interrupt Priority group mask. */
-#define PMIC_INTPRI_gp  0  /* Interrupt Priority group position. */
-#define PMIC_INTPRI0_bm  (1<<0)  /* Interrupt Priority bit 0 mask. */
-#define PMIC_INTPRI0_bp  0  /* Interrupt Priority bit 0 position. */
-#define PMIC_INTPRI1_bm  (1<<1)  /* Interrupt Priority bit 1 mask. */
-#define PMIC_INTPRI1_bp  1  /* Interrupt Priority bit 1 position. */
-#define PMIC_INTPRI2_bm  (1<<2)  /* Interrupt Priority bit 2 mask. */
-#define PMIC_INTPRI2_bp  2  /* Interrupt Priority bit 2 position. */
-#define PMIC_INTPRI3_bm  (1<<3)  /* Interrupt Priority bit 3 mask. */
-#define PMIC_INTPRI3_bp  3  /* Interrupt Priority bit 3 position. */
-#define PMIC_INTPRI4_bm  (1<<4)  /* Interrupt Priority bit 4 mask. */
-#define PMIC_INTPRI4_bp  4  /* Interrupt Priority bit 4 position. */
-#define PMIC_INTPRI5_bm  (1<<5)  /* Interrupt Priority bit 5 mask. */
-#define PMIC_INTPRI5_bp  5  /* Interrupt Priority bit 5 position. */
-#define PMIC_INTPRI6_bm  (1<<6)  /* Interrupt Priority bit 6 mask. */
-#define PMIC_INTPRI6_bp  6  /* Interrupt Priority bit 6 position. */
-#define PMIC_INTPRI7_bm  (1<<7)  /* Interrupt Priority bit 7 mask. */
-#define PMIC_INTPRI7_bp  7  /* Interrupt Priority bit 7 position. */
 
 /* PMIC.CTRL  bit masks and bit positions */
 #define PMIC_RREN_bm  0x80  /* Round-Robin Priority Enable bit mask. */

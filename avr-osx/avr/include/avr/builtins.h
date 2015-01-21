@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: builtins.h.in 2103 2010-03-17 05:16:10Z joerg_wunsch $ */
 
 /*
    avr/builtins.h - Intrinsic functions built into the compiler

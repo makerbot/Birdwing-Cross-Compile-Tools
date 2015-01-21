@@ -76,16 +76,13 @@ SECTIONS
     KEEP(*(.vectors))
     /* For data that needs to reside in the lower 64k of progmem.  */
     *(.progmem.gcc*)
-    /* PR 13812: Placing the trampolines here gives a better chance
-       that they will be in range of the code that uses them.  */
+    *(.progmem*)
     . = ALIGN(2);
      __trampolines_start = . ;
     /* The jump trampolines for the 16-bit limited relocs will reside here.  */
     *(.trampolines)
     *(.trampolines*)
      __trampolines_end = . ;
-    *(.progmem*)
-    . = ALIGN(2);
     /* For future tablejump instruction arrays for 3 byte pc devices.
        We don't relax jump/call instructions within these sections.  */
     *(.jumptables)

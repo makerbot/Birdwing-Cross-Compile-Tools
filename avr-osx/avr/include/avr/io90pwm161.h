@@ -153,16 +153,31 @@
 #define PORTD0  0
 
 #define PINE    _SFR_IO8(0x0C)
+#define PINE7   7
+#define PINE6   6
+#define PINE5   5
+#define PINE4   4
+#define PINE3   3
 #define PINE2   2
 #define PINE1   1
 #define PINE0   0
 
 #define DDRE    _SFR_IO8(0x0D)
+#define DDRE7   7
+#define DDRE6   6
+#define DDRE5   5
+#define DDRE4   4
+#define DDRE3   3
 #define DDRE2   2
 #define DDRE1   1
 #define DDRE0   0
 
 #define PORTE   _SFR_IO8(0x0E)
+#define PORTE7  7
+#define PORTE6  6
+#define PORTE5  5
+#define PORTE4  4
+#define PORTE3  3
 #define PORTE2  2
 #define PORTE1  1
 #define PORTE0  0
