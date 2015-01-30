@@ -2,7 +2,7 @@
 
     It has been auto-edited by fixincludes from:
 
-	"/home/jh/Makerbot/cross-linaro/arm-mb-linux-gnueabi/libc/usr/include/linux/a.out.h"
+	"/root/Makerbot/cross-linaro/arm-mb-linux-gnueabi/libc/usr/include/linux/a.out.h"
 
     This had to be done to correct non-standard usages in the
     original, manufacturer supplied header file.  */

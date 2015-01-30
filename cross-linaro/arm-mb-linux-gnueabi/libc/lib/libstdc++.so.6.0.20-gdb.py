@@ -19,8 +19,8 @@ import gdb
 import os
 import os.path
 
-pythondir = '/home/jh/Makerbot/cross-linaro/share/gcc-4.9.3/python'
-libdir = '/home/jh/Makerbot/cross-linaro/arm-mb-linux-gnueabi/lib'
+pythondir = '/root/Makerbot/cross-linaro/share/gcc-4.9.3/python'
+libdir = '/root/Makerbot/cross-linaro/arm-mb-linux-gnueabi/lib'
 
 # This file might be loaded when there is no current objfile.  This
 # can happen if the user loads it manually.  In this case we don't

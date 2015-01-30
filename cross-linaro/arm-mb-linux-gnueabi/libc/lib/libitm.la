@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/jh/Makerbot/cross-linaro/arm-mb-linux-gnueabi/lib'
+libdir='/root/Makerbot/cross-linaro/arm-mb-linux-gnueabi/lib'
