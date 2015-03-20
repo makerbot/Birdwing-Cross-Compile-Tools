@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io1200.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io1200.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io1200.h - definitions for AT90S1200 */
 
@@ -243,6 +243,7 @@
 
 #undef ZH
 
+#define RAMSTART    0x60
 /* Last memory addresses */
 #define RAMEND		0x1F
 #define XRAMEND		0x0

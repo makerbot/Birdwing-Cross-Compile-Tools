@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: ioa5272.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_ATA5272_H_INCLUDED
 #define _AVR_ATA5272_H_INCLUDED
@@ -296,6 +298,14 @@
 /* Reserved [0x65] */
 
 #define OSCCAL  _SFR_MEM8(0x66)
+#define OSCCAL0 0
+#define OSCCAL1 1
+#define OSCCAL2 2
+#define OSCCAL3 3
+#define OSCCAL4 4
+#define OSCCAL5 5
+#define OSCCAL6 6
+#define OSCCAL7 7
 
 /* Reserved [0x67] */
 
@@ -665,6 +675,10 @@
 #define EE_RDY_vect            _VECTOR(16)
 #define EE_RDY_vect_num        16
 
+/* USI Overflow */
+#define USI_OVF_vect            _VECTOR(19)
+#define USI_OVF_vect_num        19
+
 /* Analog Comparator */
 #define ANA_COMP_vect            _VECTOR(34)
 #define ANA_COMP_vect_num        34
@@ -673,11 +687,7 @@
 #define USI_START_vect            _VECTOR(36)
 #define USI_START_vect_num        36
 
-/* USI Overflow */
-#define USI_OVF_vect            _VECTOR(19)
-#define USI_OVF_vect_num        19
-
-#define _VECTORS_SIZE 40
+#define _VECTORS_SIZE 74
 
 
 /* Constants */

@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: iotn828.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_ATTINY828_H_INCLUDED
 #define _AVR_ATTINY828_H_INCLUDED
@@ -145,30 +147,18 @@
 #define PUEC    _SFR_IO8(0x0B)
 
 #define PIND    _SFR_IO8(0x0C)
-#define PIND7   7
-#define PIND6   6
-#define PIND5   5
-#define PIND4   4
 #define PIND3   3
 #define PIND2   2
 #define PIND1   1
 #define PIND0   0
 
 #define DDRD    _SFR_IO8(0x0D)
-#define DDRD7   7
-#define DDRD6   6
-#define DDRD5   5
-#define DDRD4   4
 #define DDRD3   3
 #define DDRD2   2
 #define DDRD1   1
 #define DDRD0   0
 
 #define PORTD   _SFR_IO8(0x0E)
-#define PORTD7  7
-#define PORTD6  6
-#define PORTD5  5
-#define PORTD4  4
 #define PORTD3  3
 #define PORTD2  2
 #define PORTD1  1

@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iom168p.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: iom168p.h 2445 2014-08-11 22:21:45Z joerg_wunsch $ */
 
 /* avr/iom168p.h - definitions for ATmega168P. */
 
@@ -339,10 +339,12 @@
 
 #define SPMCSR _SFR_IO8(0x37)
 #define SELFPRGEN 0
+#define SPMEN 0
 #define PGERS 1
 #define PGWRT 2
 #define BLBSET 3
 #define RWWSRE 4
+#define SIGRD 5
 #define RWWSB 6
 #define SPMIE 7
 

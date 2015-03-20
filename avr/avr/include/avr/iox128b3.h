@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: iox128b3.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_IO_H_
 #  error "Include <avr/io.h> instead of this file."
@@ -404,9 +406,9 @@ typedef enum WDT_PER_enum
     WDT_PER_16CLK_gc = (0x01<<2),  /* 16 cycles (16ms @ 3.3V) */
     WDT_PER_32CLK_gc = (0x02<<2),  /* 32 cycles (32ms @ 3.3V) */
     WDT_PER_64CLK_gc = (0x03<<2),  /* 64 cycles (64ms @ 3.3V) */
-    WDT_PER_125CLK_gc = (0x04<<2),  /* 125 cycles (0.125s @ 3.3V) */
-    WDT_PER_250CLK_gc = (0x05<<2),  /* 250 cycles (0.25s @ 3.3V) */
-    WDT_PER_500CLK_gc = (0x06<<2),  /* 500 cycles (0.5s @ 3.3V) */
+    WDT_PER_128CLK_gc = (0x04<<2),  /* 128 cycles (0.128s @ 3.3V) */
+    WDT_PER_256CLK_gc = (0x05<<2),  /* 256 cycles (0.256s @ 3.3V) */
+    WDT_PER_512CLK_gc = (0x06<<2),  /* 512 cycles (0.512s @ 3.3V) */
     WDT_PER_1KCLK_gc = (0x07<<2),  /* 1K cycles (1s @ 3.3V) */
     WDT_PER_2KCLK_gc = (0x08<<2),  /* 2K cycles (2s @ 3.3V) */
     WDT_PER_4KCLK_gc = (0x09<<2),  /* 4K cycles (4s @ 3.3V) */
@@ -420,9 +422,9 @@ typedef enum WDT_WPER_enum
     WDT_WPER_16CLK_gc = (0x01<<2),  /* 16 cycles (16ms @ 3.3V) */
     WDT_WPER_32CLK_gc = (0x02<<2),  /* 32 cycles (32ms @ 3.3V) */
     WDT_WPER_64CLK_gc = (0x03<<2),  /* 64 cycles (64ms @ 3.3V) */
-    WDT_WPER_125CLK_gc = (0x04<<2),  /* 125 cycles (0.125s @ 3.3V) */
-    WDT_WPER_250CLK_gc = (0x05<<2),  /* 250 cycles (0.25s @ 3.3V) */
-    WDT_WPER_500CLK_gc = (0x06<<2),  /* 500 cycles (0.5s @ 3.3V) */
+    WDT_WPER_128CLK_gc = (0x04<<2),  /* 128 cycles (0.128s @ 3.3V) */
+    WDT_WPER_256CLK_gc = (0x05<<2),  /* 256 cycles (0.256s @ 3.3V) */
+    WDT_WPER_512CLK_gc = (0x06<<2),  /* 512 cycles (0.512s @ 3.3V) */
     WDT_WPER_1KCLK_gc = (0x07<<2),  /* 1K cycles (1s @ 3.3V) */
     WDT_WPER_2KCLK_gc = (0x08<<2),  /* 2K cycles (2s @ 3.3V) */
     WDT_WPER_4KCLK_gc = (0x09<<2),  /* 4K cycles (4s @ 3.3V) */
@@ -466,6 +468,19 @@ typedef struct PMIC_struct
     register8_t STATUS;  /* Status Register */
     register8_t INTPRI;  /* Interrupt Priority */
     register8_t CTRL;  /* Control Register */
+    register8_t reserved_0x03;
+    register8_t reserved_0x04;
+    register8_t reserved_0x05;
+    register8_t reserved_0x06;
+    register8_t reserved_0x07;
+    register8_t reserved_0x08;
+    register8_t reserved_0x09;
+    register8_t reserved_0x0A;
+    register8_t reserved_0x0B;
+    register8_t reserved_0x0C;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
 } PMIC_t;
 
 
@@ -654,8 +669,7 @@ typedef struct DMA_struct
     register8_t INTFLAGS;  /* Transfer Interrupt Status */
     register8_t STATUS;  /* Status */
     register8_t reserved_0x05;
-    register8_t TEMP;  /* Temporary Register For 16-bit Access */
-    register8_t reserved_0x07;
+    _WORDREGISTER(TEMP);  /* Temporary Register For 16-bit Access */
     register8_t reserved_0x08;
     register8_t reserved_0x09;
     register8_t reserved_0x0A;
@@ -1087,6 +1101,15 @@ typedef struct ADC_struct
     ADC_CH_t CH0;  /* ADC Channel 0 */
 } ADC_t;
 
+/* Current Limitation */
+typedef enum ADC_CURRLIMIT_enum
+{
+    ADC_CURRLIMIT_NO_gc = (0x00<<5),  /* No current limit,     300ksps max sampling rate */
+    ADC_CURRLIMIT_LOW_gc = (0x01<<5),  /* Low current limit,    250ksps max sampling rate */
+    ADC_CURRLIMIT_MED_gc = (0x02<<5),  /* Medium current limit, 150ksps max sampling rate */
+    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),  /* High current limit,   50ksps max sampling rate */
+} ADC_CURRLIMIT_t;
+
 /* Positive input multiplexer selection */
 typedef enum ADC_CH_MUXPOS_enum
 {
@@ -1152,15 +1175,6 @@ typedef enum ADC_CH_GAIN_enum
 } ADC_CH_GAIN_t;
 
 /* Conversion result resolution */
-typedef enum ADC_CURRENTLIMITS_enum
-{
-    ADC_CURRENTLIMITS_NO_gc = (0x00<<5),  /* No limit */
-    ADC_CURRENTLIMITS_LOW_gc = (0x01<<5),  /* Low current limit, max. sampling rate 225kSPS */
-    ADC_CURRENTLIMITS_MED_gc = (0x02<<5),  /* Medium current limit, max. sampling rate 150kSPS */
-    ADC_CURRENTLIMITS_HIGH_gc = (0x03<<5),  /* High current limit, max. sampling rate 75kSPS */
-} ADC_CURRENTLIMITS_t;
-
-/* Conversion result resolution */
 typedef enum ADC_RESOLUTION_enum
 {
     ADC_RESOLUTION_12BIT_gc = (0x00<<1),  /* 12-bit right-adjusted result */
@@ -1172,10 +1186,10 @@ typedef enum ADC_RESOLUTION_enum
 typedef enum ADC_REFSEL_enum
 {
     ADC_REFSEL_INT1V_gc = (0x00<<4),  /* Internal 1V */
-    ADC_REFSEL_VCC_gc = (0x01<<4),  /* Internal VCC / 1.6 */
+    ADC_REFSEL_INTVCC_gc = (0x01<<4),  /* Internal VCC / 1.6 */
     ADC_REFSEL_AREFA_gc = (0x02<<4),  /* External reference on PORT A */
     ADC_REFSEL_AREFB_gc = (0x03<<4),  /* External reference on PORT B */
-    ADC_REFSEL_VCCDIV2_gc = (0x04<<4),  /* Internal VCC / 2 */
+    ADC_REFSEL_INTVCC2_gc = (0x04<<4),  /* Internal VCC / 2 */
 } ADC_REFSEL_t;
 
 /* Event channel input selection */
@@ -2734,7 +2748,7 @@ IO Module Instances. Mapped to memory.
 #define DMA_CTRL  _SFR_MEM8(0x0100)
 #define DMA_INTFLAGS  _SFR_MEM8(0x0103)
 #define DMA_STATUS  _SFR_MEM8(0x0104)
-#define DMA_TEMP  _SFR_MEM8(0x0106)
+#define DMA_TEMP  _SFR_MEM16(0x0106)
 #define DMA_CH0_CTRLA  _SFR_MEM8(0x0110)
 #define DMA_CH0_CTRLB  _SFR_MEM8(0x0111)
 #define DMA_CH0_ADDRCTRL  _SFR_MEM8(0x0112)
@@ -3130,9 +3144,29 @@ IO Module Instances. Mapped to memory.
 #define VPORT_INT0IF_bp  0  /* Port Interrupt 0 Flag bit position. */
 
 /* XOCD - On-Chip Debug System */
+/* OCD.OCDR0  bit masks and bit positions */
+#define OCD_OCDRD_gm  0xFF  /* OCDR Dirty group mask. */
+#define OCD_OCDRD_gp  0  /* OCDR Dirty group position. */
+#define OCD_OCDRD0_bm  (1<<0)  /* OCDR Dirty bit 0 mask. */
+#define OCD_OCDRD0_bp  0  /* OCDR Dirty bit 0 position. */
+#define OCD_OCDRD1_bm  (1<<1)  /* OCDR Dirty bit 1 mask. */
+#define OCD_OCDRD1_bp  1  /* OCDR Dirty bit 1 position. */
+#define OCD_OCDRD2_bm  (1<<2)  /* OCDR Dirty bit 2 mask. */
+#define OCD_OCDRD2_bp  2  /* OCDR Dirty bit 2 position. */
+#define OCD_OCDRD3_bm  (1<<3)  /* OCDR Dirty bit 3 mask. */
+#define OCD_OCDRD3_bp  3  /* OCDR Dirty bit 3 position. */
+#define OCD_OCDRD4_bm  (1<<4)  /* OCDR Dirty bit 4 mask. */
+#define OCD_OCDRD4_bp  4  /* OCDR Dirty bit 4 position. */
+#define OCD_OCDRD5_bm  (1<<5)  /* OCDR Dirty bit 5 mask. */
+#define OCD_OCDRD5_bp  5  /* OCDR Dirty bit 5 position. */
+#define OCD_OCDRD6_bm  (1<<6)  /* OCDR Dirty bit 6 mask. */
+#define OCD_OCDRD6_bp  6  /* OCDR Dirty bit 6 position. */
+#define OCD_OCDRD7_bm  (1<<7)  /* OCDR Dirty bit 7 mask. */
+#define OCD_OCDRD7_bp  7  /* OCDR Dirty bit 7 position. */
+
 /* OCD.OCDR1  bit masks and bit positions */
-#define OCD_OCDRD_bm  0x01  /* OCDR Dirty bit mask. */
-#define OCD_OCDRD_bp  0  /* OCDR Dirty bit position. */
+/* OCD_OCDRD  Predefined. */
+/* OCD_OCDRD  Predefined. */
 
 /* CPU - CPU */
 /* CPU.CCP  bit masks and bit positions */
@@ -3582,6 +3616,26 @@ IO Module Instances. Mapped to memory.
 
 #define PMIC_LOLVLEX_bm  0x01  /* Low Level Interrupt Executing bit mask. */
 #define PMIC_LOLVLEX_bp  0  /* Low Level Interrupt Executing bit position. */
+
+/* PMIC.INTPRI  bit masks and bit positions */
+#define PMIC_INTPRI_gm  0xFF  /* Interrupt Priority group mask. */
+#define PMIC_INTPRI_gp  0  /* Interrupt Priority group position. */
+#define PMIC_INTPRI0_bm  (1<<0)  /* Interrupt Priority bit 0 mask. */
+#define PMIC_INTPRI0_bp  0  /* Interrupt Priority bit 0 position. */
+#define PMIC_INTPRI1_bm  (1<<1)  /* Interrupt Priority bit 1 mask. */
+#define PMIC_INTPRI1_bp  1  /* Interrupt Priority bit 1 position. */
+#define PMIC_INTPRI2_bm  (1<<2)  /* Interrupt Priority bit 2 mask. */
+#define PMIC_INTPRI2_bp  2  /* Interrupt Priority bit 2 position. */
+#define PMIC_INTPRI3_bm  (1<<3)  /* Interrupt Priority bit 3 mask. */
+#define PMIC_INTPRI3_bp  3  /* Interrupt Priority bit 3 position. */
+#define PMIC_INTPRI4_bm  (1<<4)  /* Interrupt Priority bit 4 mask. */
+#define PMIC_INTPRI4_bp  4  /* Interrupt Priority bit 4 position. */
+#define PMIC_INTPRI5_bm  (1<<5)  /* Interrupt Priority bit 5 mask. */
+#define PMIC_INTPRI5_bp  5  /* Interrupt Priority bit 5 position. */
+#define PMIC_INTPRI6_bm  (1<<6)  /* Interrupt Priority bit 6 mask. */
+#define PMIC_INTPRI6_bp  6  /* Interrupt Priority bit 6 position. */
+#define PMIC_INTPRI7_bm  (1<<7)  /* Interrupt Priority bit 7 mask. */
+#define PMIC_INTPRI7_bp  7  /* Interrupt Priority bit 7 position. */
 
 /* PMIC.CTRL  bit masks and bit positions */
 #define PMIC_RREN_bm  0x80  /* Round-Robin Priority Enable bit mask. */

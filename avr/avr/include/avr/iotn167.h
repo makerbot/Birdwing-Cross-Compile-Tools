@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn167.h 2253 2011-09-26 14:53:41Z arcanum $ */
+/* $Id: iotn167.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iotn167.h - definitions for ATtiny167. */
 
@@ -114,7 +114,7 @@
 
 #define PORTCR _SFR_IO8(0x12)
 #define PUDA 0
-#define PUDB 2
+#define PUDB 1
 #define BBMA 4
 #define BBMB 5
 
@@ -813,7 +813,7 @@
 /* Constants */
 #define SPM_PAGESIZE (128)
 #define RAMSTART     (0x100)
-#define RAMSIZE      (0x1FF)
+#define RAMSIZE      (0x200)
 #define RAMEND       (RAMSTART + RAMSIZE - 1)  /* Last On-Chip SRAM Location */
 #define XRAMSIZE     (0)
 #define XRAMEND      RAMEND

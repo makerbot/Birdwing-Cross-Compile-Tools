@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,6 +32,8 @@
  ****************************************************************************/
 
 
+/* $Id: iotn1634.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
+
 #ifndef _AVR_ATTINY1634_H_INCLUDED
 #define _AVR_ATTINY1634_H_INCLUDED
 
@@ -62,6 +64,8 @@
 #define ADTS1   1
 #define ADTS2   2
 #define ADLAR   3
+#define VDPD    6
+#define VDEN    7
 
 #define ADCSRA  _SFR_IO8(0x03)
 #define ADPS0   0
@@ -78,11 +82,17 @@
 #define MUX1    1
 #define MUX2    2
 #define MUX3    3
+#define ADC0EN  4
+#define REFEN   5
 #define REFS0   6
 #define REFS1   7
 
 #define ACSRB   _SFR_IO8(0x05)
+#define ACIRS0  0
+#define ACIRS1  1
 #define ACME    2
+#define ACCE    3
+#define ACLP    5
 #define HLEV    6
 #define HSEL    7
 
@@ -97,8 +107,6 @@
 #define ACD     7
 
 #define PINC    _SFR_IO8(0x07)
-#define PINC7   7
-#define PINC6   6
 #define PINC5   5
 #define PINC4   4
 #define PINC3   3
@@ -107,8 +115,6 @@
 #define PINC0   0
 
 #define DDRC    _SFR_IO8(0x08)
-#define DDRC7   7
-#define DDRC6   6
 #define DDRC5   5
 #define DDRC4   4
 #define DDRC3   3
@@ -117,8 +123,6 @@
 #define DDRC0   0
 
 #define PORTC   _SFR_IO8(0x09)
-#define PORTC7  7
-#define PORTC6  6
 #define PORTC5  5
 #define PORTC4  4
 #define PORTC3  3
@@ -127,38 +131,36 @@
 #define PORTC0  0
 
 #define PUEC    _SFR_IO8(0x0A)
+#define PUEC0   0
+#define PUEC1   1
+#define PUEC2   2
+#define PUEC3   3
+#define PUEC4   4
+#define PUEC5   5
 
 #define PINB    _SFR_IO8(0x0B)
-#define PINB7   7
-#define PINB6   6
-#define PINB5   5
-#define PINB4   4
 #define PINB3   3
 #define PINB2   2
 #define PINB1   1
 #define PINB0   0
 
 #define DDRB    _SFR_IO8(0x0C)
-#define DDRB7   7
-#define DDRB6   6
-#define DDRB5   5
-#define DDRB4   4
 #define DDRB3   3
 #define DDRB2   2
 #define DDRB1   1
 #define DDRB0   0
 
 #define PORTB   _SFR_IO8(0x0D)
-#define PORTB7  7
-#define PORTB6  6
-#define PORTB5  5
-#define PORTB4  4
 #define PORTB3  3
 #define PORTB2  2
 #define PORTB1  1
 #define PORTB0  0
 
 #define PUEB    _SFR_IO8(0x0E)
+#define PUEB0   0
+#define PUEB1   1
+#define PUEB2   2
+#define PUEB3   3
 
 #define PINA    _SFR_IO8(0x0F)
 #define PINA7   7
@@ -191,6 +193,14 @@
 #define PORTA0  0
 
 #define PUEA    _SFR_IO8(0x12)
+#define PUEA0   0
+#define PUEA1   1
+#define PUEA2   2
+#define PUEA3   3
+#define PUEA4   4
+#define PUEA5   5
+#define PUEA6   6
+#define PUEA7   7
 
 #define PORTCR  _SFR_IO8(0x13)
 #define BBMB    1
@@ -235,9 +245,11 @@
 
 #define EEDR    _SFR_IO8(0x1D)
 
-#define EEAR    _SFR_IO8(0x1E)
+/* Combine EEARL and EEARH */
+#define EEAR    _SFR_IO16(0x1E)
 
-/* Reserved [0x1F] */
+#define EEARL   _SFR_IO8(0x1E)
+#define EEARH   _SFR_IO8(0x1F)
 
 #define UDR0    _SFR_IO8(0x20)
 
@@ -297,14 +309,14 @@
 #define PCINT9  1
 #define PCINT10 2
 #define PCINT11 3
+
+#define PCMSK2  _SFR_IO8(0x29)
 #define PCINT12 0
 #define PCINT13 1
 #define PCINT14 2
 #define PCINT15 3
 #define PCINT16 4
 #define PCINT17 5
-
-/* Reserved [0x29] */
 
 #define USICR   _SFR_IO8(0x2A)
 #define USITC   0
@@ -456,7 +468,9 @@
 
 #define OSCCAL1 _SFR_MEM8(0x66)
 
-/* Reserved [0x67] */
+#define GTCCR   _SFR_MEM8(0x67)
+#define PSR10   0
+#define TSM     7
 
 /* Combine ICR1L and ICR1H */
 #define ICR1    _SFR_MEM16(0x68)
@@ -569,6 +583,14 @@
 #define TWSA7   7
 
 #define TWSSRA  _SFR_MEM8(0x7D)
+#define TWAS    0
+#define TWDIR   1
+#define TWBE    2
+#define TWC     3
+#define TWRA    4
+#define TWCH    5
+#define TWASIF  6
+#define TWDIF   7
 
 #define TWSCRB  _SFR_MEM8(0x7E)
 #define TWCMD0  0
@@ -612,29 +634,57 @@
 #define TIMER1_CAPT_vect            _VECTOR(6)
 #define TIMER1_CAPT_vect_num        6
 
+/* Timer/Counter1 Capture Event */
+#define TIM1_CAPT_vect            _VECTOR(6)
+#define TIM1_CAPT_vect_num        6
+
 /* Timer/Counter1 Compare Match A */
 #define TIMER1_COMPA_vect            _VECTOR(7)
 #define TIMER1_COMPA_vect_num        7
+
+/* Timer/Counter1 Compare Match A */
+#define TIM1_COMPA_vect            _VECTOR(7)
+#define TIM1_COMPA_vect_num        7
 
 /* Timer/Counter1 Compare Match B */
 #define TIMER1_COMPB_vect            _VECTOR(8)
 #define TIMER1_COMPB_vect_num        8
 
+/* Timer/Counter1 Compare Match B */
+#define TIM1_COMPB_vect            _VECTOR(8)
+#define TIM1_COMPB_vect_num        8
+
 /* Timer/Counter1 Overflow */
 #define TIMER1_OVF_vect            _VECTOR(9)
 #define TIMER1_OVF_vect_num        9
+
+/* Timer/Counter1 Overflow */
+#define TIM1_OVF_vect            _VECTOR(9)
+#define TIM1_OVF_vect_num        9
 
 /* TimerCounter0 Compare Match A */
 #define TIMER0_COMPA_vect            _VECTOR(10)
 #define TIMER0_COMPA_vect_num        10
 
+/* TimerCounter0 Compare Match A */
+#define TIM0_COMPA_vect            _VECTOR(10)
+#define TIM0_COMPA_vect_num        10
+
 /* TimerCounter0 Compare Match B */
 #define TIMER0_COMPB_vect            _VECTOR(11)
 #define TIMER0_COMPB_vect_num        11
 
+/* TimerCounter0 Compare Match B */
+#define TIM0_COMPB_vect            _VECTOR(11)
+#define TIM0_COMPB_vect_num        11
+
 /* Timer/Couner0 Overflow */
 #define TIMER0_OVF_vect            _VECTOR(12)
 #define TIMER0_OVF_vect_num        12
+
+/* Timer/Couner0 Overflow */
+#define TIM0_OVF_vect            _VECTOR(12)
+#define TIM0_OVF_vect_num        12
 
 /* Analog Comparator */
 #define ANA_COMP_vect            _VECTOR(13)
@@ -644,49 +694,97 @@
 #define ADC_vect            _VECTOR(14)
 #define ADC_vect_num        14
 
+/* ADC Conversion Complete */
+#define ADC_READY_vect            _VECTOR(14)
+#define ADC_READY_vect_num        14
+
 /* USART0, Start */
 #define USART0_START_vect            _VECTOR(15)
 #define USART0_START_vect_num        15
+
+/* USART0, Start */
+#define USART0_RXS_vect            _VECTOR(15)
+#define USART0_RXS_vect_num        15
 
 /* USART0, Rx Complete */
 #define USART0_RX_vect            _VECTOR(16)
 #define USART0_RX_vect_num        16
 
+/* USART0, Rx Complete */
+#define USART0_RXC_vect            _VECTOR(16)
+#define USART0_RXC_vect_num        16
+
 /* USART0 Data Register Empty */
 #define USART0_UDRE_vect            _VECTOR(17)
 #define USART0_UDRE_vect_num        17
+
+/* USART0 Data Register Empty */
+#define USART0_DRE_vect            _VECTOR(17)
+#define USART0_DRE_vect_num        17
 
 /* USART0, Tx Complete */
 #define USART0_TX_vect            _VECTOR(18)
 #define USART0_TX_vect_num        18
 
+/* USART0, Tx Complete */
+#define USART0_TXC_vect            _VECTOR(18)
+#define USART0_TXC_vect_num        18
+
 /* USART1, Start */
 #define USART1_START_vect            _VECTOR(19)
 #define USART1_START_vect_num        19
+
+/* USART1, Start */
+#define USART1_RXS_vect            _VECTOR(19)
+#define USART1_RXS_vect_num        19
 
 /* USART1, Rx Complete */
 #define USART1_RX_vect            _VECTOR(20)
 #define USART1_RX_vect_num        20
 
+/* USART1, Rx Complete */
+#define USART1_RXC_vect            _VECTOR(20)
+#define USART1_RXC_vect_num        20
+
 /* USART1 Data Register Empty */
 #define USART1_UDRE_vect            _VECTOR(21)
 #define USART1_UDRE_vect_num        21
+
+/* USART1 Data Register Empty */
+#define USART1_DRE_vect            _VECTOR(21)
+#define USART1_DRE_vect_num        21
 
 /* USART1, Tx Complete */
 #define USART1_TX_vect            _VECTOR(22)
 #define USART1_TX_vect_num        22
 
+/* USART1, Tx Complete */
+#define USART1_TXC_vect            _VECTOR(22)
+#define USART1_TXC_vect_num        22
+
 /* USI Start Condition */
 #define USI_START_vect            _VECTOR(23)
 #define USI_START_vect_num        23
+
+/* USI Start Condition */
+#define USI_STR_vect            _VECTOR(23)
+#define USI_STR_vect_num        23
 
 /* USI Overflow */
 #define USI_OVERFLOW_vect            _VECTOR(24)
 #define USI_OVERFLOW_vect_num        24
 
+/* USI Overflow */
+#define USI_OVF_vect            _VECTOR(24)
+#define USI_OVF_vect_num        24
+
 /* Two-wire Serial Interface */
 #define TWI_SLAVE_vect            _VECTOR(25)
 #define TWI_SLAVE_vect_num        25
+
+/* Two-wire Serial Interface */
+#define TWI_vect            _VECTOR(25)
+#define TWI_vect_num        25
 
 /* EEPROM Ready */
 #define EE_RDY_vect            _VECTOR(26)

@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io4414.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io4414.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io4414.h - definitions for AT90S4414 */
 
@@ -468,6 +468,7 @@
 #define    EERE         0
 
 /* Constants        */
+#define RAMSTART     0x60
 #define RAMEND       0x15F    /* Last On-Chip SRAM Location */
 #define XRAMEND      0xFFFF
 #define E2END        0xFF
