@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: iotn20.h 2435 2014-08-11 10:31:52Z joerg_wunsch $ */
 
 /* avr/iotn20.h - definitions for ATtiny20 */
 

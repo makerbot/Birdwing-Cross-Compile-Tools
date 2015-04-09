@@ -32,7 +32,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: math.h 2264 2011-12-25 01:16:55Z dmix $ */
+/* $Id: math.h 2428 2014-05-01 14:13:18Z amylaar $ */
 
 /*
    math.h - mathematical functions
@@ -175,7 +175,7 @@ extern float modff (float __x, float *__iptr);
     The sqrt() function returns the non-negative square root of \a __x.
  */
 extern double sqrt(double __x) __ATTR_CONST__;
-#define sqrtf	sqrt		/**< The alias for sqrt().	*/
+extern float sqrtf (float) __ATTR_CONST__;
 
 /**
     The cbrt() function returns the cube root of \a __x.

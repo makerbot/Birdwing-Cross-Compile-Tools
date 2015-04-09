@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: setbaud.h 2134 2010-06-08 11:19:48Z joerg_wunsch $ */
+/* $Id: setbaud.h 2424 2014-04-29 13:08:15Z pitchumani $ */
 
 /**
    \file
@@ -174,7 +174,7 @@
    \def USE_2X
    \ingroup util_setbaud
 
-   Output bacro from <util/setbaud.h>
+   Output macro from <util/setbaud.h>
 
    Contains the value 1 if the desired baud rate tolerance could only
    be achieved by setting the U2X bit in the UART configuration.
@@ -230,6 +230,11 @@
 #endif /* USE_U2X */
 
 #ifdef UBRR_VALUE
+   /* Check for overflow */
+#  if UBRR_VALUE >= (1 << 12)
+#    warning "UBRR value overflow"
+#  endif
+
 #  define UBRRL_VALUE (UBRR_VALUE & 0xff)
 #  define UBRRH_VALUE (UBRR_VALUE >> 8)
 #endif

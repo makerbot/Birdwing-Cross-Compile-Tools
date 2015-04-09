@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn88.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: iotn88.h 2408 2014-03-18 08:56:20Z pitchumani $ */
 
 /* avr/iotn88.h - definitions for ATtiny88 */
 
@@ -749,7 +749,7 @@
 #define E2END        0x3F
 #define E2PAGESIZE   4
 #define FLASHEND     0x1FFF
-#define SPM_PAGESIZE 32
+#define SPM_PAGESIZE 64
 
 
 /* Fuse Information */

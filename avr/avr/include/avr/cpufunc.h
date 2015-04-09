@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: cpufunc.h 2158 2010-06-10 15:48:28Z joerg_wunsch $ */
+/* $Id: cpufunc.h 2307 2013-01-26 22:39:58Z dmix $ */
 
 /* avr/cpufunc.h - Special CPU functions */
 
@@ -77,7 +77,7 @@
 */
 #define _MemoryBarrier()
 #else  /* real code */
-#define _MemoryBarrier() __asm__ __volatile__(:::"memory")
+#define _MemoryBarrier() __asm__ __volatile__("":::"memory")
 #endif  /* __DOXYGEN__ */
 
 #endif /* _AVR_CPUFUNC_H_ */

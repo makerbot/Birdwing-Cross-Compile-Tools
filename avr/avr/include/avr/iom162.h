@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom162.h 2230 2011-03-06 02:42:04Z arcanum $ */
+/* $Id: iom162.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* iom162.h - definitions for ATmega162 */
 
@@ -923,6 +923,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 128
+#define RAMSTART    0x100
 #define RAMEND		0x4FF
 #define XRAMEND		0xFFFF
 #define E2END		0x1FF

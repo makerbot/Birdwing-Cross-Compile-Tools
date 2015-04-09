@@ -31,6 +31,8 @@
 
 /* avr/iom649.h - definitions for ATmega649 */
 
+/* $Id: iom649.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
+
 #ifndef _AVR_IOM649_H_
 #define _AVR_IOM649_H_ 1
 
@@ -960,6 +962,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
+#define RAMSTART     0x100
 #define RAMEND       0x10FF
 #define XRAMEND      RAMEND
 #define E2END        0x7FF

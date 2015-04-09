@@ -1,13 +1,17 @@
 /* Script for ld -Ur: link w/out relocation, do create constructors */
+/* Copyright (C) 2014 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
 OUTPUT_FORMAT("elf32-avr","elf32-avr","elf32-avr")
-OUTPUT_ARCH(avr:90)
+OUTPUT_ARCH(avr:100)
 MEMORY
 {
   text   (rx)   : ORIGIN = 0x0, LENGTH = 4K
   data   (rw!x) : ORIGIN = 0x0800040, LENGTH = 0x100
   /* Provide offsets for config, lock and signature to match
      production file format. Ignore offsets in datasheet.  */
-  config(rw!x)     : ORIGIN = 0x820000, LENGTH = 2
+  config    (rw!x) : ORIGIN = 0x820000, LENGTH = 2
   lock      (rw!x) : ORIGIN = 0x830000, LENGTH = 2
   signature (rw!x) : ORIGIN = 0x840000, LENGTH = 4
 }

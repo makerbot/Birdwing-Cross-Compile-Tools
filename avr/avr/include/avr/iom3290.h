@@ -31,6 +31,8 @@
 
 /* avr/iom3290.h - definitions for ATmega3290 and ATmega3290P.  */
 
+/* $Id: iom3290.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
+
 #ifndef _AVR_IOM3290_H_
 #define _AVR_IOM3290_H_ 1
 
@@ -1125,6 +1127,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE    128
+#define RAMSTART        0x100
 #define RAMEND          0x8FF
 #define XRAMEND         RAMEND
 #define E2END           0x3FF

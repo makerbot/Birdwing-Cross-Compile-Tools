@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom165p.h 2231 2011-03-07 05:06:55Z arcanum $ */
+/* $Id: iom165p.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iom165p.h - definitions for ATmega165P */
 
@@ -789,6 +789,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE    128
+#define RAMSTART        0x100
 #define RAMEND          0x4FF
 #define XRAMEND         RAMEND
 #define E2END           0x1FF

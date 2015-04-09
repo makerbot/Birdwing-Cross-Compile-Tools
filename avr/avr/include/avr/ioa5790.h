@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: ioa5790.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_ATA5790_H_INCLUDED
 #define _AVR_ATA5790_H_INCLUDED

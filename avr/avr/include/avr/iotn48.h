@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn48.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: iotn48.h 2408 2014-03-18 08:56:20Z pitchumani $ */
 
 /* avr/iotn48.h - definitions for ATtiny48 */
 
@@ -742,7 +742,7 @@
 
 
 /* Constants */
-#define SPM_PAGESIZE 32
+#define SPM_PAGESIZE 64
 #define RAMSTART     (0x100)
 #define RAMEND       0x1FF
 #define XRAMSIZE     0
