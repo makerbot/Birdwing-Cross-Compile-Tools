@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: io90pwm161.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_AT90PWM161_H_INCLUDED
 #define _AVR_AT90PWM161_H_INCLUDED
@@ -153,31 +155,16 @@
 #define PORTD0  0
 
 #define PINE    _SFR_IO8(0x0C)
-#define PINE7   7
-#define PINE6   6
-#define PINE5   5
-#define PINE4   4
-#define PINE3   3
 #define PINE2   2
 #define PINE1   1
 #define PINE0   0
 
 #define DDRE    _SFR_IO8(0x0D)
-#define DDRE7   7
-#define DDRE6   6
-#define DDRE5   5
-#define DDRE4   4
-#define DDRE3   3
 #define DDRE2   2
 #define DDRE1   1
 #define DDRE0   0
 
 #define PORTE   _SFR_IO8(0x0E)
-#define PORTE7  7
-#define PORTE6  6
-#define PORTE5  5
-#define PORTE4  4
-#define PORTE3  3
 #define PORTE2  2
 #define PORTE1  1
 #define PORTE0  0
@@ -692,6 +679,14 @@
 #define PLLF3   5
 
 #define OSCCAL  _SFR_MEM8(0x88)
+#define OSCCAL0 0
+#define OSCCAL1 1
+#define OSCCAL2 2
+#define OSCCAL3 3
+#define OSCCAL4 4
+#define OSCCAL5 5
+#define OSCCAL6 6
+#define OSCCAL7 7
 
 #define EICRA   _SFR_MEM8(0x89)
 #define ISC00   0

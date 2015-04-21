@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io8535.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io8535.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io8535.h - definitions for AT90S8535 */
 
@@ -555,6 +555,7 @@
 #define    EERE     0
 
 /* Constants */
+#define RAMSTART   0x60
 #define RAMEND     0x25F    /*Last On-Chip SRAM location*/
 #define XRAMEND    RAMEND
 #define E2END      0x1FF

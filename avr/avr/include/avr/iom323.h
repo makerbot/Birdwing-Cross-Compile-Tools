@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom323.h 2234 2011-03-16 04:32:21Z arcanum $ */
+/* $Id: iom323.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iom323.h - definitions for ATmega323 */
 
@@ -662,6 +662,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 128
+#define RAMSTART    0x60
 #define RAMEND		0x85F
 #define XRAMEND		RAMEND
 #define E2END		0x3FF

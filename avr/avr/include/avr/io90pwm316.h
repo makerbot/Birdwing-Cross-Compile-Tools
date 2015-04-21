@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io90pwm316.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io90pwm316.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io90pwm316.h - definitions for AT90PWM316 */
 
@@ -1191,6 +1191,7 @@
 
 /* Constants */
 
+#define RAMSTART       0x100
 #define RAMEND         0x4FF
 #define XRAMSIZE       0
 #define XRAMEND        RAMEND

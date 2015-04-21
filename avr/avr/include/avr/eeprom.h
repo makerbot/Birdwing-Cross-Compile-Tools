@@ -30,7 +30,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: eeprom.h 2211 2011-02-14 14:04:25Z aboyapati $ */
+/* $Id: eeprom.h 2416 2014-03-31 16:29:39Z pitchumani $ */
 
 #ifndef _AVR_EEPROM_H_
 #define _AVR_EEPROM_H_ 1
@@ -107,18 +107,14 @@
 # define _EEPROM_SUFFIX  _m1284p
 #elif defined (__AVR_ATmega128RFA1__)
 # define _EEPROM_SUFFIX  _m128rfa1
-#elif defined (__AVR_ATmega128RFA2__)
-# define _EEPROM_SUFFIX  _m128rfa2
-#elif defined (__AVR_ATmega128RFR2__)
-# define _EEPROM_SUFFIX  _m128rfr2
 #elif defined (__AVR_ATmega1284RFR2__)
 # define _EEPROM_SUFFIX  _m1284rfr2
-#elif defined (__AVR_ATmega256RFA2__)
-# define _EEPROM_SUFFIX  _m256rfa2
-#elif defined (__AVR_ATmega256RFR2__)
-# define _EEPROM_SUFFIX  _m256rfr2
+#elif defined (__AVR_ATmega128RFR2__)
+# define _EEPROM_SUFFIX  _m128rfr2
 #elif defined (__AVR_ATmega2564RFR2__)
 # define _EEPROM_SUFFIX  _m2564rfr2
+#elif defined (__AVR_ATmega256RFR2__)
+# define _EEPROM_SUFFIX  _m256rfr2
 #elif defined (__AVR_ATmega2560__)
 # define _EEPROM_SUFFIX  _m2560
 #elif defined (__AVR_ATmega2561__)
@@ -141,12 +137,10 @@
 # define _EEPROM_SUFFIX _usb1286
 #elif defined (__AVR_AT90USB1287__)
 # define _EEPROM_SUFFIX _usb1287
-#elif defined (__AVR_ATmega64RFA2__)
-# define _EEPROM_SUFFIX  _m64rfa2
-#elif defined (__AVR_ATmega64RFR2__)
-# define _EEPROM_SUFFIX  _m64rfr2
 #elif defined (__AVR_ATmega644RFR2__)
 # define _EEPROM_SUFFIX  _m644rfr2
+#elif defined (__AVR_ATmega64RFR2__)
+# define _EEPROM_SUFFIX  _m64rfr2
 #elif defined (__AVR_ATmega64__)
 # define _EEPROM_SUFFIX  _m64
 #elif defined (__AVR_ATmega64A__)
@@ -241,8 +235,6 @@
 # define _EEPROM_SUFFIX  _m32hvbrevb
 #elif defined (__AVR_ATmega64HVE__)
 # define _EEPROM_SUFFIX  _m64hve
-#elif defined (__AVR_ATmega64HVE2__)
-# define _EEPROM_SUFFIX  _m64hve2
 #elif defined (__AVR_ATmega406__)
 # define _EEPROM_SUFFIX  _m406
 #elif defined (__AVR_ATmega16__)
@@ -295,8 +287,6 @@
 # define _EEPROM_SUFFIX  _m16hvb
 #elif defined (__AVR_ATmega16HVBREVB__)
 # define _EEPROM_SUFFIX  _m16hvbrevb
-#elif defined (__AVR_ATmega26HVG__)
-# define _EEPROM_SUFFIX  _m26hvg
 #elif defined (__AVR_ATmega8__)
 # define _EEPROM_SUFFIX  _m8
 #elif defined (__AVR_ATmega8A__)
@@ -305,8 +295,6 @@
 # define _EEPROM_SUFFIX  _m48
 #elif defined (__AVR_ATmega48A__)
 # define _EEPROM_SUFFIX  _m48a
-#elif defined (__AVR_ATmega48HVF__)
-# define _EEPROM_SUFFIX  _m48hvf
 #elif defined (__AVR_ATmega48PA__)
 # define _EEPROM_SUFFIX  _m48pa
 #elif defined (__AVR_ATmega48P__)
@@ -375,14 +363,10 @@
 # define _EEPROM_SUFFIX _tn84
 #elif defined (__AVR_ATtiny84A__)
 # define _EEPROM_SUFFIX _tn84a
-#elif defined (__AVR_ATtiny841__)
-# define _EEPROM_SUFFIX _tn841
 #elif defined (__AVR_ATtiny261__)
 # define _EEPROM_SUFFIX _tn261
 #elif defined (__AVR_ATtiny261A__)
 # define _EEPROM_SUFFIX _tn261a
-#elif defined (__AVR_ATtiny474__)
-# define _EEPROM_SUFFIX _tn474
 #elif defined (__AVR_ATtiny461__)
 # define _EEPROM_SUFFIX _tn461
 #elif defined (__AVR_ATtiny461A__)
@@ -423,14 +407,6 @@
 # define _EEPROM_SUFFIX   _x32c4
 #elif defined (__AVR_ATxmega32D4__)
 # define _EEPROM_SUFFIX   _x32d4
-#elif defined (__AVR_ATxmega8E5__)
-#define _EEPROM_SUFFIX	  _x8e5
-#elif defined (__AVR_ATxmega16E5__)
-#define _EEPROM_SUFFIX	  _x16e5
-#elif defined (__AVR_ATxmega32E5__)
-# define _EEPROM_SUFFIX   _x32e5
-#elif defined (__AVR_ATxmega32X1__)
-# define _EEPROM_SUFFIX   _x32x1
 #elif defined (__AVR_ATxmega64A1__)
 # define _EEPROM_SUFFIX   _x64a1
 #elif defined (__AVR_ATxmega64A1U__)
@@ -507,12 +483,8 @@
 # define _EEPROM_SUFFIX _a6289
 #elif defined (__AVR_ATA5790__)
 # define _EEPROM_SUFFIX _a5790
-#elif defined (__AVR_ATA5790N__)
-# define _EEPROM_SUFFIX _a5790n
 #elif defined (__AVR_ATA5795__)
 # define _EEPROM_SUFFIX _a5795
-#elif defined (__AVR_ATA5831__)
-# define _EEPROM_SUFFIX _a5831
 /* avr1: the following only supported for assembler programs */
 #elif defined (__AVR_ATtiny28__)
 # define _EEPROM_SUFFIX _tn28

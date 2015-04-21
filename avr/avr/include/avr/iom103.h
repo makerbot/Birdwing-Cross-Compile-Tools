@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom103.h 2227 2011-03-04 19:35:10Z arcanum $ */
+/* $Id: iom103.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iom103.h - definitions for ATmega103 */
 
@@ -202,7 +202,7 @@
 /* Timer/Counter Interrupt MaSK register */
 #define TIMSK	_SFR_IO8(0x37)
 
-/* ï¿½xternal Interrupt Flag Register */
+/* Èxternal Interrupt Flag Register */
 #define EIFR	_SFR_IO8(0x38)
 
 /* External Interrupt MaSK register */
@@ -377,7 +377,7 @@
 #define    INT1         1
 #define    INT0         0
 
-/* ï¿½xternal Interrupt Flag Register */
+/* Èxternal Interrupt Flag Register */
 #define    INTF7        7
 #define    INTF6        6
 #define    INTF5        5
@@ -663,6 +663,7 @@
 #define    EERE         0
 
 /* Constants */
+#define RAMSTART   0x60
 #define RAMEND     0x0FFF     /*Last On-Chip SRAM Location*/
 #define XRAMEND    0xFFFF
 #define E2END      0x0FFF

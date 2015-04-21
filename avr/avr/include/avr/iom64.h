@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom64.h 2235 2011-03-17 04:13:14Z arcanum $ */
+/* $Id: iom64.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iom64.h - defines for ATmega64 
 
@@ -1207,6 +1207,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
+#define RAMSTART   0x100
 #define RAMEND     0x10FF     /* Last On-Chip SRAM Location */
 #define XRAMEND    0xFFFF
 #define E2END      0x07FF

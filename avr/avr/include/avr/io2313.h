@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io2313.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io2313.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io2313.h - definitions for AT90S2313 */
 
@@ -352,6 +352,7 @@
 #define    EERE    0
        
 /* Constants */ 
+#define    RAMSTART   0x60
 #define    RAMEND     0xDF
 #define    XRAMEND    RAMEND
 #define    E2END      0x7F

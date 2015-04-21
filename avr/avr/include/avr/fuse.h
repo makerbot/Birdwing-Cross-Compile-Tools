@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: fuse.h 2107 2010-03-20 18:00:47Z arcanum $ */
+/* $Id: fuse.h 2297 2012-06-19 06:56:49Z joerg_wunsch $ */
 
 /* avr/fuse.h - Fuse API */
 
@@ -223,7 +223,7 @@
 #ifndef __ASSEMBLER__
 
 #ifndef FUSEMEM
-#define FUSEMEM  __attribute__((section (".fuse")))
+#define FUSEMEM  __attribute__((__used__, __section__ (".fuse")))
 #endif
 
 #if FUSE_MEMORY_SIZE > 3

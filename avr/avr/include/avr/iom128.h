@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom128.h 2226 2011-03-04 17:47:16Z arcanum $ */
+/* $Id: iom128.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iom128.h - defines for ATmega128 
 
@@ -66,7 +66,7 @@
 #define PORTE     _SFR_IO8(0x03)
 
 /* ADC Data Register */
-#define ADCW      _SFR_IO16(0x04) /* for backwards compatibility */
+#define ADCW      _SFR_IO16(0x04)
 #ifndef __ASSEMBLER__
 #define ADC       _SFR_IO16(0x04)
 #endif
@@ -1184,6 +1184,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
+#define RAMSTART   0x100
 #define RAMEND     0x10FF     /* Last On-Chip SRAM Location */
 #define XRAMEND    0xFFFF
 #define E2END      0x0FFF
@@ -1241,7 +1242,6 @@
 
 #pragma GCC system_header
 
-#pragma GCC poison ADCW
 #pragma GCC poison MCUSR
 #pragma GCC poison SPMCR
 

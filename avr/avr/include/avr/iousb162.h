@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iousb162.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
+/* $Id: iousb162.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iousb162.h - definitions for AT90USB162 */
 
@@ -40,6 +40,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 128
+#define RAMSTART     0x100
 #define RAMEND       0x2FF
 #define XRAMEND      RAMEND
 #define E2END        0x1FF
