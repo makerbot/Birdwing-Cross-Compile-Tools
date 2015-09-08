@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: iom3000.h 2435 2014-08-11 10:31:52Z joerg_wunsch $ */
 
 /* avr/iom3000.h - definitions for M3000 from Intelligent Motion Systems . */
 
@@ -225,7 +225,8 @@
 
 
 /* Constants */
-#define RAMEND       0xFFF    /* Last On-Chip SRAM Location */
+#define RAMSTART     0x1000
+#define RAMEND       0x1FFF    /* Last On-Chip SRAM Location */
 #define E2END        0x0
 #define E2PAGESIZE   0
 #define FLASHEND     0xFFFF

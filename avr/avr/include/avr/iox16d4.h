@@ -2204,7 +2204,6 @@ IO Module Instances. Mapped to memory.
 #define ACA    (*(AC_t *) 0x0380)  /* Analog Comparator A */
 #define RTC    (*(RTC_t *) 0x0400)  /* Real-Time Counter */
 #define TWIC    (*(TWI_t *) 0x0480)  /* Two-Wire Interface C */
-#define TWIE    (*(TWI_t *) 0x04A0)  /* Two-Wire Interface E */
 #define PORTA    (*(PORT_t *) 0x0600)  /* Port A */
 #define PORTB    (*(PORT_t *) 0x0620)  /* Port B */
 #define PORTC    (*(PORT_t *) 0x0640)  /* Port C */
@@ -2454,23 +2453,6 @@ IO Module Instances. Mapped to memory.
 #define TWIC_SLAVE_ADDR  _SFR_MEM8(0x048B)
 #define TWIC_SLAVE_DATA  _SFR_MEM8(0x048C)
 #define TWIC_SLAVE_ADDRMASK  _SFR_MEM8(0x048D)
-
-/* TWIE - Two-Wire Interface E */
-#define TWIE_CTRL  _SFR_MEM8(0x04A0)
-#define TWIE_MASTER_CTRLA  _SFR_MEM8(0x04A1)
-#define TWIE_MASTER_CTRLB  _SFR_MEM8(0x04A2)
-#define TWIE_MASTER_CTRLC  _SFR_MEM8(0x04A3)
-#define TWIE_MASTER_STATUS  _SFR_MEM8(0x04A4)
-#define TWIE_MASTER_BAUD  _SFR_MEM8(0x04A5)
-#define TWIE_MASTER_ADDR  _SFR_MEM8(0x04A6)
-#define TWIE_MASTER_DATA  _SFR_MEM8(0x04A7)
-#define TWIE_SLAVE_CTRLA  _SFR_MEM8(0x04A8)
-#define TWIE_SLAVE_CTRLB  _SFR_MEM8(0x04A9)
-#define TWIE_SLAVE_STATUS  _SFR_MEM8(0x04AA)
-#define TWIE_SLAVE_ADDR  _SFR_MEM8(0x04AB)
-#define TWIE_SLAVE_DATA  _SFR_MEM8(0x04AC)
-#define TWIE_SLAVE_ADDRMASK  _SFR_MEM8(0x04AD)
-
 
 /* PORTA - Port A */
 #define PORTA_DIR  _SFR_MEM8(0x0600)
@@ -3859,8 +3841,6 @@ IO Module Instances. Mapped to memory.
 #define ADC_CH_MUXPOS2_bp  5  /* Positive Input Select bit 2 position. */
 #define ADC_CH_MUXPOS3_bm  (1<<6)  /* Positive Input Select bit 3 mask. */
 #define ADC_CH_MUXPOS3_bp  6  /* Positive Input Select bit 3 position. */
-#define ADC_CH_MUXPOS4_bm  (1<<7)  /* Positive Input Select bit 3 mask. */
-#define ADC_CH_MUXPOS4_bp  7  /* Positive Input Select bit 3 position. */
 
 #define ADC_CH_MUXINT_gm  0x78  /* Internal Input Select group mask. */
 #define ADC_CH_MUXINT_gp  3  /* Internal Input Select group position. */
@@ -3914,13 +3894,6 @@ IO Module Instances. Mapped to memory.
 
 
 /* ADC.CTRLB  bit masks and bit positions */
-#define ADC_IMPMODE_bm  0x80  /* Impedance Mode bit mask. */
-#define ADC_IMPMODE_bp  7  /* Impedance Mode bit position. */
-
-#define ADC_CURRENT_bm  0x60  /* Current bit mask. */
-#define ADC_CURRENT1_bp  6  /* Current bit position. */
-#define ADC_CURRENT0_bp  5  /* Current bit position. */
-
 #define ADC_CONMODE_bm  0x10  /* Conversion Mode bit mask. */
 #define ADC_CONMODE_bp  4  /* Conversion Mode bit position. */
 
@@ -3936,14 +3909,12 @@ IO Module Instances. Mapped to memory.
 
 
 /* ADC.REFCTRL  bit masks and bit positions */
-#define ADC_REFSEL_gm  0x70  /* Reference Selection group mask. */
+#define ADC_REFSEL_gm  0x30  /* Reference Selection group mask. */
 #define ADC_REFSEL_gp  4  /* Reference Selection group position. */
 #define ADC_REFSEL0_bm  (1<<4)  /* Reference Selection bit 0 mask. */
 #define ADC_REFSEL0_bp  4  /* Reference Selection bit 0 position. */
 #define ADC_REFSEL1_bm  (1<<5)  /* Reference Selection bit 1 mask. */
 #define ADC_REFSEL1_bp  5  /* Reference Selection bit 1 position. */
-#define ADC_REFSEL2_bm  (1<<6)  /* Reference Selection bit 2 mask. */
-#define ADC_REFSEL2_bp  6  /* Reference Selection bit 2 position. */
 
 #define ADC_BANDGAP_bm  0x02  /* Bandgap enable bit mask. */
 #define ADC_BANDGAP_bp  1  /* Bandgap enable bit position. */
@@ -5395,12 +5366,6 @@ IO Module Instances. Mapped to memory.
 #define PORTE_INT0_vect      _VECTOR(43)  /* External Interrupt 0 */
 #define PORTE_INT1_vect_num  44
 #define PORTE_INT1_vect      _VECTOR(44)  /* External Interrupt 1 */
-
-/* TWIE interrupt vectors */
-#define TWIE_TWIS_vect_num  45
-#define TWIE_TWIS_vect      _VECTOR(45)  /* TWI Slave Interrupt */
-#define TWIE_TWIM_vect_num  46
-#define TWIE_TWIM_vect      _VECTOR(46)  /* TWI Master Interrupt */
 
 /* TCE0 interrupt vectors */
 #define TCE0_OVF_vect_num  47

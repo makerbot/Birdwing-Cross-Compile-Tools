@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iousbxx6_7.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: iousbxx6_7.h 2295 2012-06-10 18:35:57Z joerg_wunsch $ */
 
 /* iousbxx6_7.h - definitions for AT90USB646, AT90USB647, AT90USB1286 
    and AT90USB1287 */
@@ -1302,7 +1302,7 @@
 #define TIMER3_OVF_vect			_VECTOR(35)
 
 /* 2-wire Serial Interface */
-#define TWI_vect_num			_VECTOR(36)
+#define TWI_vect_num			36
 #define TWI_vect			    _VECTOR(36)
 
 /* Store Program Memory Read */

@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: iom168pa.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_ATMEGA168PA_H_INCLUDED
 #define _AVR_ATMEGA168PA_H_INCLUDED
@@ -79,7 +81,6 @@
 #define PORTB0  0
 
 #define PINC    _SFR_IO8(0x06)
-#define PINC7   7
 #define PINC6   6
 #define PINC5   5
 #define PINC4   4
@@ -89,7 +90,6 @@
 #define PINC0   0
 
 #define DDRC    _SFR_IO8(0x07)
-#define DDRC7   7
 #define DDRC6   6
 #define DDRC5   5
 #define DDRC4   4
@@ -99,7 +99,6 @@
 #define DDRC0   0
 
 #define PORTC   _SFR_IO8(0x08)
-#define PORTC7  7
 #define PORTC6  6
 #define PORTC5  5
 #define PORTC4  4
@@ -320,6 +319,14 @@
 /* Reserved [0x65] */
 
 #define OSCCAL  _SFR_MEM8(0x66)
+#define OSCCAL0 0
+#define OSCCAL1 1
+#define OSCCAL2 2
+#define OSCCAL3 3
+#define OSCCAL4 4
+#define OSCCAL5 5
+#define OSCCAL6 6
+#define OSCCAL7 7
 
 /* Reserved [0x67] */
 

@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn12.h 2236 2011-03-17 21:53:39Z arcanum $ */
+/* $Id: iotn12.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iotn12.h - definitions for ATtiny12 */
 
@@ -233,6 +233,7 @@
 #define EEWE    1
 #define EERE    0
 
+#define RAMSTART    0x60
 /* Last memory addresses */
 #define RAMEND		0x1F
 #define XRAMEND		0x0

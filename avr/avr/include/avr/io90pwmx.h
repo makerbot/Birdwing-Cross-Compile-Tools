@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io90pwmx.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io90pwmx.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io90pwmx.h - definitions for AT90PWM2(B) and AT90PWM3(B) */
 
@@ -1249,7 +1249,7 @@
 #define SIG_INPUT_CAPTURE1		_VECTOR(11)
 
 /* Timer/Counter1 Compare Match A */
-#define TIMER1_COMPA_vect_num	_VECTOR(12)
+#define TIMER1_COMPA_vect_num	12
 #define TIMER1_COMPA_vect		_VECTOR(12)
 #define SIG_OUTPUT_COMPARE1A		_VECTOR(12)
 #define SIG_OUTPUT_COMPARE1_A		_VECTOR(12)
@@ -1346,11 +1346,12 @@
 /* Constants */
 #define SPM_PAGESIZE    64
 
+#define RAMSTART    0x100
 #define RAMEND      0x02FF
 #define XRAMEND     RAMEND
 #define E2END       0x01FF
 #define E2PAGESIZE  4
-#define FLASHEND    0x0FFF
+#define FLASHEND    0x1FFF
 
 
 /* Fuse Information */

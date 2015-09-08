@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2013 Atmel Corporation
+ * Copyright (C) 2014 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
 
+
+/* $Id: ioa6285.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
 
 #ifndef _AVR_ATA6285_H_INCLUDED
 #define _AVR_ATA6285_H_INCLUDED
@@ -79,31 +81,16 @@
 #define PORTB0  0
 
 #define PINC    _SFR_IO8(0x06)
-#define PINC7   7
-#define PINC6   6
-#define PINC5   5
-#define PINC4   4
-#define PINC3   3
 #define PINC2   2
 #define PINC1   1
 #define PINC0   0
 
 #define DDRC    _SFR_IO8(0x07)
-#define DDRC7   7
-#define DDRC6   6
-#define DDRC5   5
-#define DDRC4   4
-#define DDRC3   3
 #define DDRC2   2
 #define DDRC1   1
 #define DDRC0   0
 
 #define PORTC   _SFR_IO8(0x08)
-#define PORTC7  7
-#define PORTC6  6
-#define PORTC5  5
-#define PORTC4  4
-#define PORTC3  3
 #define PORTC2  2
 #define PORTC1  1
 #define PORTC0  0

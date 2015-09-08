@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iom32hvbrevb.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
+/* $Id: iom32hvbrevb.h 2435 2014-08-11 10:31:52Z joerg_wunsch $ */
 
 /* avr/iom32hvbrevb.h - definitions for ATmega32HVB revision B. */
 
@@ -901,6 +901,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE 64
+#define RAMSTART     0x100
 #define RAMEND       0x8FF     /* Last On-Chip SRAM Location */
 #define XRAMSIZE     0
 #define XRAMEND      RAMEND

@@ -31,6 +31,8 @@
 
 /* avr/iom329.h - definitions for ATmega329 and ATmega329P.  */
 
+/* $Id: iom329.h 2436 2014-08-11 10:37:37Z joerg_wunsch $ */
+
 #ifndef _AVR_IOM329_H_
 #define _AVR_IOM329_H_ 1
 
@@ -970,6 +972,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE    128
+#define RAMSTART        0x100
 #define RAMEND          0x8FF
 #define XRAMEND         RAMEND
 #define E2END           0x3FF

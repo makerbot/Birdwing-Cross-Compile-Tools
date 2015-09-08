@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn43u.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: iotn43u.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/iotn43u.h - definitions for ATtiny43U */
 
@@ -74,7 +74,7 @@
 #define ADLAR  4
 #define ACME   6
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
 #define ADC _SFR_IO16(0x04)
 #endif
 #define ADCW _SFR_IO16(0x04)
@@ -543,6 +543,7 @@
 
 /* Constants */
 #define SPM_PAGESIZE   64
+#define RAMSTART       0x60
 #define RAMEND         0x15F
 #define XRAMEND        RAMEND
 #define E2END          0x3F

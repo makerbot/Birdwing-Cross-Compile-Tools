@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: io90pwm3b.h 2225 2011-03-02 16:27:26Z arcanum $ */
+/* $Id: io90pwm3b.h 2434 2014-08-05 06:57:11Z pitchumani $ */
 
 /* avr/io90pwm3b.h - definitions for AT90PWM3B */
 
@@ -1387,6 +1387,7 @@
 
 
 /* Memory Sizes */
+#define RAMSTART       0x100
 #define RAMEND         0x2FF
 #define XRAMSIZE       0
 #define XRAMEND        RAMEND
